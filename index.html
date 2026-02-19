@@ -8,20 +8,60 @@
     <title>わたしたちのSLE</title>
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
     <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon_io/favicon.ico" />
 </head>
 <body>
     <main id="home" class="container">
         <aside class="left__column">
-            <div class="line__container">
+            <a href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="line__container">
                 <img class="line__img" src="assets/images/line_icon.webp" alt="LINEのアイコン">
                 <img class="qr__img" src="assets/images/qr.webp" alt="LINEのQRコード">
-                <p class="oc__text">SLE仲間募集してます<br>オープンチャット</p>
+                <div class="oc__text_box">
+                    <p class="oc__text">SLE仲間募集してます<br>オープンチャット</p>
+                </div>
+            </a>
+        </aside>
+        <article class="center__column">
+            <section class="center__wrapper">
+                <img class="logo" src="assets/images/logo.webp" alt="わたしたちのSLEのロゴ">
+                <h1 class="title">わたしたちのSLE</h1>
+                <p class="subtitle">一緒に笑って生きていくために</p>
+            </section>
+            <img src="assets/images/hero.webp" alt="お茶を飲む女性三人" class="hero">
+            <section class="sec01">
+                <h2 class="about_site_title">このサイトについて</h2>
+                <p class="about_site_text">当サイト、わたしたちのSLEは、患者目線でSLE(全身性エリテマトーデス)の情報をやさしくまとめ、わたしたちのQOLを高め合いたいサイトです。<br>症状や検査、薬のことや「日常を少しでも楽にするヒント」も探せます。</p>
+                <a class="button" href="about-site.html">
+                    <span>つづきを読む</span>
+                    <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+                </a>
+                <img class="bg_lightblue" src="assets/images/background/bg_lightblue.webp" alt="">
+            </section>
+
+        </article>
+        <aside class="right__column">
+            <div class="hambergar__container">
+                <div class="hambergar__box">
+                    <span></span><span></span><span></span>
+                </div>
+                <img class="serch_img" src="assets/images/serch.webp" alt="検索用虫眼鏡のアイコン">
             </div>
         </aside>
-        <article class="center__column"></article>
-        <aside class="right__column"></aside>
     </main>
+    <!-- Adobe Fonts -->
+    <script>
+        (function(d) {
+            var config = {
+            kitId: 'uoe3fbe',
+            scriptTimeout: 3000,
+            async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+        })(document);
+    </script>
     <script src="./assets/js/main.js" defer></script>
 </body>
 </html>
