@@ -6,7 +6,8 @@ body {
     --bg-lightBlue: #B5E1FF;
     --bg-green: #A5FF9F;
     --accent-red: #FD5000;
-    --accent-green: #71936D;
+    --accent-green01: #71936D;
+    --accent-green02: #00B900;
     --white-color: #ffffff;
     font-family: fot-tsukuardgothic-std, sans-serif;
     color: var(--font-color);
@@ -18,31 +19,31 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 270px;
-    border-bottom: var(--accent-green) 2px dashed;
+    border-bottom: var(--accent-green01) 2px dashed;
 
     span:first-of-type {
         font-size: 1.2rem;
-        color: var(--accent-green);
+        color: var(--accent-green01);
     }
 
     span:nth-of-type(2) {
         width: 40px;
         height: 40px;
         border-radius: 40px;
-        border: solid 1px var(--accent-green);
+        border: solid 1px var(--accent-green01);
         background-color: var(--white-color);
     }
 }
 
-
+/* トップページ */
 #home.container {
     width: 100%;
     display: flex;
     align-items: start;
+    background-color: var(--bg-base-color);
 
     .left__column {
         flex: 1;
-        background-color: var(--bg-base-color);
 
         @media (max-width: 768px) {
             display: none;
@@ -109,6 +110,7 @@ body {
         width: 100%;
         max-width: 600px;
         flex-shrink: 0;
+        background-color: var(--white-color);
 
         @media (max-width: 768px) {
             width: 100%;
@@ -169,16 +171,58 @@ body {
 
     .right__column {
         flex: 1;
-        background-color: var(--bg-base-color);
-
+        position: relative;
+        height: 100vh;
         @media (max-width: 768px) {
             display: none;
         }
 
-        .hambergar__container {}
+        .hambergar__container {
+          position: absolute;
+          top: 50px;
+          right: 0;
+          width: 90px;
+          height: 200px;
+          border-radius: 10px 0 0 10px;
+          padding: 60px auto 30px;
+          background-color: var(--accent-green02);
 
-        .hambergar__box {}
+          .hambergar__box {
+            padding-top: 60px;
+            padding-bottom: 50px;
+            width: 100%;
+            height: 30px;
+            position: relative;
+            
+            & span {
+              position: absolute;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 35px;
+              height: 4.5px;
+              border-radius: 9999px;
+              background-color: var(--white-color);
+              &:nth-child(1) {
+                top: 40px;
+              }
+              &:nth-child(2) {
+                top: 50%;
+                transform: translate(-50%, -50%);
+              }
+              &:nth-child(3) {
+                bottom: 40px;
+              }
+            }
+          }
 
-        .serch_img {}
+          .serch_img {
+            width: 35px;
+            height: 40px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+
     }
 }
