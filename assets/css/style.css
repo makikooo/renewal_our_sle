@@ -100,7 +100,10 @@ body {
     }
   }
 }
+
+/* ハンバーガーメニュー */
 .hambergar__container {
+  cursor: pointer;
   position: fixed;
   top: 50px;
   right: 0;
@@ -111,7 +114,27 @@ body {
   padding: 60px auto 30px;
   background-color: var(--accent-green02);
   transition: right 0.3s ease;
-
+  &.active {
+    .hambergar__box {
+      span {
+        &:nth-child(1) {
+          transform: translate(-50%, 0) rotate(45deg);
+          top: 50%;
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          transform: translate(-50%, 0) rotate(-45deg);
+          bottom: auto;
+          top: 50%;
+        }
+      }
+    }
+    .serch_img {
+      display: none;
+    }
+  }
   .hambergar__box {
     padding-top: 60px;
     padding-bottom: 50px;
@@ -127,6 +150,7 @@ body {
       height: 4.5px;
       border-radius: 9999px;
       background-color: var(--white-color);
+      transition: transform 0.7s ease;
       &:nth-child(1) {
         top: 40px;
       }
@@ -138,6 +162,7 @@ body {
         bottom: 40px;
       }
     }
+    
   }
   .serch_img {
     width: 35px;
@@ -149,7 +174,7 @@ body {
 }
 
 .hambergar__menu {
-  position: fixed;
+  position: fixed;  /* スクロール位置に関係なく常に画面に対して固定 */
   right: 0;
   top: 0;
   overflow-y: auto;
@@ -168,7 +193,7 @@ body {
     width: 25px;
     height: 25px;
     position: relative;
-
+  
     span {
       position: absolute;
       top: 0;
@@ -220,8 +245,12 @@ body {
       padding-left: 14px;
       padding-right: 14px;
       padding-bottom: 10px;
+      padding-top: 10px;
       border-bottom: dotted var(--font-color) 0.75px;
 
+      &:has(.accordion__button.active) + ul {
+        display: block;
+      }
       .nav__category-title {
         font-size: 1.25rem;
       }
@@ -231,6 +260,7 @@ body {
         height: 20px;
         position: relative;
         cursor: pointer;
+        
 
         span {
           position: absolute;
@@ -238,10 +268,12 @@ body {
           border-radius: 9999px;
           width: 100%;
           background-color: var(--font-color);
+          transition: transform 0.5s ease;
+
           &:nth-child(1) {
             left: 0;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translateY(-50%) rotate(0deg);
           }
           &:nth-child(2) {
             top: 50%;
@@ -249,11 +281,26 @@ body {
             transform: rotate(90deg) translateY(-50%);
           }
         }
+        
+
+        &.active {          
+          span {
+            &:nth-child(1) {
+              display: none;
+            }
+            &:nth-child(2) {
+              transform: rotate(0deg);
+            }
+          }
+        }
       }
     }
     ul {
+      display: none; /*  初期非表示 */
+      transition: display 0.5s ease;
       margin-top: 16px;
       margin-bottom: 25px;
+      
       li {
         margin-bottom: 16px;
         padding-left: 14px;
