@@ -394,7 +394,8 @@ body {
       }
     }
     nav {
-      .search__title-box {
+      margin-bottom: 150px;
+      .nav__category-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -403,13 +404,13 @@ body {
         padding-bottom: 10px;
         border-bottom: dotted var(--font-color) 0.75px;
 
-        .search__title {
+        .nav__category-title {
           font-size: 1.25rem;
         }
         
         .accordion__button {
-          width: 25px;
-          height: 25px;
+          width: 20px;
+          height: 20px;
           position: relative;
 
           span {
@@ -433,6 +434,7 @@ body {
       }
       ul {
         margin-top: 16px;
+        margin-bottom: 25px;
         li {
           margin-bottom: 16px;
           padding-left: 14px;
@@ -444,18 +446,56 @@ body {
               height: 10px;
               border-radius: 50%;
               margin-right: 10px;
+              background-color: transparent;
+              border: 2px solid;
+              opacity: 0.4;
             }
             .green {
-              background-color: var(--accent-green02);
+              border-color: var(--accent-green02);
             }
             .orange {
-              background-color: var(--accent-orange);
+              border-color: var(--accent-orange);
             }
             .red {
-              background-color: var(--accent-red);
+              border-color: var(--accent-red);
             }
           }
         }
+      }
+    }
+    .button_wrapper {
+      text-align: center;
+    }
+    .close-hambergar__container{
+      width: 95px;
+      margin: 78px auto 58px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .hambergar__box {
+        width: 20px;
+        height: 20px;
+        position: relative;
+
+        span {
+          height: 2px;
+          width: 100%;
+          background-color: var(--accent-green02);
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+
+          &:nth-child(1) {
+            transform: rotate(45deg);
+          }
+          &:nth-child(2) {
+            transform: rotate(135deg);
+          }
+        }
+      }
+      .close-title {
+        font-weight: normal;
       }
     }
   }
