@@ -672,7 +672,6 @@ body {
         border-radius: 30px;
         padding: 15px 15px 15px 25px;
         text-align: left;
-
         .support__botton-left {
           .support__title {
             font-size: 1.375rem;
@@ -685,7 +684,6 @@ body {
           }
         }
         .support__img {
-
           &:first-child {
             width: 50px;
           }
@@ -703,7 +701,7 @@ body {
     }
     .sec03 {
       padding-top: 110px;
-      padding-bottom: 100px;
+      padding-bottom: 50px;
       background-color: var(--bg-yellow);
       position: relative;
       text-align: center;
@@ -730,11 +728,7 @@ body {
         margin-top: 20px;
         text-align: left;
         font-size: 1.125rem;
-        &:nth-child(1) {
-          
-        }
       }
-      
       .flower {
         width: 90px;
         display: block;
@@ -753,6 +747,34 @@ body {
             margin-bottom: 20px;
           }
         }
+      }
+    }
+    .sec04 {
+      background-color: var(--white-color);
+      position: relative;
+      text-align: center;
+      .sec04__top-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      .about-sle__title {
+        display: inline-block;
+        margin-bottom: 30px;
+        padding-top: 140px;
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        border-bottom: var(--font-color) solid 0.5px;
+      }
+      p {
+        text-align: left;
+        width: 80%;
+        max-width: 540px;
+        margin: 0 auto 66px;
+      }
+      .about-sle__enquete {
+        margin-bottom: 100px;
       }
     }
   }
