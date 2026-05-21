@@ -728,6 +728,11 @@ body {
         margin-top: 20px;
         text-align: left;
         font-size: 1.125rem;
+        @media (max-width: 769px) {
+          font-size: 1rem;
+          width: 90%;
+          max-width: 330px;
+        }
       }
       .flower {
         width: 90px;
@@ -739,6 +744,9 @@ body {
         display: block;
         width: 380px;
         margin: 0 auto 30px;
+        @media (max-width: 768px) {
+          width: 340px;
+        }
         .enquete_link-img {
           width: 100%;
         }
@@ -775,6 +783,110 @@ body {
       }
       .about-sle__enquete {
         margin-bottom: 100px;
+      }
+    }
+    .sec05 {
+      background-color: var(--bg-green);
+      position: relative;
+      text-align: center;
+      padding-bottom: 120px;
+      .sec05__top-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+      .concern__title {
+        padding-top: 120px;
+        display: inline-block;
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+        border-bottom: var(--font-color) solid 0.5px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      p {
+        font-size: 1.125rem;
+        @media (max-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+      .concern__wrapper {
+        width: 80%;
+        max-width: 500px;
+        margin: 40px auto;
+        height: 220px;
+        position: relative;
+        @media (max-width: 768px) {
+          width: 90%;
+        }
+        .darusa {
+          width: 125px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          @media (max-width: 768px) {
+            width: 110px;
+          }
+        }
+        .fuan {
+          width: 99px;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%) rotate(-10deg);
+          @media (max-width: 768px) {
+            width: 95px;
+          }
+        }
+        .school {
+          width: 99px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          @media (max-width: 768px) {
+            width: 90px;
+          }
+        }
+        .doctor {
+          width: 230px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 0;
+          @media (max-width: 768px) {
+            width: 200px;
+          }
+        }
+        .skin {
+          width: 97px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 0;
+          @media (max-width: 768px) {
+            width: 90px;
+          }
+        }
+        .qol {
+          width: 170px;
+          position: absolute;
+          bottom: 0;
+          left: 20px;
+          @media (max-width: 768px) {
+            width: 160px;
+          }
+        }
+        .medicine {
+          width: 75px;
+          position: absolute;
+          bottom: 0;
+          right: 30px;
+          @media (max-width: 768px) {
+            width: 70px;
+          }
+        }
       }
     }
   }
