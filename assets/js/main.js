@@ -4,36 +4,42 @@
  * ハンバーガーメニューの開閉
  *******************************************/
 const hamburger = document.getElementById('hambergar');
+const spHamburger = document.querySelector('.sp__header');
 const menu = document.querySelector('.hambergar__menu');
 const closeBtns = document.querySelectorAll('.close_hambergar');
 const container = document.querySelector('.container');
 
-// メニューを開く
-hamburger.addEventListener('click',() => {
-  if (hamburger.classList.contains('active')) {
-    // 閉じる
-    menu.style.transform = 'translateX(100%)';
-    hamburger.style.right = '0';
-    hamburger.classList.remove('active');
-    container.style.overflow = ''; // 他の要素をスクロールを止める
-  } else {
-    // 開く
-    menu.style.transform = 'translateX(0)';
-    hamburger.style.right = '450px';
-    hamburger.classList.add('active');
-    container.style.overflow = 'hidden';
-  }
-});
+const openMenu = () => {
+  menu.style.transform = 'translateX(0)';
+  hamburger.classList.add('active');
+  container.style.overflow = 'hidden';
+}
 
-// メニューを閉じる
+const closeMenu = () => {
+  menu.style.transform = 'translateX(100%)';
+  hamburger.classList.remove('active');
+  container.style.overflow = '';
+}
+
+const toggleMenu = () => {
+  if (menu.style.transform === 'translateX(0px)' || menu.style.transform === 'translateX(0)') {
+    closeMenu();
+  } else {
+    openMenu();
+  }
+}
+
+//pc ハンバーガー
+hamburger.addEventListener('click',toggleMenu);
+
+// spハンバーガー
+spHamburger.addEventListener('click',toggleMenu);
+
+// 閉じるボタン
 closeBtns.forEach(closeBtn => {
-  closeBtn.addEventListener('click', ()=> {
-    menu.style.transform ='translateX(100%)';
-    hamburger.style.right = '0';
-    hamburger.classList.remove('active');
-    container.style.overflow = '';
-  });
-});
+  closeBtn.addEventListener('click',closeMenu);
+})
+
 
 /*******************************************
  * アコーディオンメニューの開閉

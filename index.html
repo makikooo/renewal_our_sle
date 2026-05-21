@@ -13,11 +13,13 @@
   <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon_io/favicon.ico">
 </head>
 <body>
+
+  <!-- sp表示ハンバーガーボタン -->
   <header class="sp__header" aria-label="モバイル用ヘッダー">
     <a href="/" class="logo__link">
       <img src="assets/images/logo.webp" alt="わたしたちのSLE" class="logo">
     </a>
-    <div class="hambaergar__container">
+    <div class="hambergar__container">
       <div class="hambergar_box">
         <span></span><span></span><span></span>
       </div>
@@ -25,15 +27,17 @@
     </div>
   </header>
   
-  <div id="hambergar" class="hambergar__container">
+  <!-- pc表示ハンバーガーボタン -->
+  <div id="hambergar" class="hambergar__container pc_only">
     <div class="hambergar__box">
       <span></span><span></span><span></span>
     </div>
     <img class="serch_img" src="assets/images/serch.webp" alt="検索">
   </div>
 
+  <!-- ハンバーガーメニュー -->
   <div class="hambergar__menu">
-    <div class="hambergar__button close_hambergar">
+    <div class="hambergar__button close_hambergar sp_only">
       <span></span><span></span>
     </div>
     <form class="search__wrapper">
