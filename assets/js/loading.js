@@ -1,30 +1,44 @@
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
 
-  // const loading = document.getElementById('loading');
-  // const today = new Date().toLocaleDateString();
+  const loading = document.getElementById('loading');
 
-  // // 保存されてる日付取得
-  // const savedDate = localStorage.getItem('sleLoadingDate');
+  // loadingが無いページは終了
+  if (!loading) return;
 
-  // // 今日すでに表示済み
-  // if (savedDate === today) {
-  //   loading.remove();
-  //   return;
-  // }
+  // トップページだけ
+  const isHome = location.pathname === '/' ||
+                 location.pathname === '/index.html';
 
-  // // 今日の日付を保存
-  // localStorage.setItem('sleLoadingDate', today);
+  if (!isHome) {
+    loading.remove();
+    return;
+  }
 
-  // ローディング表示時間
-  setTimeout(() => {
+  const today = new Date().toLocaleDateString();
+  const savedDate = localStorage.getItem('sleLoadingDate');
 
-    loading.style.opacity = '0';
-    loading.style.visibility = 'hidden';
+  // 今日すでに表示済み
+  if (savedDate === today) {
+    loading.remove();
+    return;
+  }
+
+  // 今日の日付保存
+  localStorage.setItem('sleLoadingDate', today);
+
+  window.addEventListener('load', () => {
 
     setTimeout(() => {
-      loading.remove();
-    }, 1500);
 
-  }, 3500);
+      loading.style.opacity = '0';
+      loading.style.visibility = 'hidden';
+
+      setTimeout(() => {
+        loading.remove();
+      }, 1500);
+
+    }, 3500);
+
+  });
 
 });

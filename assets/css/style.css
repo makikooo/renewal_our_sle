@@ -74,11 +74,9 @@ body {
   transition: opacity 1.5s ease,
               visibility 1.5s ease;
 }
-
 .loading__inner {
   text-align: center;
 }
-
 .loading__title {
   font-size: 2rem;
   font-weight: 400;
@@ -109,7 +107,9 @@ body {
     opacity: 1;
   }
 }
-
+#loading.hidden {
+  display: none;
+}
 /* spヘッダー */
 .sp__header {
   display: none;
