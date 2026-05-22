@@ -268,27 +268,37 @@ body {
   padding-left: 40px;
   padding-right: 40px;
   transition: transform 0.3s ease;
-
-  .hambergar__button {
-    margin: 50px 40px 35px auto;
-    width: 25px;
-    height: 25px;
-    position: relative;
-  
-    span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: inline-block;
-      height: 3px;
-      width: 100%;
-      background-color: var(--accent-green02);
-      border-radius: 9999px;
-      &:nth-child(1) {
-        transform: rotate(45deg);
+  .hambergar__top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .go_to_home_link {
+      img {
+        width: 100px;
       }
-      &:nth-child(2) {
-        transform: rotate(135deg);
+    }
+    .hambergar__button {
+      margin: 50px 40px 35px auto;
+      width: 25px;
+      height: 25px;
+      position: relative;
+    
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        height: 3px;
+        width: 100%;
+        background-color: var(--accent-green02);
+        border-radius: 9999px;
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          transform: rotate(135deg);
+        }
       }
     }
   }
@@ -469,7 +479,7 @@ body {
 
 
 /* トップページ */
-#home.container {
+#main.container {
   width: 100%;
   display: flex;
   align-items: start;
@@ -1095,4 +1105,16 @@ body {
         display: none;
     }  
   }
+}
+#about__site {
+  .sec01 {
+  
+    .title {
+      
+    }
+    .text {
+      
+    }
+  }
+
 }
