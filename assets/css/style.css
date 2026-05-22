@@ -835,7 +835,7 @@ body {
           position: absolute;
           top: 0;
           left: 50%;
-          transform: translateX(-50%) rotate(-10deg);
+          transform: translateX(-50%) rotate(-3deg);
           @media (max-width: 768px) {
             width: 95px;
           }
@@ -844,7 +844,7 @@ body {
           width: 99px;
           position: absolute;
           top: 0;
-          right: 0;
+          right: 10px;
           @media (max-width: 768px) {
             width: 90px;
           }
@@ -881,12 +881,84 @@ body {
         .medicine {
           width: 75px;
           position: absolute;
-          bottom: 0;
-          right: 30px;
+          bottom: 0px;
+          right: 40px;
           @media (max-width: 768px) {
             width: 70px;
           }
         }
+      }
+    }
+    .sec06 {
+      background-color: var(--white-color);
+      text-align: center;
+      .sec06__top-bg {
+        width: 100%;
+      }
+      .update__titie {
+        margin: 43px auto 23px;
+        display: inline-block;
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        border-bottom: var(--font-color) solid 0.5px;
+      }
+      .update__list {
+        text-align: left;
+        &:last-child {
+          margin-bottom: 45px;
+        }
+        
+        .update_link {
+          width: 340px;
+          margin: 0 auto 10px;
+          padding: 5px 10px 5px;
+          border-bottom: var(--accent-green01) solid 0.5px;
+          cursor: pointer;
+          display: block;
+        
+          .update__time {
+            font-size: 1.125rem;
+          }
+          .update__text {
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+    .sec07 {
+      background-color: var(--bg-yellow);
+      .sec07__top-img {
+        width: 100%;
+      }
+      .term__title {
+        width: 200px;
+        margin: 43px auto 23px;
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        border-bottom: var(--font-color) solid 0.5px;
+      }
+      .term__text {
+        width: 90%;
+        max-width: 550px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+    }
+    .footer {
+      background-color: var(--bg-yellow);
+      text-align: center;
+      .footer__top-img {
+        width: 100%;
+      }
+      .footer__copy {
+        display: inline-block;
+        margin: 40px auto 70px;
+      }
+      .footer__flower {
+        display: block;
+        width: 52px;
+        margin: 0 auto;
+        padding-bottom: 40px;
       }
     }
   }
