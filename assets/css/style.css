@@ -606,7 +606,7 @@ body {
     }
     .sec02 {
       text-align: center;
-      padding-bottom: 115px;
+      padding-bottom: 70px;
       
       .sec02__center {
         text-align: center;
@@ -638,15 +638,15 @@ body {
         .support__button {
           cursor: pointer;
           display: block;
-          border: var(--white-color) solid 2px;
+          border: var(--white-color) solid 1px;
           border-radius: 30px;
-          box-shadow: var(--accent-green01) 0 5px 0;
+          box-shadow: var(--font-color) 0 5px 0;
           &.lightpink {
             background-color: var(--bg-lightpink);
             transition: opacity 0.3s ease;
             &:hover {
             opacity: 0.7;
-          }
+            }
           } 
           .support__title {
             display: inline-block;
@@ -654,6 +654,9 @@ body {
             font-size: 1.5rem;
             padding-bottom: 10px;
             border-bottom: var(--font-color-accent) solid 1px;
+            @media (max-width: 768px) {
+              font-size: 1.25rem;
+            }
           }
           .support__img {
             margin: 15px auto;
@@ -673,8 +676,8 @@ body {
         align-items: center;
         width: 340px;
         margin: 38px auto;
-        border: var(--white-color) solid 2px;
-        box-shadow: var(--accent-green01) 0 5px 0;
+        border: var(--white-color) solid 1px;
+        box-shadow: var(--font-color) 0 5px 0;
         border-radius: 30px;
         padding: 15px 15px 15px 25px;
         text-align: left;
@@ -696,7 +699,10 @@ body {
           .support__title {
             font-size: 1.375rem;
             padding-bottom: 5px;
-            border-bottom: var(--font-color-accent) solid 1px;    
+            border-bottom: var(--font-color-accent) solid 1px;
+            @media (max-width: 768px) {
+              font-size: 1.25rem;
+            }
           }
           .support__subtitile {
             padding-top: 7px;
@@ -720,7 +726,7 @@ body {
       }
     }
     .sec03 {
-      padding-top: 110px;
+      padding-top: 70px;
       padding-bottom: 50px;
       background-color: var(--bg-yellow);
       position: relative;
@@ -758,6 +764,10 @@ body {
         width: 90px;
         display: block;
         margin: 77px auto 140px;
+        @media (max-width: 768px) {
+          width: 60px;
+          margin-bottom: 80px;
+        }
       }
       .enquete__link {
         cursor: pointer;
@@ -982,7 +992,7 @@ body {
           }
         
           .update__time {
-            font-size: 1.125rem;
+            font-size: 1rem;
           }
           .update__text {
             font-size: 1.125rem;
@@ -997,7 +1007,7 @@ body {
       }
       .term__title {
         width: 200px;
-        margin: 43px auto 23px;
+        margin: 70px auto 23px;
         font-size: 1.5rem;
         padding-bottom: 5px;
         border-bottom: var(--font-color) solid 0.5px;
@@ -1013,7 +1023,7 @@ body {
       background-color: var(--bg-yellow);
       text-align: center;
       .footer__top-img {
-        width: 100%;
+        width: 100%;  
       }
       .footer__copy {
         display: inline-block;
