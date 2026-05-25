@@ -1102,6 +1102,8 @@ body {
     }
     .sec07 {
       background-color: var(--bg-yellow);
+      padding-bottom: 70px;
+
       .sec07__top-img {
         width: 100%;
       }
@@ -1119,10 +1121,17 @@ body {
         line-height: 1.7;
       }
     }
+    
     .footer {
       background-color: var(--bg-yellow);
       text-align: center;
+      position: relative;
+
       .footer__top-img {
+        position: absolute;
+        top: -39px;
+        left: 0;
+        right: 0;
         width: 100%;  
       }
       .footer__copy {
@@ -1136,6 +1145,9 @@ body {
         padding-bottom: 40px;
       }
     }
+  }
+  #toppage .footer {
+    top: -17px;
   }
   #about__site.center__column {
     .sec01 {
