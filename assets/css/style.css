@@ -1137,7 +1137,7 @@ body {
       background-color: var(--bg-yellow);
       text-align: center;
       position: relative;
-      top: -20px;
+      margin-top: -20px;
       padding-top: 20px;
 
       .footer__top-img {
