@@ -1,3 +1,43 @@
+@font-face {
+  font-family: 'MPLUSRounded1c';
+  src: url('../../assets/fonts/MPLUSRounded1c-Regular.woff2') format('woff2');
+  font-weight: 600;
+  font-style: regular;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1c';
+  src: url('../../assets/fonts/MPLUSRounded1c-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: medium;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1c';
+  src: url('../../assets/fonts/MPLUSRounded1c-Light.woff2') format('woff2');
+  font-weight: 400;
+  font-style: light;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1c';
+  src: url('../../assets/fonts/MPLUSRounded1c-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: bold;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'MPLUSRounded1c';
+  src: url('../../assets/fonts/MPLUSRounded1c-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: black;
+  font-display: block;
+}
+
 body {
   font-size: 16px;
   --font-color: #6C3B01;
@@ -13,7 +53,7 @@ body {
   --accent-green01: #71936D;
   --accent-green02: #00B900;
   --white-color: #ffffff;
-  font-family: fot-tsukuardgothic-std, sans-serif;
+  font-family: 'FOT-TsukuARdGothic Std', sans-serif;
   color: var(--font-color);
 
   overflow-x: hidden;
@@ -1095,6 +1135,107 @@ body {
       }
     }
   }
+  #about__site.center__column {
+    .sec01 {
+      .title {
+        display: inline-block;
+        font-size: 2rem;
+        margin-top: 66px;
+        margin-bottom: 27px;
+        border-bottom: var(--font-color) solid 1px;
+      }
+      .text {
+        text-align: left;
+        line-height: 1.6;
+        font-size: 1.125rem;
+        &:last-child {
+          margin-bottom: 70px;
+        }
+      }
+    }
+    .bg__img {
+      width: 100%;
+    }
+    .sec02 {
+      background-color: var(--bg-yellow);
+      padding-bottom: 30px;
+    }
+    .section__title {
+      display: inline-block;
+      font-size: 1.5rem;
+      padding-bottom: 7px;
+      border-bottom: var(--font-color) solid 0.5px;
+      margin-bottom: 30px;
+    }
+    .section__text {
+      text-align: left;
+      line-height: 1.6;
+      font-size: 1.125rem;
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto 37px;
+    }
+    .section__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: var(--accent-green01) solid 1px;
+      background: transparent;
+      cursor: pointer;
+      transition: opacity 0.3s, border-color 0.3s;
+      
+      &:hover {
+        opacity: 0.6;
+        border-color: var(--accent-green02);
+      }
+      
+      & svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--accent-green01);
+        fill: none;
+        stroke-width: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: stroke 0.3s ease, transform 0.3s ease;
+      }
+      &:hover svg {
+        stroke: var(--accent-green02);
+        transform: translateX(5px);
+      }
+    }
+    .sec03 {
+      background-color: var(--bg-lightBlue);
+      padding-bottom: 10px;
+    }
+    section {
+      position: relative;
+      .bg__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+    .sec04 {
+      padding-top: 70px;
+      background-color: var(--bg-green);
+    }
+    .sec05 {
+      padding-top: 70px;
+      padding-bottom: 10px;
+      background-color: var(--bg-yellow);
+    }
+    .sec06 {
+      padding-top: 90px;
+      background-color: var(--bg-lightBlue);
+    }
+  }
+
 
   .right__column {
     flex: 1;
@@ -1105,16 +1246,4 @@ body {
         display: none;
     }  
   }
-}
-#about__site {
-  .sec01 {
-  
-    .title {
-      
-    }
-    .text {
-      
-    }
-  }
-
 }
