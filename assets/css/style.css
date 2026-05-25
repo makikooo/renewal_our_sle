@@ -1126,6 +1126,8 @@ body {
       background-color: var(--bg-yellow);
       text-align: center;
       position: relative;
+      top: -20px;
+      padding-top: 20px;
 
       .footer__top-img {
         position: absolute;
@@ -1146,14 +1148,13 @@ body {
       }
     }
   }
-  #toppage .footer {
-    top: -17px;
-  }
+  
   #about__site.center__column {
     .sec01 {
       .title {
         display: inline-block;
-        font-size: 2rem;
+        font-size: 1.75rem;
+        padding-bottom: 5px;
         margin-top: 66px;
         margin-bottom: 27px;
         border-bottom: var(--font-color) solid 1px;
@@ -1246,6 +1247,7 @@ body {
     }
     .sec06 {
       padding-top: 90px;
+      padding-bottom: 50px;
       background-color: var(--bg-lightBlue);
     }
   }
