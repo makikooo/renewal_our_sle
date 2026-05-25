@@ -1,42 +1,43 @@
 @font-face {
-  font-family: 'MPLUSRounded1c';
-  src: url('../../assets/fonts/MPLUSRounded1c-Regular.woff2') format('woff2');
+  font-family: 'ZenMaruGothic';
+  src: url('../../assets/fonts/ZenMaruGothic-Regular.woff2') format('woff2');
   font-weight: 600;
   font-style: regular;
   font-display: block;
 }
 
 @font-face {
-  font-family: 'MPLUSRounded1c';
-  src: url('../../assets/fonts/MPLUSRounded1c-Medium.woff2') format('woff2');
+  font-family: 'ZenMaruGothic';
+  src: url('../../assets/fonts/ZenMaruGothic-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: medium;
   font-display: block;
 }
 
 @font-face {
-  font-family: 'MPLUSRounded1c';
-  src: url('../../assets/fonts/MPLUSRounded1c-Light.woff2') format('woff2');
+  font-family: 'ZenMaruGothic';
+  src: url('../../assets/fonts/ZenMaruGothic-Light.woff2') format('woff2');
   font-weight: 400;
   font-style: light;
   font-display: block;
 }
 
 @font-face {
-  font-family: 'MPLUSRounded1c';
-  src: url('../../assets/fonts/MPLUSRounded1c-Bold.woff2') format('woff2');
+  font-family: 'ZenMaruGothic';
+  src: url('../../assets/fonts/ZenMaruGothic-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: bold;
   font-display: block;
 }
 
 @font-face {
-  font-family: 'MPLUSRounded1c';
-  src: url('../../assets/fonts/MPLUSRounded1c-Black.woff2') format('woff2');
+  font-family: 'ZenMaruGothic';
+  src: url('../../assets/fonts/ZenMaruGothic-Black.woff2') format('woff2');
   font-weight: 900;
   font-style: black;
   font-display: block;
 }
+
 
 body {
   font-size: 16px;
@@ -53,7 +54,7 @@ body {
   --accent-green01: #71936D;
   --accent-green02: #00B900;
   --white-color: #ffffff;
-  font-family: 'FOT-TsukuARdGothic Std', sans-serif;
+  font-family:'ZenMaruGothic', sans-serif;
   color: var(--font-color);
 
   overflow-x: hidden;
