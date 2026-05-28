@@ -46,7 +46,9 @@ body {
   --bg-base-color: #F5F8FF;
   --bg-yellow: #FFFB8C;
   --bg-lightBlue: #B5E1FF;
+  --bg-lightYellow: #FFFED4;
   --bg-green: #A5FF9F;
+  --bg-lightGreen: #D1FFCD;
   --bg-lightpink: #FFE6E6;
   --bg-pink: #FFD5D5;
   --accent-orange: #FD5000;
@@ -79,6 +81,15 @@ body {
 }
 .bg_yellow {
   background-color: var(--bg-yellow);
+}
+.bg-lightBlue {
+  background-color: var(--bg-lightBlue);
+}
+.bg-lightYellow {
+  background-color: var(--bg-lightYellow);
+}
+.bg-lightGreen {
+  background-color: var(--bg-lightGreen);
 }
 .bg-white {
   background-color: var(--white-color);
@@ -346,7 +357,7 @@ body {
   top: 0;
   overflow-y: auto;
   height: 100vh;
-  z-index: 9999;
+  z-index: 99999;
   transform: translateX(100%);
   width: 450px;
   background-color: var(--white-color);
@@ -661,6 +672,41 @@ body {
     right: 4%;
   }
 }
+/* セクションリンク */
+.section__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: var(--accent-green01) solid 1px;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.3s, border-color 0.3s;
+  
+  &:hover {
+    opacity: 0.6;
+    border-color: var(--accent-green02);
+  }
+  
+  & svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--accent-green01);
+    fill: none;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease, transform 0.3s ease;
+  }
+  &:hover svg {
+    stroke: var(--accent-green02);
+    transform: translateX(5px);
+  }
+}
+
 /* トップページ */
 #main.container {
   width: 100%;
@@ -1325,39 +1371,7 @@ body {
       max-width: 500px;
       margin: 0 auto 37px;
     }
-    .section__button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 40px;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      border: var(--accent-green01) solid 1px;
-      background: transparent;
-      cursor: pointer;
-      transition: opacity 0.3s, border-color 0.3s;
-      
-      &:hover {
-        opacity: 0.6;
-        border-color: var(--accent-green02);
-      }
-      
-      & svg {
-        width: 28px;
-        height: 28px;
-        stroke: var(--accent-green01);
-        fill: none;
-        stroke-width: 1;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-        transition: stroke 0.3s ease, transform 0.3s ease;
-      }
-      &:hover svg {
-        stroke: var(--accent-green02);
-        transform: translateX(5px);
-      }
-    }
+    
     .sec03 {
       background-color: var(--bg-lightBlue);
       padding-bottom: 10px;
@@ -1767,6 +1781,39 @@ body {
         margin: 30px auto ;
         text-align: left;
       }
+    }
+  }
+  #menu-sle.center__column {
+    .sec01 {
+      .title {
+        font-size: 1.25rem;
+        padding-bottom: 5px;
+        border-bottom: var(--font-color) solid 1px;
+        display: inline-block;
+      }
+      .title__text {
+        font-size: 1rem;
+        text-align: left;
+        margin-bottom: 30px;
+      }
+    }
+    .sec02 {
+      padding: 20px 5%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .menu-sle {
+        text-align: left;
+      }
+    }
+    .section__button {
+      margin-bottom: 0;
+    }
+    .resize {
+      width: 100%;
+      height: 30px;
     }
   }
 
