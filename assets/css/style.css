@@ -1600,6 +1600,54 @@ body {
       }
     }
   }
+  #page404.center__column {
+    .center__wrapper {
+      .title {
+        font-size: 1.25rem;
+      }
+      .page404__text {
+        font-size: 1rem;
+      }
+    }
+    .sec01 {
+      .sec01__wrapper {
+        border-left: var(--accent-green02) solid 12px;
+        padding-left: 20px;
+        text-align: left;
+        width: 80%;
+        margin: 55px auto 78px;
+        p {
+          font-weight: bold;
+        }
+        ul {
+          li {
+            list-style: circle;
+            margin-left: 1em;
+          }
+        }
+      }
+      .button {
+        border-left: transparent;
+        border-right: transparent;
+        border-top: transparent;
+        margin-bottom: 40px;
+      }
+      .search__wrapper {
+        margin-bottom: 50px;
+      }
+    }
+    .sec02 {
+      background-color: var(--bg-yellow);
+      .term__title {
+        margin-top: 40px;
+      }
+      .term__text {
+        width: 90%;
+        margin: 30px auto ;
+        text-align: left;
+      }
+    }
+  }
 
 
   .right__column {
