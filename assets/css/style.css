@@ -1445,6 +1445,27 @@ body {
       }
     }
   }
+  #contact.center__column {
+    .center__wrapper {
+      .logo__link {
+        display: block;
+        cursor: pointer;
+        .logo {
+          margin-bottom: 20px;
+        }
+      }
+      .title {
+        font-size: 1.25rem;
+        padding-bottom: 5px;
+        border-bottom: var(--font-color) solid 1px;
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+      .title__text {
+        font-size: 1rem;
+      }
+    }
+  }
 
 
   .right__column {
