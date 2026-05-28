@@ -1546,6 +1546,34 @@ body {
         margin: 0 auto;
         text-align: left;
       }
+      &.confirm {
+        width: 90%;
+        margin: 0 auto;
+        table {
+          text-align: left;
+          margin-bottom: 63px;
+          tr {
+            th {
+              padding-top: 20px;
+            }
+            td {
+              padding-bottom: 15px;
+              border-bottom: var(--font-color) dotted 0.5px;
+            }
+          }
+        }
+        button {
+          border-left: transparent;
+          border-top: transparent;
+          border-right: transparent;
+          &.back {
+            span {
+              color: var(--font-color);
+              font-weight: normal;
+            }
+          } 
+        }
+      }
     }
   }
 
