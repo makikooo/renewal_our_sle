@@ -1136,20 +1136,17 @@ body {
       }
     }
     
+    .footer__top-img {
+      height: 30px;
+      width: 100%;
+      transform: translateY(-30px); 
+    }
     .footer {
       background-color: var(--bg-yellow);
       text-align: center;
-      position: relative;
-      margin-top: -20px;
+      margin-top: -30px;
       padding-top: 20px;
 
-      .footer__top-img {
-        position: absolute;
-        top: -37px;
-        left: 0;
-        right: 0;
-        width: 100%;  
-      }
       .footer__copy {
         display: inline-block;
         margin: 40px auto 70px;
@@ -1164,15 +1161,17 @@ body {
   }
   
   #about__site.center__column {
-    .sec01 {
+    .center__wrapper {
       .title {
         display: inline-block;
         font-size: 1.75rem;
         padding-bottom: 5px;
-        margin-top: 66px;
+        margin-top: 30px;
         margin-bottom: 27px;
         border-bottom: var(--font-color) solid 1px;
       }
+    }
+    .sec01 {
       .text {
         text-align: left;
         font-size: 1.125rem;
@@ -1266,7 +1265,12 @@ body {
   #first.center__column {
     .center__wrapper {
       .logo__link {
-        display: block;
+        &.pc_only {
+          display: block;
+          @media (max-width: 768px) {
+            display: none;
+          }
+        }
       }
       .title {
         font-size: 1.5rem;
@@ -1305,7 +1309,19 @@ body {
         justify-content: space-around;
         align-items: center;
         gap: 20px;
-
+        @media (max-width: 768px) {
+          flex-direction: column;
+        }
+        a {
+          transition: opacity 0.3s ease;
+          
+          @media (max-width: 768px) {
+            width: 70%;
+          }
+          &:hover {
+            opacity: 0.6;
+          }
+        }
         span {
           font-size: 1rem;
         }
