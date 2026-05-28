@@ -652,8 +652,9 @@ body {
       background: url(../images/background/bg_yellow.webp) no-repeat top center;
       text-align: center;
       @media (max-width: 768px) {
+        background-size: 160% 280px;
         padding-top: 60px;
-        height: 410px;
+        height: 310px;
       }
       
       
@@ -671,7 +672,7 @@ body {
       .title {
         font-size: 1.5rem;
         @media (max-width: 768px) {
-          padding-top: 60px;
+          padding-top: 50px;
         }
       }
 
@@ -1469,6 +1470,9 @@ body {
         .logo {
           margin-bottom: 20px;
         }
+        @media (max-width: 768px) {
+          display: none;
+        }
       }
       .title {
         font-size: 1.25rem;
@@ -1477,8 +1481,70 @@ body {
         margin-bottom: 10px;
         display: inline-block;
       }
+    }
+    .sec01 {
       .title__text {
         font-size: 1rem;
+        text-align: left;
+      }
+      .sec01__flex {
+        margin: 20px auto 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .sec01__flex-item {
+          width: 25%;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1rem;
+          border-radius: 20px;
+          border: var(--bg-green) 3px solid;
+          &.active {
+            background-color: var(--bg-green);
+          }
+        }
+        /* 親要素にposition: relativeが必要 */
+        .triangle-wrapper {
+          position: relative;
+          display: inline-block;
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+    .sec02 {
+      .form {
+        text-align: left;
+        width: 90%;
+        margin: 0 auto;
+        label {
+        }
+        input {
+          padding: 4px;
+          width: 100%;
+          margin-top: 14px;
+          margin-bottom: 25px;
+          border-radius: 10px;
+        }
+        textarea {
+          padding: 4px;
+          width: 100%;
+          margin-top: 14px;
+          margin-bottom: 65px;
+          border-radius: 10px;
+        }
+        button {
+          border-left: transparent;
+          border-right: transparent;
+          border-top: transparent;
+        }
+      }
+      p {
+        width: 90%;
+        margin: 0 auto;
+        text-align: left;
       }
     }
   }

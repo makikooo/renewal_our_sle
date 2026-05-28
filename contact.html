@@ -168,73 +168,61 @@
           <img class="logo" src="assets/images/logo.webp" alt="わたしたちのSLE">
         </a>
         <h1 class="title">お問い合わせ・ご相談</h1>
-        <p class="title__text">ご相談やホームページのご感想などお気軽にお問い合わせくださいませ。</p>
       </section>
       <section class="sec01">
-        <div class="first">入力</div>
-        <span></span>
-        <div class="second">確認</div>
-        <span></span>
-        <div class="third">送信</div>
-      </section>
-      
-      <img class="bg_lightblue" src="assets/images/background/bg-blue02.webp" alt="">
-      
-      <section class="sec02 bg-blue">
-        <h2 class="sec02__title">おすすめのページ</h2>
-        <div class="sec02__links">
-          <a href="medical-support.html" class="sec02__left-link">
-            <img class="thumbnail" src="assets/images/thumbnails/thumbnail_medical-support.webp" alt="医療費の制度のサムネイル">
-            <div class="button">
-              <span>つづきを読む</span>
-              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
-            </div>
-          </a>
-          <a href="about-sle.html" class="sec02__right-link">
-            <img class="thumbnail" src="assets/images/thumbnails/thumbnail_about-sle.webp" alt="医療費の制度のサムネイル">
-            <div class="button">
-              <span>つづきを読む</span>
-              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
-            </div>
-          </a>
+        <p class="title__text">ご相談やホームページのご感想などお気軽にお問い合わせくださいませ。</p>
+        <div class="sec01__flex">
+          <div class="sec01__flex-item active">入力</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon
+                points="0,0 20,12 0,24"
+                fill="#fff"
+                stroke="#A5FF9F"
+                stroke-width="2"
+              />
+            </svg>
+          </span>
+          <div class="sec01__flex-item">確認</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon
+                points="0,0 20,12 0,24"
+                fill="#fff"
+                stroke="#A5FF9F"
+                stroke-width="2"
+              />
+            </svg>
+          </span>
+          <div class="sec01__flex-item">送信</div>
         </div>
       </section>
 
-      <section class="sec03 bg-green">
-        <img class="sec03__top-img" src="assets/images/background/bg_green03.webp" alt="">
-        <h3 class="concern__title">いま、気になること</h3>
-        <p class="concern__text">気になる言葉を押すと関連ページに飛びます</p>
-        <div class="concern__wrapper">
-          <a class="concern__link" href="">
-            <img class="darusa" src="assets/images/toppage/kininaru-darusa.webp" alt="#だるさ">
-          </a>
-          <a class="concern__link" href="">
-            <img class="fuan" src="assets/images/toppage/kininaru-fuan.webp" alt="#不安">
-          </a>
-          <a class="concern__link" href="">
-            <img class="school" src="assets/images/toppage/kininaru-gakkou.webp" alt="#学校">
-          </a>
-          <a class="concern__link" href="">
-            <img class="doctor" src="assets/images/toppage/kininaru-isi.webp" alt="#医師との信頼関係">
-          </a>
-          <a class="concern__link" href="">
-            <img class="skin" src="assets/images/toppage/kininaru-hisinn.webp" alt="#皮疹">
-          </a>
-          <a class="concern__link" href="">
-            <img class="qol" src="assets/images/toppage/kininaru-seikatunokotu.webp" alt="#生活のコツ">
-          </a>
-          <a class="concern__link" href="">
-            <img class="medicine" src="assets/images/toppage/kininaru-medicine.webp" alt="#薬">
-          </a>
-        </div>
+      <section class="sec02">
+        <form action="contact-confirm.html" class="form">
+          <label for="name">お名前（必須事項）</label>
+          <input type="text" id="name" name="name" value="" required>
+
+          <label for="email">メールアドレス（必須事項）</label>
+          <input type="email" name="email" id="email">
+
+          <label for="title">件名</label>
+          <input type="text" name="title" id="title">
+
+          <label for="message">メッセージ</label>
+          <textarea name="message" id="message" rows="4" required></textarea>
+
+          <button class="button contact__button" href="contact-confirm.html">
+            <span>確認する</span>
+            <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+          </button>
+        </form>
+        <p>お問い合わせのご返信は2日以内(土日祝日以外)を心がけております。お客様のご利用環境、また迷惑メール対策等の設定により、お返事が届かない場合があります。5日経過しても返信のない場合、大変お手数をおかけしますが再度お送りいただくよう、お願い申し上げます。</p>
       </section>
+      
 
       <img class="footer__top-img" src="assets/images/background/bg_yellow02.webp" alt="">
       <footer class="footer">
-        <a class="button contact__button" href="contact.html">
-          <span>お問い合わせ</span>
-          <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
-        </a>
         <small class="footer__copy">&copy;わたしたちのSLE 2022-2026</small>
         <img class="footer__flower" src="assets/images/flower.webp" alt="">
       </footer>
