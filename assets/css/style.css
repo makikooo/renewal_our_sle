@@ -212,6 +212,7 @@ body {
   display: none;
 
   @media (max-width: 768px) {
+    z-index: 9999;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
@@ -222,7 +223,6 @@ body {
     right: 0;
     width: 100%;
     padding: 10px 0 10px 15px; 
-    z-index: 100;
     height: 60px; 
     .logo__link {
       cursor: pointer;
@@ -275,6 +275,40 @@ body {
     }
   }
 }
+/* spサイズ パンクズリスト */
+.center__column {
+  position: relative;
+}
+.breadcrumb__list {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  z-index: 9999;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  @media (max-width: 768px) {
+    top: 70px;
+  }
+  .breadcrumb__item {
+    margin-left: 5px;
+    &:not(:last-child)::after {
+      content: "›";
+      margin: 0 3px;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1;
+    }
+    .breadcrumb__link {
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+  }
+}
+#toppage .breadcrumb__list {
+  display: none;
+}
+
 
 /* ハンバーガーメニュー */
 .hambergar__container {
@@ -796,7 +830,7 @@ body {
   }
 }
 .center__column {
-  z-index: 9999;
+  z-index: 9998;
 }
 .right__column {
   position: relative;
@@ -1038,6 +1072,7 @@ rt {
   }
 
   .center__column {
+    z-index: 9998;
     width: 100%;
     max-width: 600px;
     flex-shrink: 0;
@@ -1052,6 +1087,7 @@ rt {
       height: 350px;
       background: url(../images/background/bg_yellow.webp) no-repeat top center;
       text-align: center;
+      position: relative;
       @media (max-width: 768px) {
         background-size: 160% 280px;
         padding-top: 60px;
@@ -1066,7 +1102,7 @@ rt {
         .logo {
           width: 125px;
           display: inline-block;
-          margin: 50px auto 45px;
+          margin: 67px auto 14px;
         }
       }
 
@@ -1563,6 +1599,7 @@ rt {
   }
   
   #about__site.center__column {
+    z-index: 9998;
     .center__wrapper {
       .title {
         display: inline-block;
@@ -1633,6 +1670,7 @@ rt {
     }
   }
   #first.center__column {
+    z-index: 9998;
     .center__wrapper {
       .logo__link {
         &.pc_only {
@@ -1832,6 +1870,7 @@ rt {
     }
   }
   #contact.center__column {
+    z-index: 9998;
     .center__wrapper {
       .logo__link {
         display: block;
@@ -1968,6 +2007,7 @@ rt {
     }
   }
   #page404.center__column {
+    z-index: 9998;
     .center__wrapper {
       .title {
         font-size: 1.25rem;
@@ -2016,12 +2056,17 @@ rt {
     }
   }
   #menu-sle.center__column {
+    z-index: 9998;
     .sec01 {
       .title {
         font-size: 1.25rem;
+        margin-top: 40px;
         padding-bottom: 5px;
         border-bottom: var(--font-color) solid 1px;
         display: inline-block;
+        @media (max-width: 768px) {
+          margin-top: 120px;
+        }
       }
       .title__text {
         font-size: 1rem;
