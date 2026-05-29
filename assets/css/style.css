@@ -895,6 +895,7 @@ body {
         transform: translateY(5px);
       }
       .index__title {
+        text-align: left;
         font-size: 1rem;
       }
       .section__button {
@@ -902,6 +903,7 @@ body {
         align-items: center;
         justify-content: center;
         width: 30px;
+        min-width: 30px;
         height: 30px;
         border-radius: 50%;
         border: var(--accent-green01) solid 1px;
@@ -2049,6 +2051,9 @@ rt {
   #about__sle {
     .center__wrapper {
       .title {
+        padding-bottom: 5px;
+        border-bottom: var(--font-color) solid 1px;
+        display: inline-block;
         @media (max-width: 768px) {
           font-size: 1.175rem;
         }
@@ -2071,6 +2076,9 @@ rt {
         text-align: center;
         margin-bottom: 35px;
         .section__title {
+          display: inline-block;
+          text-align: left;
+          max-width: 100%;
           font-size: 1.5rem;
         }
       }
