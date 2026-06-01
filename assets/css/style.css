@@ -94,6 +94,10 @@ body {
 .bg-white {
   background-color: var(--white-color);
 }
+.underline {
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--font-color);
+}
 .pc_only {
   display: block;
   @media (max-width: 768px) {
@@ -924,6 +928,10 @@ body {
       align-items: center;
       border-bottom: var(--font-color) dotted 1px;
       padding: 2px 10px;
+      transition: 0.3s opacity;
+      &:hover {
+        opacity: 0.6;
+      }
       &:hover svg {
         stroke: var(--accent-green02);
         transform: translateY(5px);
@@ -2187,6 +2195,182 @@ rt {
     .bg_blue_victor {
       position: relative;
       top: 1px;
+    }
+  }
+  #about__sle.diagnosis {
+    .sec02 {
+      .diagnosis__title {
+        margin-bottom: 20px;
+      }
+    }
+    .sec04.about-diagnosis {
+      p {
+        width: 100%;
+      }
+      .rinsyokensakojinhyou {
+        margin-bottom: 30px;
+      }
+
+      .bold_impact {
+          font-weight: bold;
+          padding-left: 1em;
+          border-left: solid 10px var(--accent-green02);
+      }
+
+      .category_wrapper {
+          margin: 0 auto 30px;
+          background-color: #FFF8F0;
+          border: 1px solid #9E7975;
+          padding: 10px 5%;
+      }
+
+      @media (width < 768px) {
+          .category_wrapper {
+              padding: 10px;
+          }
+      }
+
+      .flex_center {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 25px;
+          margin-bottom: 40px;
+      }
+
+      @media (width < 768px) {
+          .flex_center {
+              flex-direction: column;
+              gap: 0px;
+          }
+      }
+
+      .abc {
+        font-size: clamp(2.5rem, 1.955rem + 2.73vw, 4rem);
+        font-family: montserrat, sans-serif;
+        display: inline-block;
+        margin: 0;
+      }
+
+      .hissu {
+        display: inline-block;
+        flex-shrink: 0;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: var(--accent-red);
+        text-align: center;
+        line-height: 70px;
+      }
+
+      .category_title {
+          font-weight: bold;
+          align-self: center;
+      }
+
+      .category_table {
+          width: 96%;
+          margin: 0 auto 80px;
+      }
+
+      @media (width < 794px) {
+
+        .category_table,
+        .category_table tr,
+        .category_table tr th,
+        .category_table tr td {
+            display: table;
+            text-align: left;
+        }
+
+        .category_table tr th {
+            margin-left: 0.5em;
+            margin-bottom: 0;
+        }
+
+        .category_table tr td {
+            margin-left: 1em;
+        }
+      }
+
+      .category_table tr th {
+          width: 90px;
+          height: 25px;
+          line-height: 25px;
+      }
+
+      .category_atention {
+          background-color: #fff;
+          border: 10px solid #9a5952;
+          padding: 5%;
+          margin-bottom: 70px;
+      }
+
+      @media (width < 796px) {
+          .category_atention {
+              border: none;
+              padding: 20px;
+          }
+      }
+
+      .category_atention_title {
+          font-weight: bold;
+          text-align: center;
+          font-size: clamp(1.156rem, 1.115rem + 0.18vw, 1.25rem);
+          margin: 0;
+      }
+
+      .category_atention_text {
+          line-height: 140%;
+      }
+
+      .category_table tr th {
+          width: 150px;
+      }
+    }
+    .sec04.sledai {
+      .kensa_table {
+          font-size: 16px;
+      }
+
+      .kensa_table,
+      .kensa_table_left,
+      .kensa_table_center,
+      .kensa_setumei,
+      .koumoku {
+          border: 1px solid #000;
+      }
+
+      .kensa_table_left,
+      .koumoku,
+      .kensa_table_center,
+      .kensa_setumei {
+          padding: 2%;
+      }
+
+      .koumoku,
+      .setumei {
+          background-color: #9E7975;
+          color: rgb(255, 255, 255);
+          font-size: 20px;
+          font-weight: normal;
+      }
+
+      .kensa_setumei {
+          width: 72%;
+      }
+    }
+    .sec04.bg_yellow {
+      background-color: var(--bg-yellow);
+      padding-bottom: 50px;
+      margin: 0 auto;
+    }
+    .bg-yellow {
+      display: block;
+    }
+    .section__sub-title {
+      font-size: 1rem;
+      margin-bottom: 20px;
     }
   }
 
