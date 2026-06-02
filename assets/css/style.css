@@ -2192,9 +2192,18 @@ rt {
         }
       }
     }
+    .sec02 .syutten_wrapper {
+      border-left: var(--accent-green02) solid 4px;
+      padding-left: 10px;
+    }
     .bg_blue_victor {
       position: relative;
       top: 1px;
+    }
+    .sec03 .myPieChart_wrapper {
+      width: 250px;
+      height: 300px;
+      margin: 0 auto;
     }
   }
   #about__sle.diagnosis {
