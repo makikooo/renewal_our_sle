@@ -1168,7 +1168,6 @@ rt {
     
     .sec02 {
       text-align: center;
-      padding-bottom: 70px;
       
       .sec02__center {
         text-align: center;
@@ -1243,6 +1242,9 @@ rt {
         border-radius: 30px;
         padding: 15px 15px 15px 25px;
         text-align: left;
+        &:last-of-type {
+            margin-bottom: 80px;
+          }
         &.lightpink {
           background-color: var(--bg-lightpink);
           transition: opacity 0.3s ease;
@@ -1287,8 +1289,67 @@ rt {
         }
       }
     }
+
+    .sec_line {
+      .line__container {
+        display: block;
+        width: 300px;
+        margin: 0px auto 40px;
+        text-align: center;
+        .line__img {
+          display: block;
+          margin: 0px auto 30px;
+        }
+        .qr__img {
+          display: block;
+          margin: 0 auto 30px;
+        }
+        .qr__img {
+          display: block;
+          width: 80%;
+          margin: 0 auto 25px;
+        }
+        .oc__text_box {
+          position: relative;
+          display: inline-block;
+
+          &::before {
+            position: absolute;
+            left: -1em;
+            top: 0;
+            content: '';
+            width: 2px;
+            height: 100%;
+            background-color: var(--font-color);
+            border-radius: 3px;
+            transform: rotate(-30deg);
+            @media (max-width: 1084px) {
+              background-color: transparent;            
+            }
+          }
+
+          &::after {
+            position: absolute;
+            right: -1em;
+            top: 0;
+            content: '';
+            width: 2px;
+            height: 100%;
+            background-color: var(--font-color);
+            border-radius: 3px;
+            transform: rotate(30deg);
+            @media (max-width: 1084px) {
+              background-color: transparent;            
+            }
+          }
+        }
+      }
+      .button.go_to_line {
+        margin-bottom: 60px;
+      }
+    }
     .sec03 {
-      padding-top: 70px;
+      padding-top: 30px;
       padding-bottom: 50px;
       position: relative;
       text-align: center;
@@ -1303,13 +1364,13 @@ rt {
       }
       .future__img {
         display: block;
-        margin: 112px auto 0;
+        margin: 30px auto 0;
         width: 250px;
         padding-bottom: 18px;
         border-bottom: var(--font-color) solid 0.5px;
       }
       .qol {
-        width: 370px;
+        width: 380px;
         margin-left: auto;
         margin-right: auto;
         margin-top: 20px;
@@ -1352,6 +1413,7 @@ rt {
         }
       }
     }
+    
     .sec04 {
       background-color: var(--white-color);
       position: relative;
