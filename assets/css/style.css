@@ -285,17 +285,21 @@ body {
 }
 .breadcrumb__list {
   display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   justify-content: start;
   align-items: center;
   z-index: 9999;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  @media (max-width: 768px) {
-    top: 70px;
-  }
+  padding-top: 10px;
+  padding-left: 10px;
+  
   .breadcrumb__item {
     margin-left: 5px;
+    white-space: nowrap;
+    @media (max-width: 768px) {
+        font-size: 0.75rem;
+        margin-left: 2px;
+      }
     &:not(:last-child)::after {
       content: "›";
       margin: 0 3px;
@@ -306,6 +310,9 @@ body {
     .breadcrumb__link {
       cursor: pointer;
       font-size: 0.875rem;
+      @media (max-width: 768px) {
+        font-size: 0.75rem;
+      }
     }
   }
 }
@@ -1293,7 +1300,7 @@ rt {
     .sec_line {
       .line__container {
         display: block;
-        width: 300px;
+        width: 180px;
         margin: 0px auto 40px;
         text-align: center;
         .line__img {
