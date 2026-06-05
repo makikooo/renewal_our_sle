@@ -2161,6 +2161,7 @@ rt {
           margin-left: 10px;
         }
         .sub-title {
+          font-size: 1.25rem;
           @media (max-width: 768px) {
             font-size: 1.175rem;    
           }
@@ -2189,8 +2190,14 @@ rt {
           margin-right: 10px;     
         }
       }
+      &:hover {
+        .section__button {
+          transform: translateX(15px);
+        }
+      }
     }
     .section__button {
+      transition: transform 0.3s ease;
       margin-bottom: 0;
       display: inline-flex;
       align-items: center;
