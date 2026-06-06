@@ -2323,6 +2323,10 @@ rt {
           padding-bottom: 30px;
         }
       }
+      .pregnancy-subtitle {
+        display: inline-block;
+        text-align: left;
+      }
     }
     .sec02 .syutten_wrapper {
       border-left: var(--accent-green02) solid 4px;
