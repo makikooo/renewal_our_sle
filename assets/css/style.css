@@ -1899,6 +1899,7 @@ rt {
       display: block;
       font-size: 1rem;
       font-weight: 600;
+      margin-top: 0;
     }
   }
   .sec01 {
