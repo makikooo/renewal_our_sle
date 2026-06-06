@@ -179,6 +179,83 @@ h1 {
   width: 100%;
   height: 30px;
 }
+
+/* アコーディオンメニュー */
+.accordion {
+    max-width: 500px;
+    width: 90%;
+    padding: 0 1em;
+    margin: 0 auto 15px;
+    border: 2px solid var(--accent-green01);
+    border-radius: 20px;
+    
+    &:last-of-type {
+      margin-bottom: 50px;
+    }
+}
+
+.accordion summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 1em 2em;
+    border: none;
+    color: var(--font-color);
+    font-weight: 700;
+    font-size: 1.175rem;
+    cursor: pointer;
+    padding: 0.15em 0.25em;
+    margin-bottom: 0;
+    transition: opacity .3s;
+    text-align: left;
+    &:hover {
+      opacity: 0.6;
+    }
+}
+
+.accordion summary::-webkit-details-marker {
+    display: none;
+}
+
+.accordion summary::after {
+    transform: translateY(-25%) rotate(45deg);
+    width: 7px;
+    height: 7px;
+    margin-left: 10px;
+    border-bottom: 3px solid var(--font-color);
+    border-right: 3px solid var(--font-color);
+    content: '';
+    transition: transform .3s;
+}
+
+.accordion[open] summary::after {
+    transform: rotate(225deg);
+}
+
+.accordion div {
+  transform: translateY(-10px);
+  opacity: 0;
+  margin: 0;
+  padding: 0 0em 1.5em;
+  color: var(--font-color);
+  transition: transform .5s, opacity .5s;
+  .accordion-subtitle {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: inline-block;
+  }
+}
+
+.accordion[open] div {
+    transform: none;
+    opacity: 1;
+}
+.accordion__menu {
+  text-align: left;
+}
+
 /* 共通 検索バーとボタン */
 .search__wrapper {
   margin-top: 20px;
@@ -332,8 +409,7 @@ h1 {
   white-space: nowrap;
   justify-content: start;
   align-items: center;
-  z-index: 9999;
-  padding-top: 80px;
+  padding-top: 20px;
   padding-left: 10px;
   
   .breadcrumb__item {
@@ -2104,12 +2180,12 @@ rt {
       }
       p {
         width: 90%;
-        margin: 0 auto;
+        margin: 0 auto 60px;
         text-align: left;
       }
       &.confirm {
         width: 90%;
-        margin: 0 auto;
+        margin: 0 auto 60px;
         table {
           text-align: left;
           margin-bottom: 63px;
@@ -2188,6 +2264,9 @@ rt {
   }
   #menu-sle.center__column {
     z-index: 9998;
+    .breadcrumb__list {
+      padding-top: 80px;
+    }
     .sec01 {
       .title {
         font-size: 1.25rem;
@@ -2288,8 +2367,7 @@ rt {
       height: 30px;
     }
   }
-  #about__sle {
-    .center__wrapper {
+  #about__sle.center__wrapper {
       .title {
         padding-bottom: 5px;
         border-bottom: var(--font-color) solid 1px;
@@ -2387,78 +2465,6 @@ rt {
       border-left: var(--accent-green02) solid 4px;
       padding-left: 10px;
     }
-    .sec02 {
-      &.accordion {
-          max-width: 500px;
-          width: 90%;
-          padding: 0 1em;
-          margin-bottom: 15px;
-          border: 2px solid var(--accent-green01);
-          border-radius: 20px;
-          
-          &:last-of-type {
-            margin-bottom: 50px;
-          }
-      }
-
-      &.accordion summary {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          position: relative;
-          padding: 1em 2em;
-          border: none;
-          color: var(--font-color);
-          font-weight: 800;
-          font-size: 1.175rem;
-          cursor: pointer;
-          padding: 0.15em 0.25em;
-          margin-bottom: 0;
-          transition: opacity .3s;
-          &:hover {
-            opacity: 0.6;
-          }
-      }
-
-      &.accordion summary::-webkit-details-marker {
-          display: none;
-      }
-
-      &.accordion summary::after {
-          transform: translateY(-25%) rotate(45deg);
-          width: 7px;
-          height: 7px;
-          margin-left: 10px;
-          border-bottom: 3px solid var(--font-color);
-          border-right: 3px solid var(--font-color);
-          content: '';
-          transition: transform .3s;
-      }
-
-      &.accordion[open] summary::after {
-          transform: rotate(225deg);
-      }
-
-      &.accordion div {
-        transform: translateY(-10px);
-        opacity: 0;
-        margin: 0;
-        padding: 0 0em 1.5em;
-        color: var(--font-color);
-        transition: transform .5s, opacity .5s;
-        .accordion-subtitle {
-          margin-top: 10px;
-          font-size: 1.1rem;
-          font-weight: 700;
-          display: inline-block;
-        }
-      }
-
-      &.accordion[open] div {
-          transform: none;
-          opacity: 1;
-      }
-    }
     .bg_blue_victor {
       position: relative;
       top: 1px;
@@ -2472,6 +2478,12 @@ rt {
     .sec04 h3 {
       font-size: 1.1rem;
       margin-bottom: 5px;
+    }
+    .sub_title {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      margin-top: 40px;
     }
   }
   #about__sle.diagnosis {
