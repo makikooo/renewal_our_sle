@@ -2691,6 +2691,16 @@ rt {
     }
   }
 }
+#system.center__column {
+  .section {
+    .about-sle__title {
+      text-align: left;
+    }
+    .about-sle__text {
+      text-align: left;
+    }
+  }
+}
 
 
 .right__column {
