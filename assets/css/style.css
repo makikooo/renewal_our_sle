@@ -2273,6 +2273,7 @@ rt {
   .breadcrumb__list {
     padding-top: 80px;
   }
+  
   .sec01 {
     .title {
       font-size: 1.25rem;
@@ -2342,6 +2343,9 @@ rt {
         transform: translateX(15px);
       }
     }
+  }
+  .pb50 {
+    padding-bottom: 50px;
   }
   .section__button {
     transition: transform 0.3s ease;
