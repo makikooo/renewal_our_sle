@@ -1797,6 +1797,9 @@ rt {
         padding-bottom: 40px;
       }
     }
+    .section {
+      text-align: left;
+    }
   }
   
 #about__site.center__column {
