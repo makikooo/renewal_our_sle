@@ -2701,7 +2701,19 @@ rt {
     }
   }
 }
-
+#jukyuusya.center__column {
+  .sec02 {
+    .accordion__answer_title {
+      margin: 20px 0 15px ;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .accordion_answer_subtitle {
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+  }
+}
 
 .right__column {
   flex: 1;
