@@ -1795,6 +1795,7 @@ rt {
         width: 52px;
         margin: 0 auto;
         padding-bottom: 40px;
+        
       }
     }
     .section {
@@ -2276,7 +2277,15 @@ rt {
   .breadcrumb__list {
     padding-top: 80px;
   }
-  
+  .enquete__link {
+    display: block;
+    width: 90%;
+    margin: 30px auto 40px;
+    transition: opacity 0.3s ease;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
   .sec01 {
     .title {
       font-size: 1.25rem;
