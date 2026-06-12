@@ -773,11 +773,16 @@ h1 {
     transform: translateY(-11px);
   }
 }
-.category__wrapper {
+.container .center__column .category__wrapper {
   background-color: var(--white-color);
   text-align: center;
   padding: 30px;
   position: relative;
+  width: 370px;
+  margin: 30px auto;
+}
+.up-dated__text {
+  text-align: center;
 }
 /* おすすめページ */
 .pics {
@@ -2712,6 +2717,11 @@ rt {
       margin-bottom: 10px;
       font-weight: 500;
     }
+  }
+}
+#about__sle_.center__column {
+  .sec02.section {
+    text-align: left;
   }
 }
 
