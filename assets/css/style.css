@@ -825,7 +825,7 @@ h1 {
   padding-bottom: 80px;
   .concern__top-img {
     position: absolute;
-    top: -30px;
+    transform: translateY(-94%);
     left: 0;
     right: 0;
   }
@@ -2661,6 +2661,34 @@ rt {
   .section__sub-title {
     font-size: 1rem;
     margin-bottom: 20px;
+  }
+}
+#school__job.center__column {
+  .wellcome {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    .wellcome__title {
+      padding-bottom: 8px;
+      border-bottom: var(--font-color) solid 1px;
+      display: inline-block;
+      margin: 0 auto 20px;
+      font-size: 1.25rem;
+    }
+    .wellcome__section-title {
+      text-align: left;
+      font-size: 1.1rem;
+      padding-bottom: 8px;
+      border-bottom: var(--font-color) solid 0.5px;
+    }
+    .wellcome__text {
+      text-align: left;
+      font-size: 1rem;
+      margin: 10px auto 25px;
+      &:last-child {
+        margin-bottom: 30px;
+      }
+    }
   }
 }
 
