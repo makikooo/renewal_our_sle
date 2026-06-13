@@ -3390,3 +3390,95 @@ rt {
 .article__nav-back:hover {
   opacity: 0.6;
 }
+
+/* ===== お薬についてページ（aboutmedicine） ===== */
+#aboutmedicine.center__column {
+  /* 薬カードのグリッド */
+  .med-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 24px 16px;
+    width: 92%;
+    margin: 0 auto 50px;
+  }
+  /* 薬カード（1つの薬を枠線で囲う） */
+  .med-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background-color: var(--white-color);
+    box-shadow: 4px 4px 0 var(--bg-lightBlue);
+    transition: opacity 0.3s ease;
+  }
+  .med-card:hover {
+    opacity: 0.75;
+  }
+  .med-card__img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border: 2px solid var(--accent-green01);
+    border-bottom: none;
+    border-radius: 14px 14px 0 0;
+  }
+  .med-card__head {
+    border-left: 2px solid var(--accent-green01);
+    border-right: 2px solid var(--accent-green01);
+    background-color: var(--bg-lightGreen);
+    padding: 8px 12px;
+    text-align: center;
+  }
+  .med-card__kind {
+    margin: 0 0 3px;
+    font-size: 0.72rem;
+    color: var(--font-color);
+  }
+  .med-card__name {
+    margin: 0;
+    color: var(--accent-green01);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .med-card__generic {
+    margin: 2px 0 0;
+    font-size: 0.78rem;
+    color: var(--font-color);
+  }
+  .med-card__body {
+    flex: 1;
+    border: 2px solid var(--accent-green01);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    padding: 12px 14px;
+  }
+  .med-card__text {
+    margin: 0;
+    text-align: left;
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+  @media (max-width: 768px) {
+    .med-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 10px;
+    }
+    .med-card__img {
+      height: 120px;
+    }
+    .med-card__name {
+      font-size: 0.92rem;
+    }
+    .med-card__text {
+      font-size: 0.8rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .med-grid {
+      grid-template-columns: 1fr;
+    }
+    .med-card__img {
+      height: 160px;
+    }
+  }
+}
