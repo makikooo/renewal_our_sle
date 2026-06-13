@@ -2905,6 +2905,26 @@ rt {
   font-weight: 600;
   margin-bottom: 6px;
 }
+.symptom-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.symptom-list li {
+  background: var(--white-color);
+  border-left: 4px solid var(--accent-green01);
+  border-radius: 0 8px 8px 0;
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.symptom-list__note {
+  margin-top: 14px;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: #888;
+}
 
 /* 次回リンク */
 .enquete-nav {
