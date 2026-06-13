@@ -2721,6 +2721,73 @@ rt {
     }
   }
 }
+#results.center__column {
+  .section {
+    .about-sle__title {
+      text-align: left;
+    }
+    .about-sle__text {
+      text-align: left;
+    }
+  }
+  table {
+    width: 90%;
+    margin: 0 auto 50px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--accent-green01);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 5px 5px 0 var(--bg-lightBlue);
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    @media (max-width: 768px) {
+      width: 92%;
+      font-size: 0.82rem;
+      line-height: 1.6;
+    }
+  }
+  table td {
+    padding: 14px 16px;
+    vertical-align: top;
+    border-bottom: 1px solid var(--bg-lightGreen);
+    @media (max-width: 768px) {
+      padding: 11px 10px;
+    }
+  }
+  /* 見出し行 */
+  table tr:first-child td {
+    background-color: var(--accent-green01);
+    color: var(--white-color);
+    font-weight: 700;
+    text-align: center;
+    padding: 11px 14px;
+    border-bottom: none;
+  }
+  table tr:first-child td:first-child {
+    width: 40%;
+  }
+  /* 左列（検査項目・基準） */
+  table tr:not(:first-child) td:first-child {
+    background-color: var(--bg-lightGreen);
+    border-right: 1px solid #fff;
+    font-size: 0.85rem;
+  }
+  /* 最終行の下線を消す */
+  table tr:last-child td {
+    border-bottom: none;
+  }
+  table .bold {
+    display: inline-block;
+    margin-bottom: 4px;
+    color: var(--accent-green01);
+    font-size: 0.95rem;
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+    }
+  }
+}
 #jukyuusya.center__column {
   .sec02 {
     .accordion__answer_title {

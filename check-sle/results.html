@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="わたしたちのSLEは、SLE（全身性エリテマトーデス）の症状・検査・治療・暮らしの工夫を、患者目線でやさしくまとめた情報サイトです。不安や悩みを抱える方へ、日常を少しでも楽にするヒントを届けます。">
+  <meta name="keywords" content="SLE,全身性エリテマトーデス,自己免疫疾患,難病,SLE 症状,SLE 治療,膠原病,ループス,患者会,医療費助成,社会的寛解,難病生活">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>検査結果のみかた | SLE（全身性エリテマトーデス）を患者目線でやさしく解説</title>
+  <link rel="stylesheet" href="./../assets/css/reset.css">
+  <link rel="stylesheet" href="./../assets/css/style.css">
+  <!-- font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="./../assets/images/favicon_io/favicon.ico">
+</head>
+<body>
+  <!-- sp表示ハンバーガーボタン -->
+  <header class="sp__header" aria-label="モバイル用ヘッダー">
+    <a href="../index.html" class="logo__link">
+      <img src="../assets/images/logo.webp" alt="わたしたちのSLE" class="logo">
+    </a>
+    <div class="hambergar__container">
+      <div class="hambergar_box">
+        <span></span><span></span><span></span>
+      </div>
+      <img src="../assets/images/serch.webp" alt="検索" class="serch__img">
+    </div>
+  </header>
+  
+  <!-- pc表示ハンバーガーボタン -->
+  <div id="hambergar" class="hambergar__container pc_only">
+    <div class="hambergar__box">
+      <span></span><span></span><span></span>
+    </div>
+    <img class="serch_img" src="../assets/images/serch.webp" alt="検索">
+  </div>
+
+  <!-- ハンバーガーメニュー -->
+  <div class="hambergar__menu">
+    <div class="hambergar__top">
+      <a class="go_to_home_link" href="../index.html">
+        <img class="logo" src="../assets/images/logo.webp" alt="わたしたちのSLE">
+      </a>
+      <div class="hambergar__button close_hambergar sp_only">
+        <span></span><span></span>
+      </div>
+    </div>
+    <form class="search__wrapper">
+      <input type="text" placeholder="症状、検査 …で検索">
+      <button>検索</button>
+    </form>
+    <nav>
+      <div class="nav__category-header">
+        <a href="../menu-sle/menu-sle.html" class="nav__category-link">
+          <h2 class="nav__category-title">SLEについて</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <ul>
+        <li><a href="../menu-sle/about-sle.html"><span class="green"></span>SLEとは</a></li>
+        <li><a href="../menu-sle/symptoms.html"><span class="orange"></span>SLEの症状</a></li>
+        <li><a href="../menu-sle/complications.html"><span class="red"></span>起こりやすい合併症</a></li>
+        <li><a href="../menu-sle/diagnosis.html"><span class="green"></span>SLEの診断基準</a></li>
+        <li><a href="../menu-sle/treatment.html"><span class="orange"></span>SLEの治療</a></li>
+        <li><a href="../menu-sle/remission.html"><span class="red"></span>社会的寛解とは</a></li>
+      </ul>
+
+      <div class="nav__category-header">
+        <a href="../support-sle/menu-support.html" class="nav__category-link">
+          <h2 class="nav__category-title">困っている</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <ul>
+        <li><a href="../support-sle/school-job.html"><span class="green"></span>仕事・学校</a></li>
+        <li><a href="../support-sle/kokoro-care.html"><span class="orange"></span>こころ</a></li>
+        <li><a href="../support-sle/sle-life-tips.html"><span class="red"></span>SLEと付き合うコツ</a></li>
+        <li><a href="../support-sle/doctor.html"><span class="green"></span>医師との信頼関係</a></li>
+        <li><a href="../support-sle/care-guide.html"><span class="orange"></span>受診の目安</a></li>
+        <li><a href="../support-sle/pregnancy.html"><span class="red"></span>妊娠と出産</a></li>
+        <li><a href="../support-sle/faq.html"><span class="red"></span>よくある質問</a></li>
+      </ul>
+
+      <div class="nav__category-header">
+        <a href="menu-check.html" class="nav__category-link">
+          <h2 class="nav__category-title">調べたい</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <ul>
+        <li><a href="results.html"><span class="green"></span>検査結果の見方</a></li>
+        <li><a href="#"><span class="orange"></span>お薬について</a></li>
+        <li><a href="system.html"><span class="red"></span>医療費の制度</a></li>
+        <li><a href="jukyuusyahyou.html"><span class="green"></span>医療費以外の受給者票</a></li>
+        <li><a href="nanbyouteate.html"><span class="orange"></span>難病手当</a></li>
+        <li><a href="tourokusyou.html"><span class="red"></span>登録者証</a></li>
+      </ul>
+      
+      <div class="nav__category-header">
+        <a href="../communication-sle/menu-communication.html" class="nav__category-link">
+          <h2 class="nav__category-title">仲間さがし</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <ul>
+        <li><a href="../communication-sle/openchat.html"><span class="green"></span>オープンチャット（LINE）</a></li>
+        <li><a href="../communication-sle/about-me.html"><span class="orange"></span>わたしについて</a></li>
+      </ul>
+      
+      <div class="nav__category-header">
+        <a href="../enquete/menu-enquete.html" class="nav__category-link">
+          <h2 class="nav__category-title">参加する</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <ul>
+        <li><a href="#"><span class="green"></span>あるあるアンケート（2分）</a></li>
+        <li><a href="../enquete/enquete01.html"><span class="orange"></span>アンケート結果第1回</a></li>
+        <li><a href="../enquete/enquete02.html"><span class="red"></span>アンケート結果第2回</a></li>
+        <li><a href="../enquete/enquete03.html"><span class="green"></span>アンケート結果第3回</a></li>
+      </ul>
+    </nav>
+    <div class="button_wrapper">
+      <a class="button" href="../contact.html">
+        <span>お問い合わせ</span>
+        <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+      </a>
+    </div>
+    <div id="close_hambergar" class="close-hambergar__container close_hambergar">
+      <div class="hambergar__box">
+        <span></span><span></span>
+      </div>
+      <h3 class="close-title">閉じる</h3>
+    </div>
+  </div>
+
+  <main id="main" class="container">
+    <aside class="left__column">
+      <a href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="line__container">
+        <img class="line__img" src="../assets/images/line_icon.webp" alt="LINEのアイコン">
+        <img class="qr__img" src="../assets/images/qr.webp" alt="LINEのQRコード">
+        <div class="oc__text_box">
+          <p class="oc__text">SLE仲間<br class="column_br">募集してます<br>オープンチャット</p>
+        </div>
+      </a>
+      <img class="mizutama mizutama01" src="../assets/images/mizutama/mizutama01.webp" alt="">
+      <img class="mizutama mizutama02" src="../assets/images/mizutama/mizutama02.webp" alt="">
+      <img class="mizutama mizutama03" src="../assets/images/mizutama/mizutama03.webp" alt="">
+      <img class="mizutama mizutama04" src="../assets/images/mizutama/mizutama04.webp" alt="">
+      <img class="mizutama mizutama05" src="../assets/images/mizutama/mizutama05.webp" alt="">
+      <img class="mizutama mizutama06" src="../assets/images/mizutama/mizutama06.webp" alt="">
+      <img class="mizutama mizutama07" src="../assets/images/mizutama/mizutama07.webp" alt="">
+      <img class="mizutama mizutama08" src="../assets/images/mizutama/mizutama08.webp" alt="">
+    </aside>
+
+    <div id="results" class="diagnosis center__column">
+      <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
+        <ul class="breadcrumb__list">
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="../index.html">トップページ</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="menu-check.html">調べたいこと</a></li>
+          <li class="breadcrumb__item">検査結果のみかた</li>
+        </ul>
+        <a class="logo__link pc_only" href="../index.html">
+          <img class="logo" src="../assets/images/logo.webp" alt="わたしたちのSLE">
+        </a>
+        <h1 class="title">検査結果のみかた</h1>
+      </section>
+      
+      <section class="sec01">
+        <p class="subtitle">
+          変化に気づくためのチェックポイント<br>
+          検査結果の解釈には、専門医が総合的に判断する必要があります。
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="about-sle__title" id="systemic">
+          血液学検査
+        </h2>
+        
+        <table>
+          <tr>
+            <td>検査項目・基準</td>
+            <td>検査説明</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">RBC 赤血球</span><br>
+              男：400万〜539万/㎣<br>
+              ⼥：360万〜489万/㎣
+            </td>
+            <td>
+              すべての細胞に酸素を運び込む 炎症のために赤血球があまり作られなくなったり破壊されたりして数が減り、貧血になる赤血球に対する自己抗体ができて赤血球を破壊する貧血(自己免疫性溶血性貧血)
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">WBC 白血球</span><br>
+              男 ：3,600-9,000 /㎕<br>
+              女： 3,000-7,800 /㎕
+            </td>
+            <td>
+              体内に入った細菌やウイルスと闘う免疫細胞SLEをはじめ膠原病では白血球の減少がみられる。白血球のなかでは主にリンパ球が減少する。
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">PLT 血小板</span><br>
+              13.8-30.9万/㎕
+            </td>
+            <td>
+              小さなかけら状の細胞で粘り気を出して傷口をふさいで血液をかためる働き。<br>
+              SLEでは血小板にくっつきやすいタンパクができ、血小板が脾臓で破壊されるという通常の働きが高まり、血小板の減少がある。<br>
+              血小板減少は再燃の予測因子。
+            </td>
+          </tr>
+        </table>
+        
+      </section>
+      
+      <section class="section" id="inflammation">
+        <h2 class="about-sle__title">
+          炎症検査
+        </h2>
+
+        <table>
+          <tr>
+            <td>検査項目・基準</td>
+            <td>検査説明</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">ESR 赤沈</span><br>
+              男性：10mm以下<br>
+              女性：15〜20mm以下
+            </td>
+            <td>
+              赤血球が沈む速さ（赤血球沈降速度）を調べる検査。<br>
+              からだのなかで炎症が起きていると数値が高くなる。SLEの活動性をみる目安のひとつ。
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">CRP</span><br>
+              0.3mg/dl以下
+            </td>
+            <td>
+              C反応性たんぱく。炎症があると血液中で増える。<br>
+              ただしSLE自体では大きく上がりにくく、CRPが高いときは感染症の合併が疑われることもある。
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="section" id="immunology">
+        <h2 class="about-sle__title">
+          免疫学的検査
+        </h2>
+
+        <table>
+          <tr>
+            <td>検査項目・基準</td>
+            <td>検査説明</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">ANA 抗核抗体</span><br>
+              40倍または80倍未満
+            </td>
+            <td>
+              細胞の核の成分に対してできる自己抗体。<br>
+              SLEではほぼ100%陽性になるといわれ、診断のとても大切な手がかりになる。
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">抗dsDNA抗体</span><br>
+              10.0 IU/mL未満
+            </td>
+            <td>
+              自分のDNAを攻撃する自己抗体。<br>
+              SLEに特徴的で、数値は病気の活動性や腎臓の症状(ループス腎炎)とも関係する。
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">抗リボソーム抗体</span><br>
+              100 U/mL未満
+            </td>
+            <td>
+              リボソームというたんぱく合成の場に対する自己抗体。<br>
+              陽性のときは症状が重くなりやすいといわれている。
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="section" id="complement">
+        <h2 class="about-sle__title">
+          補体検査
+        </h2>
+
+        <table>
+          <tr>
+            <td>検査項目・基準</td>
+            <td>検査説明</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">C3 補体第3成分</span><br>
+              86〜160mg/dL
+            </td>
+            <td>
+              免疫の働きを助け、細菌などを排除するたんぱく。<br>
+              SLEでは消費されて低下しやすく、活動期に値が下がる傾向がある。
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">C4 補体第4成分</span><br>
+              17〜45mg/dL
+            </td>
+            <td>
+              C3とともに免疫を助けるたんぱく。<br>
+              SLEの活動期にはとくに低くなりやすく、病気の勢いをみる指標になる。
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="section" id="urine">
+        <h2 class="about-sle__title">
+          尿検査
+        </h2>
+
+        <table>
+          <tr>
+            <td>検査項目・基準</td>
+            <td>検査説明</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">尿タンパク</span><br>
+              （−）
+            </td>
+            <td>
+              腎臓の働きが低下していないかをみる指標。<br>
+              ループス腎炎では陽性になりやすい。激しい運動や発熱で一時的に出ることもある。
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">潜血</span><br>
+              （−）
+            </td>
+            <td>
+              尿のなかに微量の血液が混じっていないかを調べる検査。<br>
+              陽性のときは腎炎などが疑われる。
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="section" id="sediment">
+        <h2 class="about-sle__title">
+          尿沈渣検査
+        </h2>
+
+        <table>
+          <tr>
+            <td>検査項目・基準</td>
+            <td>検査説明</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">赤血球</span><br>
+              1〜4個/HPF
+            </td>
+            <td>
+              尿を遠心分離して顕微鏡で調べる検査。<br>
+              赤血球が多いと、腎臓の炎症・結石・腫瘍などが疑われる。
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span class="bold">細菌</span><br>
+              （−）
+            </td>
+            <td>
+              尿のなかの細菌の有無を調べる。<br>
+              陽性のときは腎臓や尿路の炎症（感染）が疑われる。
+            </td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="sec02 section" id="other">
+        <h2 class="about-sle__title">
+          そのほかの検査
+        </h2>
+        <p class="about-sle__text">
+          血液や尿のほかにも、合併症をしらべるためにいろいろな検査をおこないます。<br><br>
+          <span class="bold">胸部X線検査</span>：肺や心臓の病気をみつけるための検査。<br>
+          <span class="bold">安静時心電図</span>：心臓全体の働きを調べ、心臓病の発見や診断に欠かせない検査。<br>
+          <span class="bold">超音波検査（エコー）</span>：肝臓・胆のう・膵臓・脾臓・腎臓などの異常をしらべる検査。<br>
+          <span class="bold">脳波</span>：中枢神経のけいれんなどをしらべる検査。<br>
+          <span class="bold">生体検査（生検）</span>：症状のある組織を一部とって、顕微鏡で病理をしらべる検査。
+        </p>
+      </section>
+
+      <section class="category__wrapper bg-white section">
+        <div class="category">
+          カテゴリー：
+          <a href="#">#検査結果 </a>
+          <a href="#">#血液検査 </a>
+          <a href="#">#尿検査 </a>
+          <a href="#">#免疫学的検査 </a>
+          <a href="#">#補体 </a>
+          <a href="#">#炎症反応 </a>
+          <a href="#">#再燃の指標 </a>
+        </div>
+        <p class="up-dated__text">
+          作成日・更新日 <time datetime="2026-06-13">2026.06.13</time>
+        </p>
+      </section>
+
+      <img class="bg_blue_victor" src="../assets/images/background/bg-blue02.webp" alt="">
+
+      <section class="pics bg-blue">
+        <h2 class="pics__title">おすすめのページ</h2>
+        <div class="pics__links">
+          <a href="../menu-sle/symptoms.html.html" class="pics__left-link">
+            <img class="thumbnail" src="../assets/images/thumbnails/thumbnail_shoujou.webp" alt="便利な受給者表の使い方のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+            </div>
+          </a>
+          <a href="../menu-sle/diagnosis.html" class="pics__right-link">
+            <img class="thumbnail" src="../assets/images/thumbnails/thumbnail_sindan.webp" alt="難病手当のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="concern">
+        <img class="concern__top-img" src="../assets/images/background/bg_green03.webp" alt="">
+        <h3 class="concern__title">いま、気になること</h3>
+        <p class="concern__text">気になる言葉を押すと関連ページに飛びます</p>
+        <div class="concern__wrapper">
+          <a class="concern__link" href="../menu-sle/symptoms.html">
+            <img class="darusa" src="../assets/images/toppage/kininaru-darusa.webp" alt="#だるさ">
+          </a>
+          <a class="concern__link" href="../support-sle/kokoro-care.html">
+            <img class="fuan" src="../assets/images/toppage/kininaru-fuan.webp" alt="#不安">
+          </a>
+          <a class="concern__link" href="../support-sle/school-job.html">
+            <img class="school" src="../assets/images/toppage/kininaru-gakkou.webp" alt="#学校">
+          </a>
+          <a class="concern__link" href="../support-sle/doctor.html">
+            <img class="doctor" src="../assets/images/toppage/kininaru-isi.webp" alt="#医師との信頼関係">
+          </a>
+          <a class="concern__link" href="../menu-sle/symptoms.html">
+            <img class="skin" src="../assets/images/toppage/kininaru-hisinn.webp" alt="#皮疹">
+          </a>
+          <a class="concern__link" href="../support-sle/sle-life-tips.html">
+            <img class="qol" src="../assets/images/toppage/kininaru-seikatunokotu.webp" alt="#生活のコツ">
+          </a>
+          <a class="concern__link" href="../menu-sle/treatment.html">
+            <img class="medicine" src="../assets/images/toppage/kininaru-medicine.webp" alt="#薬">
+          </a>
+        </div>
+      </section>
+
+      <img class="footer__top-img" src="../assets/images/background/bg_yellow02.webp" alt="">
+      <footer class="footer">
+        <a class="button contact__button" href="../contact.html">
+          <span>お問い合わせ</span>
+          <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+        </a>
+        <small class="footer__copy">&copy;わたしたちのSLE 2022-2026</small>
+        <img class="footer__flower" src="../assets/images/flower.webp" alt="">
+      </footer>
+    </div>
+    <aside class="right__column">
+      <img class="mizutama mizutama01" src="../assets/images/mizutama/mizutama01.webp" alt="">
+      <img class="mizutama mizutama02" src="../assets/images/mizutama/mizutama02.webp" alt="">
+      <img class="mizutama mizutama03" src="../assets/images/mizutama/mizutama03.webp" alt="">
+      <img class="mizutama mizutama04" src="../assets/images/mizutama/mizutama04.webp" alt="">
+      <img class="mizutama mizutama05" src="../assets/images/mizutama/mizutama05.webp" alt="">
+      <img class="mizutama mizutama06" src="../assets/images/mizutama/mizutama06.webp" alt="">
+      <img class="mizutama mizutama07" src="../assets/images/mizutama/mizutama07.webp" alt="">
+      <img class="mizutama mizutama08" src="../assets/images/mizutama/mizutama08.webp" alt="">
+    </aside>
+  </main>
+
+  </script>
+  <script src="./../assets/js/main.js" defer></script>
+</body>
+</html>
