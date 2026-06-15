@@ -1,0 +1,493 @@
+<?php
+/**
+ * お薬について | SLE（全身性エリテマトーデス）を患者目線でやさしく解説
+ * 元ファイル: check-sle/aboutmedicine.html
+ */
+$GLOBALS['oursle_center_id'] = 'aboutmedicine';
+$GLOBALS['oursle_center_class'] = 'diagnosis center__column';
+get_header();
+?>
+      <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
+        <ul class="breadcrumb__list">
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">トップページ</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/menu-check/' ) ); ?>">調べたいこと</a></li>
+          <li class="breadcrumb__item">お薬について</li>
+        </ul>
+        <a class="logo__link pc_only" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+          <img class="logo" src="<?= THEME_URI ?>/assets/images/logo.webp" alt="わたしたちのSLE">
+        </a>
+        <h1 class="title">お薬について</h1>
+      </section>
+
+      <section class="sec01">
+        <p class="subtitle">
+          SLEの治療に使われる薬を、種類別にまとめました。<br>
+          実際にどの薬を使うかは症状や臓器の状態によって異なります。お薬のことは主治医・薬剤師に相談しましょう。
+        </p>
+        <div class="index">
+          <h2 class="index__title">もくじ</h2>
+          <ul>
+            <li class="index__item">
+              <a class="index__link" href="#main-medicine">
+                <div class="index__title">SLEのメインとなる薬</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />
+                    <polyline points="9 15 12 18 15 15" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#conventional">
+                <div class="index__title">従来からある薬</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />
+                    <polyline points="9 15 12 18 15 15" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#immunosuppressant">
+                <div class="index__title">免疫抑制剤</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />
+                    <polyline points="9 15 12 18 15 15" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#biologics">
+                <div class="index__title">生物学的製剤</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />
+                    <polyline points="9 15 12 18 15 15" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#supportive">
+                <div class="index__title">対処療法の補助的な薬</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />
+                    <polyline points="9 15 12 18 15 15" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#topical">
+                <div class="index__title">皮膚に塗る薬</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />
+                    <polyline points="9 15 12 18 15 15" />
+                  </svg>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="main-medicine">
+        <h2 class="about-sle__title">
+          SLEのメインとなる薬
+        </h2>
+        <p class="about-sle__text">
+          過剰な免疫反応をおだやかにおさえる、いまのSLE治療の中心になる薬です。
+        </p>
+
+        <div class="med-grid">
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/purakenil.webp" alt="プラケニルの写真">
+            <div class="med-card__head">
+              <p class="med-card__kind">免疫調整剤</p>
+              <p class="med-card__name">プラケニル</p>
+              <p class="med-card__generic">ヒドロキシクロロキン</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">SLEと診断されたら最初に飲むことが多い薬です。過剰な免疫反応をおだやかにおさえ、関節痛・発疹・倦怠感などの症状をやわらげます。ステロイドの量を減らすことも期待できます。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="conventional">
+        <h2 class="about-sle__title">
+          従来からある薬
+        </h2>
+        <p class="about-sle__text">
+          以前から治療に使われてきた薬です。炎症や痛みをおさえる力が強く、今でも症状や急な悪化に合わせて使われます。
+        </p>
+
+        <div class="med-grid">
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/predonizoron.webp" alt="プレドニンの写真">
+            <div class="med-card__head">
+              <p class="med-card__kind">ステロイド／グルココルチコイド</p>
+              <p class="med-card__name">プレドニン</p>
+              <p class="med-card__generic">プレドニゾロン</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">少し前までは治療の中心となる薬でした。今はできるだけ少ない量・短い期間にしようとしています。それでも、急な悪化をおさえたいときには現在でも使われます。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/rokisopurofen.webp" alt="ロキソニンの写真">
+            <div class="med-card__head">
+              <p class="med-card__kind">非ステロイド性抗炎症薬</p>
+              <p class="med-card__name">ロキソニン</p>
+              <p class="med-card__generic">ロキソプロフェン</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">痛みや熱、炎症をおさえる薬です。関節の痛みや発熱など、SLEの症状をやわらげるために使われることがあります。ただし腎臓への負担になることがあるため、使い方には注意が必要です。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="immunosuppressant">
+        <h2 class="about-sle__title">
+          免疫抑制剤
+        </h2>
+        <p class="about-sle__text">
+          免疫の働きをおさえて臓器へのダメージを防ぎ、ステロイドを減らす助けにもなる薬です。
+        </p>
+
+        <div class="med-grid">
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/seruseputo.webp" alt="セルセプトの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">セルセプト</p>
+              <p class="med-card__generic">ミコフェノール酸モフェチル</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">免疫の働きをおさえて、臓器へのダメージを防ぐ薬です。ステロイドと組み合わせて使うことが多く、ステロイドを減らす助けにもなります。妊娠中は使えないため、使用中は避妊が必要です。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/purogurafu.webp" alt="プログラフの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">プログラフ</p>
+              <p class="med-card__generic">タクロリムス</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">免疫の働きを強力におさえる薬で、主にループス腎炎の治療に使われます。効果が高い一方、腎臓や血圧への影響が出ることがあるため、定期的な血液検査が必要です。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/imuran.webp" alt="イムランの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">イムラン</p>
+              <p class="med-card__generic">アザチオプリン</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">免疫の働きをおさえる薬で、ステロイドを減らすサポート役として使われることが多いです。効果が出るまでに時間がかかりますが、長い期間にわたって病気を落ち着かせるのに役立ちます。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/metotorekisato.webp" alt="リウマトレックスの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">リウマトレックス</p>
+              <p class="med-card__generic">メトトレキサート</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">関節リウマチの治療に用いられ、免疫の働きをおさえて炎症を鎮める薬です。関節の症状や皮膚症状に効果が期待できます。飲むのは週1回だけですが、葉酸を一緒に補うことが大切です。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/satikan.webp" alt="サーティカンの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">サーティカン</p>
+              <p class="med-card__generic">エベロリムス</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">免疫の働きをおさえる薬で、主にループス腎炎の治療に使われます。プログラフと似た仲間の薬ですが、腎臓への負担が比較的少ないとされ、状況に応じて使い分けられます。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/neoral.webp" alt="ネオーラルの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">ネオーラル</p>
+              <p class="med-card__generic">シクロスポリン</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">免疫の働きをおさえる薬で、ループス腎炎などの治療に使われます。プログラフと同じ仲間の薬です。腎臓や血圧への影響が出ることがあるため、定期的な検査が必要です。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/grasepter.webp" alt="グラセプターの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">グラセプター</p>
+              <p class="med-card__generic">タクロリムス</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">プログラフと同じ成分の薬で、効果や注意点も同じです。免疫の働きをおさえて臓器へのダメージを防ぎます。腎臓や血圧への影響があるため、定期的な血液検査が欠かせません。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="biologics">
+        <h2 class="about-sle__title">
+          生物学的製剤
+        </h2>
+        <p class="about-sle__text">
+          免疫の特定の働きをねらっておさえる新しいタイプの薬で、注射や点滴で投与します。
+        </p>
+
+        <div class="med-grid">
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/benrista.webp" alt="ベンリスタの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">ベンリスタ</p>
+              <p class="med-card__generic">ベリムマブ</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">SLEの治療のために開発された薬で、異常に活発になったB細胞の働きをおさえます。注射または点滴で投与します。ステロイドを減らす助けにもなり、再発を防ぐ効果が期待できます。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/tenteki.webp" alt="サフネロー（点滴）の写真">
+            <div class="med-card__head">
+              <p class="med-card__name">サフネロー</p>
+              <p class="med-card__generic">アニフロルマブ</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">免疫の働きを過剰に強くしてしまう「1型インターフェロン」というたんぱく質の働きをおさえる薬です。点滴で投与します。皮下注射（自己注射）のタイプもあります。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/tenteki.webp" alt="リツキサン（点滴）の写真">
+            <div class="med-card__head">
+              <p class="med-card__name">リツキサン</p>
+              <p class="med-card__generic">リツキシマブ</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">抗がん剤にも使われ、厳重に管理されている薬です。B細胞そのものを減らす力の強い薬で、ループス腎炎などに使えるようになりました。点滴で投与し、入院して受けることが多いです。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/akutemura.webp" alt="アクテムラの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">アクテムラ</p>
+              <p class="med-card__generic">トシリズマブ</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">IL-6という炎症のスイッチを止める生物学的製剤です。関節リウマチに使われ、ループス血管炎にも使われることがあります。点滴（静脈）タイプもあります。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="supportive">
+        <h2 class="about-sle__title">
+          対処療法の補助的な薬
+        </h2>
+        <p class="about-sle__text">
+          骨を守る、血流をよくする、血小板を増やすなど、症状や副作用に合わせて使われる飲み薬です。
+        </p>
+
+        <div class="med-grid">
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/rokaruto.webp" alt="ロカルトロールの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">ロカルトロール</p>
+              <p class="med-card__generic">カルシトリオール</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">腎臓の働きが低下すると不足しがちな、活性型ビタミンDを補う薬です。骨を丈夫に保つ働きがあり、長い期間ステロイドを使っている場合などに処方されることがあります。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/arufaro.webp" alt="アルファロールの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">アルファロール</p>
+              <p class="med-card__generic">アルファカルシドール</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">骨粗しょう症の治療に広く使われる活性型ビタミンD3製剤です。骨折のリスクを減らす効果が期待できます。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/prosirin.webp" alt="プロサイリンの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">プロサイリン</p>
+              <p class="med-card__generic">ベラプロストナトリウム</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">血管を広げて血流をよくする薬です。手足の先が白くなったり青くなったりするレイノー現象の予防や、末端の血流改善に使われます。出血しやすい状態のときは使えません。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/bonaron.webp" alt="ボナロン経口ゼリーの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">ボナロン経口ゼリー</p>
+              <p class="med-card__generic">アレンドロン酸Naゼリー</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">骨を壊す働きをおさえて骨を丈夫に保つ薬です。長い期間ステロイドを使うと骨がもろくなりやすいため、骨粗しょう症の予防・治療に使われます。週1回、起床後すぐに水で服用します。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/rebo.webp" alt="レボレードの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">レボレード</p>
+              <p class="med-card__generic">エルトロンボパグ</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">血小板を増やす働きをうながす薬です。SLEでは血小板が減少することがあり、ほかの治療で効果が不十分な場合に使われます。1日1回、食事の前後2時間を空けて服用します。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/minodoron.webp" alt="ミノドロンの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">ミノドロン</p>
+              <p class="med-card__generic">ボノテオ錠・リカルボン錠</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">骨を壊す働きをおさえて骨を丈夫に保つ薬です。長い期間ステロイドを使うと骨がもろくなりやすいため、骨粗しょう症の予防・治療に使われます。月1回または週1回服用するタイプがあります。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/risedoron.webp" alt="リセドロン酸Na錠の写真">
+            <div class="med-card__head">
+              <p class="med-card__name">リセドロン酸Na錠</p>
+              <p class="med-card__generic">アクトネル・ベネット</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">骨を壊す働きをおさえて骨を丈夫に保つ薬です。長い期間ステロイドを使うと骨がもろくなりやすいため、骨粗しょう症の予防・治療に使われます。毎日・週1回・月1回と服用タイプが選べます。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec02 section" id="topical">
+        <h2 class="about-sle__title">
+          皮膚に塗る薬
+        </h2>
+        <p class="about-sle__text">
+          皮膚の保湿や炎症をおさえるために、患部に塗って使う外用薬です。
+        </p>
+
+        <div class="med-grid">
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/hirudoido.webp" alt="ヒルドイドの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">ヒルドイド</p>
+              <p class="med-card__generic">ヘパリン類似物質</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">皮膚の保湿や血行を改善する薬です。SLEでは皮膚が乾燥しやすく、炎症や傷つきやすい状態になりやすいため、皮膚のケアとして処方されることがあります。クリームやローションなど剤形が選べます。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/antebeto.webp" alt="アンテベートの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">アンテベート</p>
+              <p class="med-card__generic">ベタメタゾン酪酸エステルプロピオン酸エステル</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">皮膚の炎症をおさえるステロイド外用薬です。SLEでは皮膚に赤みや発疹が出ることがあり、その症状をやわらげるために使われます。強めのステロイドのため、長い期間の使用には注意が必要です。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/purosuta.webp" alt="プロスタンディンの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">プロスタンディン</p>
+              <p class="med-card__generic">アルプロスタジル アルファデクス</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">皮膚の潰瘍や床ずれの治療に使う軟膏です。血流を改善して傷の回復を助ける働きがあります。SLEで皮膚に潰瘍ができたときや、血流が悪くなった部位のケアに使われることがあります。</p>
+            </div>
+          </div>
+          <div class="med-card">
+            <img class="med-card__img" src="<?= THEME_URI ?>/assets/images/medicine/protpic.webp" alt="プロトピックの写真">
+            <div class="med-card__head">
+              <p class="med-card__name">プロトピック</p>
+              <p class="med-card__generic">タクロリムス水和物軟膏</p>
+            </div>
+            <div class="med-card__body">
+              <p class="med-card__text">ステロイドとは異なる成分で皮膚の炎症をおさえる塗り薬です。顔や首など皮膚の薄い部分にも使いやすく、SLEの皮膚症状である赤みや発疹の治療に使われることがあります。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="category__wrapper bg-white section">
+        <div class="category">
+          カテゴリー：
+          <a href="#">#お薬 </a>
+          <a href="#">#ステロイド </a>
+          <a href="#">#免疫抑制剤 </a>
+          <a href="#">#生物学的製剤 </a>
+          <a href="#">#プラケニル </a>
+          <a href="#">#骨粗しょう症 </a>
+          <a href="#">#外用薬 </a>
+        </div>
+        <p class="up-dated__text">
+          作成日・更新日 <time datetime="2026-06-13">2026.06.13</time>
+        </p>
+      </section>
+
+      <img class="bg_blue_victor" src="<?= THEME_URI ?>/assets/images/background/bg-blue02.webp" alt="">
+
+      <section class="pics bg-blue">
+        <h2 class="pics__title">おすすめのページ</h2>
+        <div class="pics__links">
+          <a href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>" class="pics__left-link">
+            <img class="thumbnail" src="<?= THEME_URI ?>/assets/images/thumbnails/thumbnail_shoujou.webp" alt="SLEの症状のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+            </div>
+          </a>
+          <a href="<?php echo esc_url( home_url( '/diagnosis/' ) ); ?>" class="pics__right-link">
+            <img class="thumbnail" src="<?= THEME_URI ?>/assets/images/thumbnails/thumbnail_sindan.webp" alt="SLEの診断のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="concern">
+        <img class="concern__top-img" src="<?= THEME_URI ?>/assets/images/background/bg_green03.webp" alt="">
+        <h3 class="concern__title">いま、気になること</h3>
+        <p class="concern__text">気になる言葉を押すと関連ページに飛びます</p>
+        <div class="concern__wrapper">
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
+            <img class="darusa" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-darusa.webp" alt="#だるさ">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/kokoro-care/' ) ); ?>">
+            <img class="fuan" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-fuan.webp" alt="#不安">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/school-job/' ) ); ?>">
+            <img class="school" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-gakkou.webp" alt="#学校">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/doctor/' ) ); ?>">
+            <img class="doctor" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-isi.webp" alt="#医師との信頼関係">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
+            <img class="skin" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-hisinn.webp" alt="#皮疹">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/sle-life-tips/' ) ); ?>">
+            <img class="qol" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-seikatunokotu.webp" alt="#生活のコツ">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/treatment/' ) ); ?>">
+            <img class="medicine" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-medicine.webp" alt="#薬">
+          </a>
+        </div>
+      </section>
+
+      
+<?php get_footer();

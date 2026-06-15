@@ -1,0 +1,349 @@
+<?php
+/**
+ * SLEの症状 | SLE（全身性エリテマトーデス）を患者目線でやさしく解説
+ * 元ファイル: menu-sle/symptoms.html
+ */
+$GLOBALS['oursle_center_id'] = 'about__sle';
+get_header();
+?>
+      <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
+        <ul class="breadcrumb__list">
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>トップページ</li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">SLEについて</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">SLEの症状</a></li>
+        </ul>
+        <a class="logo__link pc_only" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+          <img class="logo" src="<?= THEME_URI ?>/assets/images/logo.webp" alt="わたしたちのSLE">
+        </a>
+        <h1 class="title">SLEの症状</h1>
+      </section>
+      
+      <section class="sec01">
+        <p class="subtitle">SLEの症状は人それぞれ異なります。発熱、関節の痛み、皮膚症状など、よくあるサインを整理してご紹介します。ご自身の症状を理解し、医師に伝える参考にしてください。</p>
+        <div class="index">
+          <h2 class="index__title">もくじ</h2>
+          <ul>
+            <li class="index__item">
+              <a class="index__link" href="#systemic">
+                <div class="index__title">全身の症状</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#skin">
+                <div class="index__title">皮膚や粘膜の症状</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#join">
+                <div class="index__title">筋肉や関節の症状</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#kidney">
+                <div class="index__title">腎臓の症状</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#lungs">
+                <div class="index__title">肺や心臓の症状</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#nerve">
+                <div class="index__title">神経の症状</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#blood">
+                <div class="index__title">血液の異常</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li class="index__item">
+              <a class="index__link" href="#other">
+                <div class="index__title">その他の症状</div>
+                <div class="section__button">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <line x1="12" y1="6" x2="12" y2="18" />  <!-- 縦棒 -->
+                    <polyline points="9 15 12 18 15 15" />    <!-- 下向き矢印 -->
+                  </svg>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="sec02 section">
+        <h2 class="about-sle__title" id="systemic">
+          全身の症状
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・だるい、疲れやすい</span><br>
+          体の全体的な疲れや倦怠感を感じることがあります。<br>
+          <span class="bold">・発熱</span><br>
+          微熱〜38℃以上の高熱になることも少なくありません。<br>
+          <span class="bold">・リンパ節の腫れ</span><br>
+          多くの場合、腫れは柔らかく、痛みはありません。<br>
+          <span class="bold">・感染症</span><br>
+          免疫力が低下します。<br>
+          <span class="bold">・体重が減る・増える・むくみ</span>
+        </p>
+      </section>
+      
+      <section class="sec03 section" id="skin">
+        <h2 class="about-sle__title">
+          皮膚や粘膜の症状
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・ループスエリテマトーデス</span><br>
+          蝶形紅班や円板状皮疹が狼がかんだ傷を想像させることから由来します。<br>
+          頬部紅斑（蝶形紅斑）<br>
+          ほお骨から鼻に広がる両翼を広げた蝶の形に似た紅斑で、蝶形紅斑と呼ばれる。<br>
+          <span class="bold">・円板状皮疹（discoid lupus）ディスコイド疹</span><br>
+          慢性の鱗屑を伴う円板状皮疹は次第に周囲が肥厚し中央が陥没様になっていく。<br>
+          <span class="bold">・日光過敏</span><br>
+          紫外線に当たっていた肌に発赤や水泡形成などの反応がでる。日光過敏症は特に皮膚の色が薄い人にみられます。<br>
+          <span class="bold">・口腔内潰瘍</span><br>
+          痛みのない口腔内潰瘍で、典型的な場所は硬口蓋。特に口の中の天井部分、頬の内側、歯ぐき、鼻の内部にできるお医師さんの口腔内診察で初めて気づかれることがある。<br>
+          <span class="bold">・環状紅斑</span><br>
+          環状の紅斑局面である環状紅斑。<br>
+          <span class="bold">・凍瘡様皮疹</span><br>
+          手の指先に凍瘡のような見た目をすることがある。 爪の周りに紅斑があることもある。<br>
+          <span class="bold">・レイノー症状</span><br>
+          寒冷刺激によって手指の色が白色化・青紫色化するレイノー症状。血流が悪くなり青白くなる→紫→赤→数分〜10分程度で元に戻る<br>
+          <span class="bold">・リベドー疹</span><br>
+          手足に淡褐色の網目状皮疹。SLEの特徴的ではないが、発見された場合は血管炎もしくは腎炎を疑う。<br>
+          <span class="bold">・脱毛</span><br>
+          頭皮に紅斑が形成され局所的な脱毛もしくは皮疹を伴わずびまん性の脱毛を伴うことがある。 再燃の際に全身、局所の脱毛がよく見られる。<br>
+          <span class="bold">・深在性ループス</span><br>
+          皮下脂肪組織に炎症が発生し、脂肪組織が自壊、瘢痕形成に至る。脂肪組織が豊富な顔面頬部や臀部などに好発し、外観上は陥凹した局面を形成する。触診上、内部の瘢痕を硬結として触れる。治癒後も皮膚陥凹が残りやすく治療は急がれる。<br>
+          <br><br>
+          <span class="bold">・皮膚症状の治療</span><br>
+          日本ではエリテマト>ーデスの皮膚疾患はステロイドや効果は落ちるが副作用が少ないことから、プロトピック軟膏が使われている。世界ではプラケニルが皮膚疾患に効き用いられている半数以上のプラケニル服用者が皮膚疾患が改善されている効果は4〜8週程度と言われているが、それ以上かかることもある
+        </p>
+      </section>
+      
+      <section class="sec04 section" id="join">
+        <h2 class="about-sle__title">
+          筋肉や関節の症状
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・筋肉痛</span><br>
+          血液検査でCPK・CKという項目が上昇する。CPK・CKの軽度の上昇は、普通の運動などでもおこりますので、あまり神経質になる必要はありません。<br>
+          <span class="bold">・関節の痛み・腫れ</span><br>
+          複数の関節に症状があらわれることが多いです。関節の炎症は一般に間欠的で、通常は関節に損傷が起こることはありません。 痛みはあちこちにある<br>
+          <span class="bold">・こわばり</span><br>
+          手が握りにくい、手に力が入りにくいといった症状のことを言います。 朝起きた時によく起こりますが、朝に限らず、長時間じっとしていたり、昼寝をしたりした後に起こることもあります。<br>
+        </p>
+      </section>
+      
+      <section class="sec04 section" id="kidney">
+        <h2 class="about-sle__title">
+          腎臓の症状
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・ループス腎炎</span><br>
+          腎臓の濾過がうまくできなくなり炎症が起きる。 わたしたちの３人に1人が腎臓に重篤な炎症が起き、腎障害が起こることもある。 自覚症状がわかりにくく、顔や足のむくみ、全身倦怠感、食欲不振、高血圧も要注意<br>
+          ループス腎炎になると、タンパク尿、血尿、ネフローゼ症候群などさまざまな症状がみられることがあります。<br>
+          <br>
+          ＊尿が泡立つ（タンパク尿）<br>
+          ＊尿が赤茶色になる（血尿）<br>
+          ＊足の浮腫（腎障害により尿が作れなくなる、ネフローゼ症候群などが原因）
+        </p>
+      </section>
+      
+      <section class="sec04 section" id="lungs">
+        <h2 class="about-sle__title">
+          肺や心臓の症状
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・心臓の炎症</span><br>
+          無症状のことも多いですが、脈が速い、息苦しいなどの症状があらわれることがあります。<br>
+          <span class="bold">・胸膜炎</span><br>
+          肺を覆う胸膜に炎症が生じ、胸の痛みや呼吸困難などの症状があらわれます。呼吸・体動時にこれらの症状が強くなるのが特徴です。<br>
+          <span class="bold">・漿膜炎</span><br>
+          漿膜に炎症が発生し胸膜炎や心外膜炎をおこし、炎症性浸出液が貯留する<br>
+          CRPが上昇されることがある
+        </p>
+      </section>
+      
+      <section class="sec02 section" id="nerve">
+        <h2 class="about-sle__title">
+          神経の症状
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・偏頭痛</span><br>
+          わたしたちの３人の1人に偏頭痛を抱えて、不安やうつ病を患うこともある<br>
+          <span class="bold">・けいれん発作（てんかん発作）</span><br>
+          免疫抑制剤や抗炎症治療と抗けいれん剤を用いる。<br>
+          <span class="bold">・髄膜炎</span><br>
+          強い頭痛、吐き気、嘔吐、高熱などの症状<br>
+          <span class="bold">・末梢神経障害</span><br>
+          手足のしびれ、手足が動かしにくいなど
+        </p>
+      </section>
+
+      <section class="sec04 section" id="blood">
+        <h2 class="about-sle__title">
+          血液の異常
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・血球成分の減少</span><br>
+          異常な免疫が血球成分を攻撃し、減少します。赤血球が少なくなると貧血、白血球では感染症にかかりやすくなる。 血小板では出血しやすい・出血が止まりにくいといった症状がみられます。<br>
+          <span class="bold">・自己抗体</span><br>
+          自分自身を排除しようとする抗体（免疫物質）です。いくつかの全身性エリテマトーデスの患者さんで検出されやすいものとして抗核抗体（特に抗 dsDNA 抗体、抗 Sm 抗体）があり、その他、抗 SS-A 抗体、抗リン脂質抗体などがあります。<br>
+          <span class="bold">・低補体血症</span><br>
+          SLEの活動性を反映して補体低値（C3, C4, CH50）を示すことが多い。免疫複合体が組織に沈着すると補体が動員・消費され、末梢血中の補体が減少する。障害臓器の組織検査では補体の沈着が観察される。腎生検におけるC1qの沈着はSLEに比較的特徴的である。漿膜炎や感染症併発などでCRP高値の場合は、補体低下が、炎症による補体の産生増加によって打ち消されることがある。こうした炎症状態では、補体が正常値であっても補体が消費されていないとは言えない。
+        </p>
+      </section>
+      
+      <section class="sec02 section" id="other">
+        <h2 class="about-sle__title">
+          その他の症状
+        </h2>
+        <p class="about-sle__text">
+          <span class="bold">・ループス膀胱炎</span><br>
+          頻尿になる<br>
+          <span class="bold">・腸炎</span><br>
+          下痢・吸収不良・腹痛（ループス腸炎）<br>
+          <span class="bold">・皮下出血や紫斑</span><br>
+          血小板減少であざができやすい<br>
+          <span class="bold">・自己免疫疾患を併発しやすい</span><br><br>
+          例えば、自己免疫性甲状腺疾患(特に甲状腺機能低下症)、シェーグレン症候群、関節リウマチや筋炎
+        </p>
+      </section>
+
+      <section class="sec04 section">
+        <img src="<?= THEME_URI ?>/assets/images/menu-sle/syoujou.webp" alt="">
+      </section>
+
+    
+      
+      <img class="bg_yellow_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow03.webp" alt="">
+      
+      <section class="sec07 summary__wrapper bg-yellow section">
+        <div class="summary__header">
+          <span class="summary__title">まとめ</span>
+        </div>
+        <p class="summary__text">
+          SLEの症状は人それぞれ異なり、全身のさまざまな部位に現れます。発熱や倦怠感などの全身症状、関節の痛みや腫れ、頬や鼻の赤い発疹（蝶形紅斑）、日光過敏症などの皮膚症状が代表的です。また、腎臓や血液、神経系など内臓に症状が出ることもあります。症状は良くなったり悪くなったりを繰り返すこともあり、個人差が大きいのが特徴です。気になる症状があれば記録を取り、医師に詳しく伝えることで適切な治療につながります。
+        </p>
+      </section>
+      
+      
+      <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
+      <section class="category__wrapper bg-white section">
+        <div class="category">
+          カテゴリー：
+          <a href="#">#SLEについて </a>
+          <a href="#">#SLEの症状 </a>
+          <a href="#">#全身 </a>
+          <a href="#">#皮膚 </a>
+          <a href="#">#粘膜 </a>
+          <a href="#">#筋肉 </a>
+          <a href="#">#関節 </a>
+          <a href="#">#腎臓 </a>
+          <a href="#">#肺 </a>
+          <a href="#">#心臓 </a>
+          <a href="#">#神経 </a>
+          <a href="#">#血液</a>
+        </div>
+        <p class="up-dated__text">
+          作成日・更新日 <time datetime="2026-05-29">2026.05.29</time>
+        </p>
+      </section>
+
+      <img class="bg_blue_victor" src="<?= THEME_URI ?>/assets/images/background/bg-blue02.webp" alt="">
+
+      <section class="pics bg-blue">
+        <h2 class="pics__title">おすすめのページ</h2>
+        <div class="pics__links">
+          <a href="<?php echo esc_url( home_url( '/diagnosis/' ) ); ?>" class="pics__left-link">
+            <img class="thumbnail" src="<?= THEME_URI ?>/assets/images/thumbnails/thumbnail_sindan.webp" alt="医療費の制度のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+            </div>
+          </a>
+          <a href="<?php echo esc_url( home_url( '/treatment/' ) ); ?>" class="pics__right-link">
+            <img class="thumbnail" src="<?= THEME_URI ?>/assets/images/thumbnails/thumbnail_tiryou.webp" alt="医療費の制度のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="concern">
+        <img class="concern__top-img" src="<?= THEME_URI ?>/assets/images/background/bg_green03.webp" alt="">
+        <h3 class="concern__title">いま、気になること</h3>
+        <p class="concern__text">気になる言葉を押すと関連ページに飛びます</p>
+        <div class="concern__wrapper">
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
+            <img class="darusa" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-darusa.webp" alt="#だるさ">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/kokoro-care/' ) ); ?>">
+            <img class="fuan" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-fuan.webp" alt="#不安">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/school-job/' ) ); ?>">
+            <img class="school" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-gakkou.webp" alt="#学校">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/doctor/' ) ); ?>">
+            <img class="doctor" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-isi.webp" alt="#医師との信頼関係">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
+            <img class="skin" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-hisinn.webp" alt="#皮疹">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/sle-life-tips/' ) ); ?>">
+            <img class="qol" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-seikatunokotu.webp" alt="#生活のコツ">
+          </a>
+          <a class="concern__link" href="<?php echo esc_url( home_url( '/treatment/' ) ); ?>">
+            <img class="medicine" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-medicine.webp" alt="#薬">
+          </a>
+        </div>
+      </section>
+
+      
+<?php get_footer();
