@@ -1,0 +1,301 @@
+<?php
+session_start();
+
+// 確認画面から「戻る」または入力エラーで戻ってきたときの値・エラーを取得
+$old    = $_SESSION['contact_old']    ?? [];
+$errors = $_SESSION['contact_errors'] ?? [];
+// エラーは一度表示したら消す（リロードで残らないように）
+unset($_SESSION['contact_errors']);
+
+// 入力値を安全に出力するためのヘルパー
+function h($v) {
+  return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8');
+}
+function old($key) {
+  global $old;
+  return h($old[$key] ?? '');
+}
+
+// CSRFトークン（未発行なら発行）
+if (empty($_SESSION['csrf_token'])) {
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+$csrf = $_SESSION['csrf_token'];
+?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="わたしたちのSLEは、SLE（全身性エリテマトーデス）の症状・検査・治療・暮らしの工夫を、患者目線でやさしくまとめた情報サイトです。不安や悩みを抱える方へ、日常を少しでも楽にするヒントを届けます。">
+  <meta name="keywords" content="SLE,全身性エリテマトーデス,自己免疫疾患,難病,SLE 症状,SLE 治療,膠原病,ループス,患者会,医療費助成,社会的寛解,難病生活">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | わたしたちのSLE | SLE（全身性エリテマトーデス）を患者目線でやさしく解説</title>
+  <link rel="stylesheet" href="./assets/css/reset.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon_io/favicon.ico">
+</head>
+<body>
+  <!-- sp表示ハンバーガーボタン -->
+  <header class="sp__header" aria-label="モバイル用ヘッダー">
+    <a href="index.html" class="logo__link">
+      <img src="assets/images/logo.webp" alt="わたしたちのSLE" class="logo">
+    </a>
+    <div class="hambergar__container">
+      <div class="hambergar_box">
+        <span></span><span></span><span></span>
+      </div>
+      <img src="assets/images/serch.webp" alt="検索" class="serch__img">
+    </div>
+  </header>
+
+  <!-- pc表示ハンバーガーボタン -->
+  <div id="hambergar" class="hambergar__container pc_only">
+    <div class="hambergar__box">
+      <span></span><span></span><span></span>
+    </div>
+    <img class="serch_img" src="assets/images/serch.webp" alt="検索">
+  </div>
+
+  <!-- ハンバーガーメニュー -->
+  <div class="hambergar__menu">
+    <div class="hambergar__top">
+      <a class="go_to_home_link" href="index.html">
+        <img class="logo" src="assets/images/logo.webp" alt="わたしたちのSLE">
+      </a>
+      <div class="hambergar__button close_hambergar sp_only">
+        <span></span><span></span>
+      </div>
+    </div>
+    <form class="search__wrapper">
+      <input type="text" placeholder="症状、検査 …で検索">
+      <button>検索</button>
+    </form>
+    <nav>
+      <div class="nav__category-header">
+        <a href="menu-sle/menu-sle.html" class="nav__category-link">
+          <h2 class="nav__category-title">SLEについて</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <ul>
+        <li><a href="menu-sle/about-sle.html"><span class="green"></span>SLEとは</a></li>
+        <li><a href="menu-sle/symptoms.html"><span class="orange"></span>SLEの症状</a></li>
+        <li><a href="menu-sle/complications.html"><span class="red"></span>起こりやすい合併症</a></li>
+        <li><a href="menu-sle/diagnosis.html"><span class="green"></span>SLEの診断基準</a></li>
+        <li><a href="menu-sle/treatment.html"><span class="orange"></span>SLEの治療</a></li>
+        <li><a href="menu-sle/remission.html"><span class="red"></span>社会的寛解とは</a></li>
+      </ul>
+
+      <div class="nav__category-header">
+        <a href="support-sle/menu-support.html" class="nav__category-link">
+          <h2 class="nav__category-title">困っている</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <ul>
+        <li><a href="support-sle/school-job.html"><span class="green"></span>仕事・学校</a></li>
+        <li><a href="support-sle/kokoro-care.html"><span class="orange"></span>こころ</a></li>
+        <li><a href="support-sle/sle-life-tips.html"><span class="red"></span>SLEと付き合うコツ</a></li>
+        <li><a href="support-sle/doctor.html"><span class="green"></span>医師との信頼関係</a></li>
+        <li><a href="support-sle/care-guide.html"><span class="orange"></span>受診の目安</a></li>
+        <li><a href="support-sle/pregnancy.html"><span class="red"></span>妊娠と出産</a></li>
+        <li><a href="support-sle/faq.html"><span class="red"></span>よくある質問</a></li>
+      </ul>
+
+      <div class="nav__category-header">
+        <a href="check-sle/menu-check.html" class="nav__category-link">
+          <h2 class="nav__category-title">調べたい</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <ul>
+        <li><a href="check-sle/results.html"><span class="green"></span>検査結果の見方</a></li>
+        <li><a href="check-sle/aboutmedicine.html"><span class="orange"></span>お薬について</a></li>
+        <li><a href="check-sle/system.html"><span class="red"></span>医療費の制度</a></li>
+        <li><a href="check-sle/jukyuusyahyou.html"><span class="green"></span>医療費以外の受給者票</a></li>
+        <li><a href="check-sle/nanbyouteate.html"><span class="orange"></span>難病手当</a></li>
+        <li><a href="check-sle/tourokusyou.html"><span class="red"></span>登録者証</a></li>
+      </ul>
+
+      <div class="nav__category-header">
+        <a href="communication-sle/menu-communication.html" class="nav__category-link">
+          <h2 class="nav__category-title">仲間さがし</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <ul>
+        <li><a href="communication-sle/openchat.html"><span class="green"></span>オープンチャット（LINE）</a></li>
+        <li><a href="communication-sle/about-me.html"><span class="orange"></span>わたしについて</a></li>
+      </ul>
+
+      <div class="nav__category-header">
+        <a href="enquete/menu-enquete.html" class="nav__category-link">
+          <h2 class="nav__category-title">参加する</h2>
+        </a>
+        <div class="accordion__button">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <ul>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc7O8RoWahgaMXc7ilKptHCIFuQyfkdG1ReZwCvg66EoGjMGA/viewform?usp=sharing" target="_blank" rel="noopener"><span class="green"></span>あるあるアンケート（2分）</a></li>
+        <li><a href="enquete/enquete01.html"><span class="orange"></span>アンケート結果第1回</a></li>
+        <li><a href="enquete/enquete02.html"><span class="red"></span>アンケート結果第2回</a></li>
+        <li><a href="enquete/enquete03.html"><span class="green"></span>アンケート結果第3回</a></li>
+      </ul>
+    </nav>
+    <div class="button_wrapper">
+      <a class="button" href="contact.php">
+        <span>お問い合わせ</span>
+        <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+      </a>
+    </div>
+    <div id="close_hambergar" class="close-hambergar__container close_hambergar">
+      <div class="hambergar__box">
+        <span></span><span></span>
+      </div>
+      <h3 class="close-title">閉じる</h3>
+    </div>
+  </div>
+
+  <main id="main" class="container">
+    <aside class="left__column">
+      <a href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" class="line__container">
+        <img class="line__img" src="assets/images/line_icon.webp" alt="LINEのアイコン">
+        <img class="qr__img" src="assets/images/qr.webp" alt="LINEのQRコード">
+        <div class="oc__text_box">
+          <p class="oc__text">SLE仲間<br class="column_br">募集してます<br>オープンチャット</p>
+        </div>
+      </a>
+      <img class="mizutama mizutama01" src="assets/images/mizutama/mizutama01.webp" alt="">
+      <img class="mizutama mizutama02" src="assets/images/mizutama/mizutama02.webp" alt="">
+      <img class="mizutama mizutama03" src="assets/images/mizutama/mizutama03.webp" alt="">
+      <img class="mizutama mizutama04" src="assets/images/mizutama/mizutama04.webp" alt="">
+      <img class="mizutama mizutama05" src="assets/images/mizutama/mizutama05.webp" alt="">
+      <img class="mizutama mizutama06" src="assets/images/mizutama/mizutama06.webp" alt="">
+      <img class="mizutama mizutama07" src="assets/images/mizutama/mizutama07.webp" alt="">
+      <img class="mizutama mizutama08" src="assets/images/mizutama/mizutama08.webp" alt="">
+    </aside>
+    <div id="contact" class="center__column">
+      <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
+        <ul class="breadcrumb__list">
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html"></a>トップページ</li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">お問い合わせ</a></li>
+        </ul>
+        <a class="logo__link pc_only" href="index.html">
+          <img class="logo" src="assets/images/logo.webp" alt="わたしたちのSLE">
+        </a>
+        <h1 class="title">お問い合わせ・ご相談</h1>
+      </section>
+      <section class="sec01">
+        <p class="title__text">ご相談やホームページのご感想などお気軽にお問い合わせくださいませ。</p>
+        <div class="sec01__flex">
+          <div class="sec01__flex-item active">入力</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon
+                points="0,0 20,12 0,24"
+                fill="#fff"
+                stroke="#A5FF9F"
+                stroke-width="2"
+              />
+            </svg>
+          </span>
+          <div class="sec01__flex-item">確認</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon
+                points="0,0 20,12 0,24"
+                fill="#fff"
+                stroke="#A5FF9F"
+                stroke-width="2"
+              />
+            </svg>
+          </span>
+          <div class="sec01__flex-item">送信</div>
+        </div>
+      </section>
+
+      <section class="sec02">
+        <?php if (!empty($errors)): ?>
+          <p class="form__error-summary" style="color:#d33; font-weight:bold;">入力内容にエラーがあります。ご確認ください。</p>
+        <?php endif; ?>
+        <form action="contact-confirm.php" method="post" class="form">
+          <input type="hidden" name="csrf_token" value="<?= h($csrf) ?>">
+          <!-- スパム対策（人間には見えない項目。入力されていたらbotとみなす） -->
+          <p style="position:absolute; left:-9999px;" aria-hidden="true">
+            <label>このフィールドは空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off" value=""></label>
+          </p>
+
+          <label for="name">お名前（必須事項）</label>
+          <?php if (!empty($errors['name'])): ?>
+            <p class="form__error" style="color:#d33; margin:0;"><?= h($errors['name']) ?></p>
+          <?php endif; ?>
+          <input type="text" id="name" name="name" value="<?= old('name') ?>" required>
+
+          <label for="email">メールアドレス（必須事項）</label>
+          <?php if (!empty($errors['email'])): ?>
+            <p class="form__error" style="color:#d33; margin:0;"><?= h($errors['email']) ?></p>
+          <?php endif; ?>
+          <input type="email" name="email" id="email" value="<?= old('email') ?>" required>
+
+          <label for="title">件名</label>
+          <?php if (!empty($errors['title'])): ?>
+            <p class="form__error" style="color:#d33; margin:0;"><?= h($errors['title']) ?></p>
+          <?php endif; ?>
+          <input type="text" name="title" id="title" value="<?= old('title') ?>">
+
+          <label for="message">メッセージ（必須事項）</label>
+          <?php if (!empty($errors['message'])): ?>
+            <p class="form__error" style="color:#d33; margin:0;"><?= h($errors['message']) ?></p>
+          <?php endif; ?>
+          <textarea name="message" id="message" rows="4" required><?= old('message') ?></textarea>
+
+          <button type="submit" class="button contact__button">
+            <span>確認する</span>
+            <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+          </button>
+        </form>
+        <p>お問い合わせのご返信は5日以内(土日祝日以外)を心がけております。お客様のご利用環境、また迷惑メール対策等の設定により、お返事が届かない場合があります。7日経過しても返信のない場合、大変お手数をおかけしますが再度お送りいただくよう、お願い申し上げます。</p>
+      </section>
+
+
+      <img class="footer__top-img" src="assets/images/background/bg_yellow02.webp" alt="">
+      <footer class="footer">
+        <small class="footer__copy">&copy;わたしたちのSLE 2022-2026</small>
+        <img class="footer__flower" src="assets/images/flower.webp" alt="">
+      </footer>
+    </div>
+    <aside class="right__column">
+      <img class="mizutama mizutama01" src="assets/images/mizutama/mizutama01.webp" alt="">
+      <img class="mizutama mizutama02" src="assets/images/mizutama/mizutama02.webp" alt="">
+      <img class="mizutama mizutama03" src="assets/images/mizutama/mizutama03.webp" alt="">
+      <img class="mizutama mizutama04" src="assets/images/mizutama/mizutama04.webp" alt="">
+      <img class="mizutama mizutama05" src="assets/images/mizutama/mizutama05.webp" alt="">
+      <img class="mizutama mizutama06" src="assets/images/mizutama/mizutama06.webp" alt="">
+      <img class="mizutama mizutama07" src="assets/images/mizutama/mizutama07.webp" alt="">
+      <img class="mizutama mizutama08" src="assets/images/mizutama/mizutama08.webp" alt="">
+    </aside>
+  </main>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

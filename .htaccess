@@ -1,0 +1,11 @@
+# 機密ファイルへのWeb直接アクセスを禁止する
+# （PHPは通常そのまま実行されパスワードは表示されませんが、万一の保険）
+
+<FilesMatch "^(mail-config\.php|mail-config\.sample\.php|composer\.(json|lock))$">
+  Require all denied
+</FilesMatch>
+
+# .git や設定ファイルなど、ドット始まりファイルへのアクセスを禁止
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>

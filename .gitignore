@@ -1,0 +1,5 @@
+# メール送信のパスワードを含むため、コミットしない
+mail-config.php
+
+# OS
+.DS_Store
