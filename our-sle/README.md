@@ -127,24 +127,19 @@ our-sle/
 個別記事の「前へ／次へ」は `oursle_adjacent_post()` を使用し、
 **VKプラグインの外部リンク投稿をスキップ**して次の通常記事を表示します。
 
-判別にはその投稿のメタ（カスタムフィールド）キー名が必要です。
+判別は、その投稿のメタ（カスタムフィールド）キー `vk-ltc-link`（VK/Lightningの
+外部リンク投稿が外部URLを保存するキー）で行います。`functions.php` の
+`oursle_vk_link_meta_key()` で設定済みです。
 
-> リンク投稿はフロントで開くと外部URLへ**リダイレクト**するため、フロント側では
-> メタキーを確認できません。リダイレクトの起きない**管理画面**で調べます。
+```php
+function oursle_vk_link_meta_key() {
+    return apply_filters( 'oursle_vk_link_meta_key', 'vk-ltc-link' );
+}
+```
 
-1. **メタキーを調べる**：管理者でログインし、**投稿一覧画面**（管理画面 → 投稿）を開く。
-   画面上部に「外部リンク（http〜）を保存しているメタキー一覧」が表示されます
-   （`oursle_debug_meta_admin()` による。値が http で始まるメタキーを抽出）。
-   この中の「リンク投稿の外部URL」を保存しているキー名を探します。
-2. **キーを設定する**：見つけたキー名を `functions.php` の `oursle_vk_link_meta_key()` に設定。
-   ```php
-   function oursle_vk_link_meta_key() {
-       return apply_filters( 'oursle_vk_link_meta_key', 'ここにキー名' );
-   }
-   ```
-   （または子テーマ等で `add_filter( 'oursle_vk_link_meta_key', fn() => 'キー名' );`）
-3. キーが**未設定（空）の間はスキップ無効**で、標準どおり全記事を辿ります（安全）。
-4. 確認が済んだら、デバッグ表示 `oursle_debug_meta_admin()` とそのフックは削除してOK。
+- キー名を変えたい場合はこの戻り値、または
+  `add_filter( 'oursle_vk_link_meta_key', fn() => 'キー名' );` で上書きできます。
+- キーが空文字のときはスキップ無効になり、標準どおり全記事を辿ります。
 
 ### 関連テンプレート
 - `home.php` … 更新情報一覧（投稿ページ）

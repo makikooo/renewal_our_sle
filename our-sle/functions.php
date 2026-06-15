@@ -125,14 +125,10 @@ function oursle_blog_url() {
 
 /**
  * VKプラグインの「外部リンク投稿」を判別するためのメタキー。
- * 対象投稿のカスタムフィールド（メタ）キー名をここに設定すると、
- * 記事ナビ（前へ／次へ）でその投稿がスキップされます。
+ * このメタが設定された投稿は、記事ナビ（前へ／次へ）でスキップされます。
+ * VK（Lightning）の外部リンク投稿は外部URLを 'vk-ltc-link' に保存します。
  *
- * キー名が分からない場合は、管理者ログイン状態で対象投稿のURLに
- * 「?oursle_debug_meta=1」を付けてアクセスすると、ページ下部に
- * その投稿の全メタキー一覧が表示されます（oursle_debug_post_meta 参照）。
- *
- * @return string メタキー（未設定なら空文字）
+ * @return string メタキー（空文字ならスキップ無効）
  */
 function oursle_vk_link_meta_key() {
 	// VK（Lightning）の外部リンク投稿が外部URLを保存するメタキー。
@@ -210,53 +206,6 @@ function oursle_adjacent_post( $previous = true ) {
 	wp_reset_postdata();
 	return $found;
 }
-
-/**
- * 【デバッグ用】投稿一覧画面（管理画面）に「URL値を持つメタキー一覧」を表示する。
- *
- * リンク投稿はフロントで開くと外部URLへリダイレクトしてしまうため、
- * フロント側ではメタキーを確認できません。そこでリダイレクトが起きない
- * 管理画面の「投稿一覧」(wp-admin/edit.php) で、外部リンクを保存していそうな
- * メタキー（値が http で始まるもの）を一覧表示します。
- *
- * 表示された中の外部リンク用キー名を oursle_vk_link_meta_key() に設定してください。
- * 確認が済んだら、この関数とフックは削除して構いません。
- */
-function oursle_debug_meta_admin() {
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-	$screen = get_current_screen();
-	if ( ! $screen || 'edit-post' !== $screen->id ) {
-		return; // 「投稿一覧」画面のみ
-	}
-
-	global $wpdb;
-	$rows = $wpdb->get_results(
-		"SELECT pm.meta_key AS k, COUNT(*) AS cnt, MIN(pm.meta_value) AS sample
-		 FROM {$wpdb->postmeta} pm
-		 INNER JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-		 WHERE p.post_type = 'post'
-		   AND pm.meta_value LIKE 'http%'
-		 GROUP BY pm.meta_key
-		 ORDER BY cnt DESC"
-	);
-
-	echo '<div class="notice notice-info"><p><strong>[テーマ デバッグ] 外部リンク（http〜）を保存しているメタキー一覧</strong><br>';
-	echo 'この中の「リンク投稿の外部URL」を保存しているキー名を、functions.php の <code>oursle_vk_link_meta_key()</code> に設定してください。</p>';
-	if ( empty( $rows ) ) {
-		echo '<p>該当するメタキーは見つかりませんでした。</p>';
-	} else {
-		echo '<ul style="margin-left:1.5em;list-style:disc;">';
-		foreach ( $rows as $r ) {
-			$sample = mb_strlen( $r->sample ) > 80 ? mb_substr( $r->sample, 0, 80 ) . '…' : $r->sample;
-			echo '<li><code>' . esc_html( $r->k ) . '</code>（' . esc_html( $r->cnt ) . '件） 例: ' . esc_html( $sample ) . '</li>';
-		}
-		echo '</ul>';
-	}
-	echo '</div>';
-}
-add_action( 'admin_notices', 'oursle_debug_meta_admin' );
 
 /**
  * 投稿カテゴリーから更新情報バッジ（class と ラベル）を返す。
