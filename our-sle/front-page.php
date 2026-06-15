@@ -189,7 +189,7 @@ get_header();
           </li>
           <?php endif; ?>
         </ul>
-        <a class="button update__button" href="<?php echo esc_url( home_url( '/blogs/' ) ); ?>">
+        <a class="button update__button" href="<?php echo esc_url( oursle_blog_url() ); ?>">
           <span>つづきを読む</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>

@@ -143,7 +143,7 @@
       </ul>
 
       <div class="nav__category-header">
-        <a href="<?php echo esc_url( home_url( '/blogs/' ) ); ?>" class="nav__category-link">
+        <a href="<?php echo esc_url( oursle_blog_url() ); ?>" class="nav__category-link">
           <h2 class="nav__category-title">更新情報</h2>
         </a>
         <div class="accordion__button">
@@ -153,7 +153,7 @@
       </div>
 
       <ul>
-        <li><a href="<?php echo esc_url( home_url( '/blogs/' ) ); ?>"><span class="green"></span>更新情報一覧</a></li>
+        <li><a href="<?php echo esc_url( oursle_blog_url() ); ?>"><span class="green"></span>更新情報一覧</a></li>
       </ul>
     </nav>
     <div class="button_wrapper">

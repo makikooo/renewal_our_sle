@@ -11,7 +11,7 @@ get_header();
       <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
         <ul class="breadcrumb__list">
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">わたしたちのSLE</a></li>
-          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/blogs/' ) ); ?>">更新情報一覧</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( oursle_blog_url() ); ?>">更新情報一覧</a></li>
           <li class="breadcrumb__item"><?php the_title(); ?></li>
         </ul>
         <a class="logo__link pc_only" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -68,8 +68,9 @@ get_header();
 
       <nav class="article__nav">
         <?php
-        $prev = get_previous_post();
-        $next = get_next_post();
+        // VK外部リンク投稿はスキップして前後の記事を取得
+        $prev = oursle_adjacent_post( true );
+        $next = oursle_adjacent_post( false );
         ?>
         <?php if ( $prev ) : ?>
         <a href="<?php echo esc_url( get_permalink( $prev ) ); ?>" class="article__nav-item">
@@ -82,7 +83,7 @@ get_header();
           </span>
         </a>
         <?php endif; ?>
-        <a href="<?php echo esc_url( home_url( '/blogs/' ) ); ?>" class="article__nav-back">一覧に戻る</a>
+        <a href="<?php echo esc_url( oursle_blog_url() ); ?>" class="article__nav-back">一覧に戻る</a>
         <?php if ( $next ) : ?>
         <a href="<?php echo esc_url( get_permalink( $next ) ); ?>" class="article__nav-item">
           <span>次へ</span>
