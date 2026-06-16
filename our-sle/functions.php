@@ -332,3 +332,115 @@ function oursle_center_class() {
 	$class = isset( $GLOBALS['oursle_center_class'] ) ? $GLOBALS['oursle_center_class'] : 'center__column';
 	return esc_attr( $class );
 }
+
+/**
+ * 検索語にマッチする「テンプレート直書き固定ページ」を返す。
+ *
+ * 各ページ（お薬について等）の内容は page-{slug}.php テンプレートに直接
+ * HTMLで書かれており、DBの post_content は空。そのため標準のWordPress検索
+ * （post_title / post_content が対象）ではヒットしない。
+ * ここではテンプレートファイルの可視テキストを走査し、検索語を含むページを
+ * 固定ページとして取得して返す。
+ *
+ * @param string $term 検索語。
+ * @return WP_Post[] マッチした公開済み固定ページ（重複除外済み）。
+ */
+function oursle_search_template_pages( $term ) {
+	$term = trim( $term );
+	if ( '' === $term ) {
+		return array();
+	}
+
+	$files = glob( get_template_directory() . '/page-*.php' );
+	if ( empty( $files ) ) {
+		return array();
+	}
+
+	$found = array();
+	foreach ( $files as $file ) {
+		// page-aboutmedicine.php → aboutmedicine
+		$slug = preg_replace( '/^page-/', '', basename( $file, '.php' ) );
+		if ( '' === $slug ) {
+			continue;
+		}
+
+		$raw = file_get_contents( $file );
+		if ( false === $raw ) {
+			continue;
+		}
+
+		// PHPブロックを除去 → HTMLタグを除去し、画面に出る可視テキストだけ残す
+		$text = preg_replace( '/<\?(php|=).*?\?>/s', ' ', $raw );
+		$text = wp_strip_all_tags( $text );
+
+		// UTF-8は自己同期なので、バイト一致の stripos で安全に部分一致できる
+		// （mb_stripos はサーバーの内部エンコーディング設定で日本語が外れることがある）
+		if ( false === stripos( $text, $term ) ) {
+			continue;
+		}
+
+		// テンプレート階層 page-{slug}.php は階層に関係なく post_name で決まるため、
+		// 子ページでも確実に引けるよう get_page_by_path（フルパス前提）ではなく
+		// post_name で直接照合する。
+		$pages = get_posts(
+			array(
+				'name'           => $slug,
+				'post_type'      => 'page',
+				'post_status'    => 'publish',
+				'posts_per_page' => 1,
+				'no_found_rows'  => true,
+			)
+		);
+		if ( ! empty( $pages ) ) {
+			$page                 = $pages[0];
+			$found[ $page->ID ] = $page;
+		}
+	}
+
+	return array_values( $found );
+}
+
+/**
+ * 検索結果に、テンプレート直書きの固定ページを差し込む。
+ * （「プレドニン」のようにテンプレートにベタ書きの語が標準検索に出ない問題への対応）
+ *
+ * @param WP_Post[] $posts 検索結果。
+ * @param WP_Query  $query 実行中のクエリ。
+ * @return WP_Post[]
+ */
+function oursle_inject_template_pages_in_search( $posts, $query ) {
+	if ( is_admin() || ! $query->is_main_query() || ! $query->is_search() ) {
+		return $posts;
+	}
+	// 2ページ目以降への重複差し込みを避ける
+	if ( $query->is_paged() ) {
+		return $posts;
+	}
+
+	$pages = oursle_search_template_pages( $query->get( 's' ) );
+	if ( empty( $pages ) ) {
+		return $posts;
+	}
+
+	$existing_ids = wp_list_pluck( $posts, 'ID' );
+	$added        = 0;
+	foreach ( $pages as $page ) {
+		if ( ! in_array( $page->ID, $existing_ids, true ) ) {
+			// 情報ページを結果の先頭に出す
+			array_unshift( $posts, $page );
+			$existing_ids[] = $page->ID;
+			$added++;
+		}
+	}
+
+	if ( $added > 0 ) {
+		$query->found_posts += $added;
+		$per_page            = (int) $query->get( 'posts_per_page' );
+		if ( $per_page > 0 ) {
+			$query->max_num_pages = (int) ceil( $query->found_posts / $per_page );
+		}
+	}
+
+	return $posts;
+}
+add_filter( 'the_posts', 'oursle_inject_template_pages_in_search', 10, 2 );
