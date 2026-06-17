@@ -79,29 +79,7 @@ get_header();
         <img class="concern__top-img" src="<?= THEME_URI ?>/assets/images/background/bg_green03.webp" alt="">
         <h3 class="concern__title">いま、気になること</h3>
         <p class="concern__text">気になる言葉を押すと関連ページに飛びます</p>
-        <div class="concern__wrapper">
-          <a class="concern__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
-            <img class="darusa" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-darusa.webp" alt="#だるさ">
-          </a>
-          <a class="concern__link" href="<?php echo esc_url( home_url( '/kokoro-care/' ) ); ?>">
-            <img class="fuan" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-fuan.webp" alt="#不安">
-          </a>
-          <a class="concern__link" href="<?php echo esc_url( home_url( '/school-job/' ) ); ?>">
-            <img class="school" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-gakkou.webp" alt="#学校">
-          </a>
-          <a class="concern__link" href="<?php echo esc_url( home_url( '/doctor/' ) ); ?>">
-            <img class="doctor" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-isi.webp" alt="#医師との信頼関係">
-          </a>
-          <a class="concern__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
-            <img class="skin" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-hisinn.webp" alt="#皮疹">
-          </a>
-          <a class="concern__link" href="<?php echo esc_url( home_url( '/sle-life-tips/' ) ); ?>">
-            <img class="qol" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-seikatunokotu.webp" alt="#生活のコツ">
-          </a>
-          <a class="concern__link" href="<?php echo esc_url( home_url( '/treatment/' ) ); ?>">
-            <img class="medicine" src="<?= THEME_URI ?>/assets/images/toppage/kininaru-medicine.webp" alt="#薬">
-          </a>
-        </div>
+        <?php get_template_part( 'template-parts/concern-tags' ); ?>
       </section>
 
       

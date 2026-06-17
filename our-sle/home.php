@@ -84,25 +84,25 @@ get_header();
         <p class="popular__lead">気になる言葉を押すと関連ページに飛びます</p>
         <div class="popular__wrapper">
           <a class="popular__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
-            <img src="<?= THEME_URI ?>/assets/images/toppage/kininaru-darusa.webp" alt="#だるさ">
+            <span class="concern__tag">#だるさ</span>
           </a>
           <a class="popular__link" href="<?php echo esc_url( home_url( '/kokoro-care/' ) ); ?>">
-            <img src="<?= THEME_URI ?>/assets/images/toppage/kininaru-fuan.webp" alt="#不安">
+            <span class="concern__tag">#不安</span>
           </a>
           <a class="popular__link" href="<?php echo esc_url( home_url( '/school-job/' ) ); ?>">
-            <img src="<?= THEME_URI ?>/assets/images/toppage/kininaru-gakkou.webp" alt="#学校">
+            <span class="concern__tag">#学校</span>
           </a>
           <a class="popular__link" href="<?php echo esc_url( home_url( '/doctor/' ) ); ?>">
-            <img src="<?= THEME_URI ?>/assets/images/toppage/kininaru-isi.webp" alt="#医師との信頼関係">
+            <span class="concern__tag">#医師との信頼関係</span>
           </a>
           <a class="popular__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
-            <img src="<?= THEME_URI ?>/assets/images/toppage/kininaru-hisinn.webp" alt="#皮疹">
+            <span class="concern__tag">#皮疹</span>
           </a>
           <a class="popular__link" href="<?php echo esc_url( home_url( '/sle-life-tips/' ) ); ?>">
-            <img src="<?= THEME_URI ?>/assets/images/toppage/kininaru-seikatunokotu.webp" alt="#生活のコツ">
+            <span class="concern__tag">#生活のコツ</span>
           </a>
           <a class="popular__link" href="<?php echo esc_url( home_url( '/treatment/' ) ); ?>">
-            <img src="<?= THEME_URI ?>/assets/images/toppage/kininaru-medicine.webp" alt="#薬">
+            <span class="concern__tag">#薬</span>
           </a>
         </div>
       </section>

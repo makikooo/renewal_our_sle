@@ -3702,3 +3702,74 @@ rt {
   cursor: pointer;
   border: none;
 }
+
+/* ===============================================
+   いま、気になること：タグをCSSで描画（手描き風の枠＋画鋲）
+   従来は画像（kininaru-*.webp）だったタグを文字＋枠で表現する。
+   位置・回転・ホバー・モバイル幅は既存の .darusa 等の指定を流用し、
+   ここでは「枠（手描き風）・画鋲・文字」の見た目だけを足す。
+   =============================================== */
+.concern__tag {
+  /* 枠（::after）と画鋲（::before）の位置基準。散らばし配置では
+     .darusa 等の position:absolute が優先され、こちらは popular の
+     flex 配置（home.php）で枠・画鋲を正しく重ねるために効く。 */
+  position: relative;
+  display: inline-block;
+  padding: 14px 22px;
+  background: #fff;
+  color: var(--font-color);
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  border-radius: 2px;
+}
+
+/* 画像時代の固定幅（width:Npx）を打ち消し、文字量に合わせて枠を伸縮させる。
+   既存指定（.sec05/.concern 配下）と同じ詳細度にし、後勝ちで上書きする。 */
+.concern__wrapper .concern__link .concern__tag.darusa,
+.concern__wrapper .concern__link .concern__tag.fuan,
+.concern__wrapper .concern__link .concern__tag.school,
+.concern__wrapper .concern__link .concern__tag.doctor,
+.concern__wrapper .concern__link .concern__tag.skin,
+.concern__wrapper .concern__link .concern__tag.qol,
+.concern__wrapper .concern__link .concern__tag.medicine {
+  width: auto;
+}
+
+/* 手描き風の枠線：枠だけを SVG フィルターで揺らす（文字はくっきり保つ） */
+.concern__tag::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1.6px solid var(--font-color);
+  border-radius: 2px;
+  filter: url(#oursle-rough);
+  pointer-events: none;
+}
+
+/* 画鋲（ピン）：頭の丸＋細い針を1つの擬似要素で描く */
+.concern__tag::before {
+  content: "";
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  width: 9px;
+  height: 15px;
+  transform: translateX(-50%) rotate(7deg);
+  background:
+    radial-gradient(circle at 50% 30%, #5b4a3a 0 4px, transparent 4.4px),
+    linear-gradient(#9c8c76, #9c8c76);
+  background-size: 9px 8px, 2px 15px;
+  background-position: top center, bottom center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .concern__tag {
+    font-size: 0.9rem;
+    padding: 12px 18px;
+    letter-spacing: 0.08em;
+  }
+}

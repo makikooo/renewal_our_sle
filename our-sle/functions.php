@@ -66,6 +66,13 @@ function oursle_enqueue_assets() {
 	// メインJS（フッターで defer 読み込み）
 	wp_enqueue_script( 'oursle-main', THEME_URI . '/assets/js/main.js', array(), $ver, array( 'in_footer' => true ) );
 
+	// スクロール時のフェードアップ表示（全ページ・フッター読み込み）
+	wp_enqueue_script( 'oursle-scroll-reveal', THEME_URI . '/assets/js/scroll-reveal.js', array(), $ver, array( 'in_footer' => true ) );
+
+	// 閲覧履歴の記録＋トップの「いま、気になること」おすすめ強調（全ページ）。
+	// 履歴は全ページで記録し、強調はトップページのみ動作する。
+	wp_enqueue_script( 'oursle-concern-recommend', THEME_URI . '/assets/js/concern-recommend.js', array(), $ver, array( 'in_footer' => true ) );
+
 	// ローディング演出はトップページのみ（head で先読み）
 	if ( is_front_page() ) {
 		wp_enqueue_script( 'oursle-loading', THEME_URI . '/assets/js/loading.js', array(), $ver, false );
@@ -251,6 +258,67 @@ function oursle_news_badge( $post = null ) {
 		'class' => 'is-blog',
 		'label' => $label,
 	);
+}
+
+/**
+ * ページ／投稿の閲覧数を記録する。
+ * 単一ページ表示のたびに post meta 'oursle_views' を 1 増やす。
+ * トップの「いま、気になること」のおすすめ（人気ページ順）に使う。
+ *
+ * ・管理画面／単一ページ以外／プレビューは対象外
+ * ・ログイン中（編集者など自分のアクセス）は集計しない
+ * ・同じ人の連続表示でふくらまないよう、Cookieで6時間あけて数える
+ */
+function oursle_count_views() {
+	if ( is_admin() || ! is_singular() || is_preview() || is_user_logged_in() ) {
+		return;
+	}
+	$post_id = get_queried_object_id();
+	if ( ! $post_id ) {
+		return;
+	}
+	$cookie = 'oursle_v_' . $post_id;
+	if ( isset( $_COOKIE[ $cookie ] ) ) {
+		return;
+	}
+	if ( ! headers_sent() ) {
+		setcookie( $cookie, '1', time() + 6 * HOUR_IN_SECONDS, COOKIEPATH ? COOKIEPATH : '/' );
+	}
+	$count = (int) get_post_meta( $post_id, 'oursle_views', true );
+	update_post_meta( $post_id, 'oursle_views', $count + 1 );
+}
+add_action( 'wp', 'oursle_count_views' );
+
+/**
+ * 固定ページ（スラッグ指定）の閲覧数を返す。
+ * トップの「いま、気になること」のおすすめ強調（人気ページ順）に使う。
+ *
+ * @param string $slug 固定ページのスラッグ（例 'symptoms'）。
+ * @return int 閲覧数（取得できなければ 0）。
+ */
+function oursle_views_by_slug( $slug ) {
+	// 同一ページ内で複数タグから繰り返し呼ばれるため、スラッグ単位でキャッシュする。
+	static $cache = array();
+	if ( isset( $cache[ $slug ] ) ) {
+		return $cache[ $slug ];
+	}
+
+	$pages = get_posts(
+		array(
+			'name'           => $slug,
+			'post_type'      => 'page',
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'no_found_rows'  => true,
+			'fields'         => 'ids',
+		)
+	);
+	if ( empty( $pages ) ) {
+		$cache[ $slug ] = 0;
+		return 0;
+	}
+	$cache[ $slug ] = (int) get_post_meta( $pages[0], 'oursle_views', true );
+	return $cache[ $slug ];
 }
 
 /**
