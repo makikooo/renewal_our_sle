@@ -215,10 +215,18 @@ function oursle_adjacent_post( $previous = true ) {
  * @return array array( 'class' => 'is-xxx', 'label' => 'ラベル' )
  */
 function oursle_news_badge( $post = null ) {
+	// スラッグでマッチさせるマップ
 	$map = array(
-		'update' => array( 'is-update', '更新' ),
-		'news'    => array( 'is-news', 'お知らせ' ),
-		'blog'    => array( 'is-blog', 'ブログ' ),
+		'update' => array( 'is-update', '更新情報' ),
+		'news'    => array( 'is-sleinfo', 'SLE情報' ),
+		'blog'    => array( 'is-aboutme', 'わたしのこと' ),
+	);
+
+	// カテゴリー名でマッチさせるマップ（スラッグが日本語/任意の場合に対応）
+	$by_name = array(
+		'更新情報'         => array( 'is-update',  '更新情報' ),
+		'わたしのこと' => array( 'is-aboutme', 'わたしのこと' ),
+		'SLE情報'      => array( 'is-sleinfo', 'SLE情報' ),
 	);
 
 	$cats = get_the_category( $post ? get_post( $post )->ID : null );
@@ -227,6 +235,12 @@ function oursle_news_badge( $post = null ) {
 			return array(
 				'class' => $map[ $cat->slug ][0],
 				'label' => $map[ $cat->slug ][1],
+			);
+		}
+		if ( isset( $by_name[ $cat->name ] ) ) {
+			return array(
+				'class' => $by_name[ $cat->name ][0],
+				'label' => $by_name[ $cat->name ][1],
 			);
 		}
 	}

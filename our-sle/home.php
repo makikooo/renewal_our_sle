@@ -30,10 +30,9 @@ get_header();
               ?>
           <li>
             <a href="<?php the_permalink(); ?>" class="news__item">
-              <i class="fa-regular fa-clock news__icon"></i>
               <time class="news__date" datetime="<?php echo esc_attr( get_the_date( 'Y-m-d' ) ); ?>"><?php echo esc_html( get_the_date( 'Y.m.d' ) ); ?></time>
               <p class="news__text"><?php the_title(); ?></p>
-              <span class="news__cat"><?php echo esc_html( $badge['label'] ); ?></span>
+              <span class="news__cat <?php echo esc_attr( $badge['class'] ); ?>"><?php echo esc_html( $badge['label'] ); ?></span>
             </a>
           </li>
           <?php endwhile; ?>
