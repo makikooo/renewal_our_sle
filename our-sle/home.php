@@ -45,65 +45,32 @@ get_header();
         <?php endif; ?>
       </section>
 
-      <!-- おすすめのページ -->
-      <img class="bg_lightblue" src="<?= THEME_URI ?>/assets/images/background/bg_lightblue.webp" alt="">
-      <section class="recommend">
-        <h2 class="recommend__title">おすすめのページ</h2>
-        <div class="recommend__wrapper">
-          <a href="<?php echo esc_url( home_url( '/openchat/' ) ); ?>" class="recommend__card">
-            <img class="recommend__img" src="<?= THEME_URI ?>/assets/images/about-me.webp" alt="オープンチャット">
-            <div class="recommend__foot">
-              <span class="recommend__label">オープン<br>チャット</span>
-              <span class="section__button">
-                <svg viewBox="0 0 24 24">
-                  <line x1="0" y1="12" x2="21" y2="12" />
-                  <polyline points="14 5 21 12 14 19" />
-                </svg>
-              </span>
+      <img class="bg_blue_victor" src="<?= THEME_URI ?>/assets/images/background/bg-blue02.webp" alt="">
+
+      <section class="pics bg-blue">
+        <h2 class="pics__title">おすすめのページ</h2>
+        <div class="pics__links">
+          <a href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>" class="pics__left-link">
+            <img class="thumbnail" src="<?= THEME_URI ?>/assets/images/thumbnails/thumbnail_shoujou.webp" alt="SLEの症状のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
             </div>
           </a>
-          <a href="<?php echo esc_url( home_url( '/menu-enquete/' ) ); ?>" class="recommend__card">
-            <img class="recommend__img" src="<?= THEME_URI ?>/assets/images/enquete.webp" alt="あるあるアンケート結果">
-            <div class="recommend__foot">
-              <span class="recommend__label">あるあるアン<br>ケート結果</span>
-              <span class="section__button">
-                <svg viewBox="0 0 24 24">
-                  <line x1="0" y1="12" x2="21" y2="12" />
-                  <polyline points="14 5 21 12 14 19" />
-                </svg>
-              </span>
+          <a href="<?php echo esc_url( home_url( '/treatment/' ) ); ?>" class="pics__right-link">
+            <img class="thumbnail" src="<?= THEME_URI ?>/assets/images/thumbnails/thumbnail_tiryou.webp" alt="SLEの治療のサムネイル">
+            <div class="button">
+              <span>つづきを読む</span>
+              <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
             </div>
           </a>
         </div>
       </section>
 
-      <!-- よく読まれているページ -->
-      <section class="popular">
-        <img class="popular__top-bg" src="<?= THEME_URI ?>/assets/images/background/bg_green.webp" alt="">
-        <h2 class="popular__title">よく読まれているページ</h2>
-        <p class="popular__lead">気になる言葉を押すと関連ページに飛びます</p>
-        <div class="popular__wrapper">
-          <a class="popular__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
-            <span class="concern__tag">#だるさ</span>
-          </a>
-          <a class="popular__link" href="<?php echo esc_url( home_url( '/kokoro-care/' ) ); ?>">
-            <span class="concern__tag">#不安</span>
-          </a>
-          <a class="popular__link" href="<?php echo esc_url( home_url( '/school-job/' ) ); ?>">
-            <span class="concern__tag">#学校</span>
-          </a>
-          <a class="popular__link" href="<?php echo esc_url( home_url( '/doctor/' ) ); ?>">
-            <span class="concern__tag">#医師との信頼関係</span>
-          </a>
-          <a class="popular__link" href="<?php echo esc_url( home_url( '/symptoms/' ) ); ?>">
-            <span class="concern__tag">#皮疹</span>
-          </a>
-          <a class="popular__link" href="<?php echo esc_url( home_url( '/sle-life-tips/' ) ); ?>">
-            <span class="concern__tag">#生活のコツ</span>
-          </a>
-          <a class="popular__link" href="<?php echo esc_url( home_url( '/treatment/' ) ); ?>">
-            <span class="concern__tag">#薬</span>
-          </a>
-        </div>
+      <section class="concern">
+        <img class="concern__top-img" src="<?= THEME_URI ?>/assets/images/background/bg_green03.webp" alt="">
+        <h3 class="concern__title">いま、気になること</h3>
+        <p class="concern__text">気になる言葉を押すと関連ページに飛びます</p>
+        <?php get_template_part( 'template-parts/concern-tags' ); ?>
       </section>
 <?php get_footer();
