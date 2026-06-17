@@ -128,6 +128,9 @@ h1 {
   &:hover {
     opacity: 0.6;
   }
+  &:hover i {
+    transform: translateX(10px);
+  }
   span {
     display: block;
     margin-bottom: 10px;
@@ -138,6 +141,7 @@ h1 {
   i {
     display: block;
     margin-bottom: 10px;
+    transition: transform 0.3s ease;
   }
 }
 
@@ -3201,6 +3205,16 @@ rt {
   white-space: nowrap;
   color: var(--accent-green01);
 }
+/* カテゴリー別の文字色 */
+.news__cat.is-update {
+  color: var(--accent-green01);
+}
+.news__cat.is-aboutme {
+  color: #E0A800;
+}
+.news__cat.is-sleinfo {
+  color: #E86A8E;
+}
 
 /* ---- おすすめのページ ---- */
 .recommend {
@@ -3564,6 +3578,14 @@ rt {
 /* カテゴリー別の色分け */
 .update__category.is-update {
   background-color: var(--accent-green01);
+}
+.update__category.is-aboutme {
+  background-color: var(--bg-yellow);
+  color: var(--font-color);
+}
+.update__category.is-sleinfo {
+  background-color: var(--bg-lightpink);
+  color: var(--font-color);
 }
 .update__category.is-news {
   background-color: var(--accent-red);
