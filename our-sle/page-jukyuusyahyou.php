@@ -8,7 +8,7 @@ get_header();
 ?>
       <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
         <ul class="breadcrumb__list">
-          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>"></a>トップページ</li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">トップページ</a></li>
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">調べたいこと</a></li>
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">受給者票 使い道もっとある</a></li>
         </ul>
