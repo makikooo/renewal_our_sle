@@ -7,10 +7,10 @@
 $GLOBALS['oursle_center_id'] = 'contact';
 get_header();
 
-$contact = isset( $GLOBALS['oursle_contact'] ) ? $GLOBALS['oursle_contact'] : array( 'errors' => array(), 'old' => array(), 'sent' => false );
+$contact = isset( $GLOBALS['oursle_contact'] ) ? $GLOBALS['oursle_contact'] : array( 'errors' => array(), 'old' => array(), 'sent' => false, 'mode' => 'input' );
 $errors  = $contact['errors'];
 $old     = $contact['old'];
-$sent    = $contact['sent'];
+$mode    = isset( $contact['mode'] ) ? $contact['mode'] : 'input';
 
 /** 入力値の安全な出力 */
 $old_val = function ( $key ) use ( $old ) {
@@ -28,8 +28,25 @@ $old_val = function ( $key ) use ( $old ) {
         <h1 class="title">お問い合わせ・ご相談</h1>
       </section>
 
-      <?php if ( $sent ) : ?>
+      <?php if ( 'sent' === $mode ) : ?>
       <section class="sec01">
+        <div class="sec01__flex">
+          <div class="sec01__flex-item">入力</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon points="0,0 20,12 0,24" fill="#fff" stroke="#A5FF9F" stroke-width="2" />
+            </svg>
+          </span>
+          <div class="sec01__flex-item">確認</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon points="0,0 20,12 0,24" fill="#fff" stroke="#A5FF9F" stroke-width="2" />
+            </svg>
+          </span>
+          <div class="sec01__flex-item active">送信</div>
+        </div>
+      </section>
+      <section class="sec02">
         <p class="title__text">お問い合わせありがとうございました。</p>
         <p>内容を確認のうえ、5日以内（土日祝日以外）にご返信を心がけております。<br>
         万一返信が届かない場合は、迷惑メール設定をご確認のうえ、再度お送りくださいませ。</p>
@@ -38,6 +55,57 @@ $old_val = function ( $key ) use ( $old ) {
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
       </section>
+
+      <?php elseif ( 'confirm' === $mode ) : ?>
+      <section class="sec01">
+        <p class="title__text">ご入力内容をご確認のうえ、よろしければ「送信する」ボタンを押してください。</p>
+        <div class="sec01__flex">
+          <div class="sec01__flex-item">入力</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon points="0,0 20,12 0,24" fill="#fff" stroke="#A5FF9F" stroke-width="2" />
+            </svg>
+          </span>
+          <div class="sec01__flex-item active">確認</div>
+          <span>
+            <svg width="20" height="24" viewBox="0 0 20 24">
+              <polygon points="0,0 20,12 0,24" fill="#fff" stroke="#A5FF9F" stroke-width="2" />
+            </svg>
+          </span>
+          <div class="sec01__flex-item">送信</div>
+        </div>
+      </section>
+
+      <section class="sec02 confirm">
+        <?php if ( ! empty( $errors['_'] ) ) : ?>
+          <p class="form__error" style="color:#d33;"><?php echo esc_html( $errors['_'] ); ?></p>
+        <?php endif; ?>
+
+        <table>
+          <tr><th>お名前</th><td><?php echo esc_html( $old['name'] ); ?></td></tr>
+          <tr><th>メールアドレス</th><td><?php echo esc_html( $old['email'] ); ?></td></tr>
+          <tr><th>件名</th><td><?php echo '' !== $old['title'] ? esc_html( $old['title'] ) : '（なし）'; ?></td></tr>
+          <tr><th>メッセージ</th><td><?php echo nl2br( esc_html( $old['message'] ) ); ?></td></tr>
+        </table>
+
+        <form action="<?php echo esc_url( get_permalink() ); ?>" method="post" class="form">
+          <?php wp_nonce_field( 'oursle_contact', 'oursle_contact_nonce' ); ?>
+          <input type="hidden" name="contact_name" value="<?php echo $old_val( 'name' ); ?>">
+          <input type="hidden" name="contact_email" value="<?php echo $old_val( 'email' ); ?>">
+          <input type="hidden" name="contact_title" value="<?php echo $old_val( 'title' ); ?>">
+          <input type="hidden" name="contact_message" value="<?php echo $old_val( 'message' ); ?>">
+
+          <button type="submit" name="oursle_step" value="edit" class="button contact__button back">
+            <i class="fa-regular fa-circle-left fa-2xl" style="color: #71936d;"></i>
+            <span>修正する</span>
+          </button>
+          <button type="submit" name="oursle_step" value="send" class="button contact__button">
+            <span>送信する</span>
+            <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+          </button>
+        </form>
+      </section>
+
       <?php else : ?>
       <section class="sec01">
         <p class="title__text">ご相談やホームページのご感想などお気軽にお問い合わせくださいませ。</p>
@@ -67,6 +135,7 @@ $old_val = function ( $key ) use ( $old ) {
         <?php endif; ?>
         <form action="<?php echo esc_url( get_permalink() ); ?>" method="post" class="form">
           <?php wp_nonce_field( 'oursle_contact', 'oursle_contact_nonce' ); ?>
+          <input type="hidden" name="oursle_step" value="confirm">
           <!-- スパム対策（人間には見えない項目。入力されていたらbotとみなす） -->
           <p style="position:absolute; left:-9999px;" aria-hidden="true">
             <label>このフィールドは空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off" value=""></label>
@@ -76,28 +145,28 @@ $old_val = function ( $key ) use ( $old ) {
           <?php if ( ! empty( $errors['name'] ) ) : ?>
             <p class="form__error" style="color:#d33; margin:0;"><?php echo esc_html( $errors['name'] ); ?></p>
           <?php endif; ?>
-          <input type="text" id="name" name="name" value="<?php echo $old_val( 'name' ); ?>" required>
+          <input type="text" id="name" name="contact_name" value="<?php echo $old_val( 'name' ); ?>" required>
 
           <label for="email">メールアドレス（必須事項）</label>
           <?php if ( ! empty( $errors['email'] ) ) : ?>
             <p class="form__error" style="color:#d33; margin:0;"><?php echo esc_html( $errors['email'] ); ?></p>
           <?php endif; ?>
-          <input type="email" name="email" id="email" value="<?php echo $old_val( 'email' ); ?>" required>
+          <input type="email" name="contact_email" id="email" value="<?php echo $old_val( 'email' ); ?>" required>
 
           <label for="title">件名</label>
           <?php if ( ! empty( $errors['title'] ) ) : ?>
             <p class="form__error" style="color:#d33; margin:0;"><?php echo esc_html( $errors['title'] ); ?></p>
           <?php endif; ?>
-          <input type="text" name="title" id="title" value="<?php echo $old_val( 'title' ); ?>">
+          <input type="text" name="contact_title" id="title" value="<?php echo $old_val( 'title' ); ?>">
 
           <label for="message">メッセージ（必須事項）</label>
           <?php if ( ! empty( $errors['message'] ) ) : ?>
             <p class="form__error" style="color:#d33; margin:0;"><?php echo esc_html( $errors['message'] ); ?></p>
           <?php endif; ?>
-          <textarea name="message" id="message" rows="4" required><?php echo esc_textarea( isset( $old['message'] ) ? $old['message'] : '' ); ?></textarea>
+          <textarea name="contact_message" id="message" rows="4" required><?php echo esc_textarea( isset( $old['message'] ) ? $old['message'] : '' ); ?></textarea>
 
           <button type="submit" class="button contact__button">
-            <span>送信する</span>
+            <span>確認画面へ</span>
             <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
           </button>
         </form>

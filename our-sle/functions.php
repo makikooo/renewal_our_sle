@@ -259,6 +259,7 @@ function oursle_handle_contact() {
 		'errors' => array(),
 		'old'    => array(),
 		'sent'   => false,
+		'mode'   => 'input', // input | confirm | sent
 	);
 
 	if ( ! is_page( 'contact' ) ) {
@@ -277,12 +278,26 @@ function oursle_handle_contact() {
 		return;
 	}
 
-	$name    = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
-	$email   = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
-	$title   = isset( $_POST['title'] ) ? sanitize_text_field( wp_unslash( $_POST['title'] ) ) : '';
-	$message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+	// フィールド名は contact_ 接頭辞を付ける。
+	// WordPress の予約クエリ変数（name 等）と衝突すると、POST 時に WP が
+	// その値のスラッグの投稿を探して 404 になるため。
+	$name    = isset( $_POST['contact_name'] ) ? sanitize_text_field( wp_unslash( $_POST['contact_name'] ) ) : '';
+	$email   = isset( $_POST['contact_email'] ) ? sanitize_email( wp_unslash( $_POST['contact_email'] ) ) : '';
+	$title   = isset( $_POST['contact_title'] ) ? sanitize_text_field( wp_unslash( $_POST['contact_title'] ) ) : '';
+	$message = isset( $_POST['contact_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['contact_message'] ) ) : '';
 
-	$old    = compact( 'name', 'email', 'title', 'message' );
+	$old = compact( 'name', 'email', 'title', 'message' );
+	$GLOBALS['oursle_contact']['old'] = $old;
+
+	// どのステップから送信されたか（confirm=確認画面へ / send=実際に送信 / edit=入力へ戻る）
+	$step = isset( $_POST['oursle_step'] ) ? sanitize_text_field( wp_unslash( $_POST['oursle_step'] ) ) : 'confirm';
+
+	// 確認画面の「修正する」→ 入力画面へ戻す（バリデーションはしない）
+	if ( 'edit' === $step ) {
+		$GLOBALS['oursle_contact']['mode'] = 'input';
+		return;
+	}
+
 	$errors = array();
 
 	if ( '' === $name ) {
@@ -295,17 +310,28 @@ function oursle_handle_contact() {
 	}
 	if ( '' === $message ) {
 		$errors['message'] = 'メッセージを入力してください。';
+	} elseif ( ! preg_match( '/[\x{3040}-\x{309F}\x{30A0}-\x{30FF}\x{4E00}-\x{9FFF}\x{FF66}-\x{FF9D}]/u', $message ) ) {
+		// 日本語（ひらがな・カタカナ・漢字・半角カナ）を含まない＝英文のみはエラー（スパム対策）
+		$errors['message'] = 'メッセージは日本語でご入力ください。';
 	}
 
-	$GLOBALS['oursle_contact']['old']    = $old;
 	$GLOBALS['oursle_contact']['errors'] = $errors;
 
+	// 入力エラーがあれば入力画面に戻す
 	if ( ! empty( $errors ) ) {
+		$GLOBALS['oursle_contact']['mode'] = 'input';
+		return;
+	}
+
+	// 確認画面の表示（まだ送信しない）
+	if ( 'send' !== $step ) {
+		$GLOBALS['oursle_contact']['mode'] = 'confirm';
 		return;
 	}
 
 	// メール送信
-	$to      = get_option( 'admin_email' );
+	$smtp    = oursle_smtp_config();
+	$to      = ! empty( $smtp['ADMIN_EMAIL'] ) ? $smtp['ADMIN_EMAIL'] : get_option( 'admin_email' );
 	$subject = '[お問い合わせ] ' . ( '' !== $title ? $title : '（件名なし）' );
 	$body    = "お名前: {$name}\n";
 	$body   .= "メール: {$email}\n";
@@ -317,11 +343,83 @@ function oursle_handle_contact() {
 	);
 
 	$GLOBALS['oursle_contact']['sent'] = wp_mail( $to, $subject, $body, $headers );
-	if ( ! $GLOBALS['oursle_contact']['sent'] ) {
+	if ( $GLOBALS['oursle_contact']['sent'] ) {
+		$GLOBALS['oursle_contact']['mode'] = 'sent';
+
+		// 送信者本人への自動返信（控え）メール。
+		// 管理者宛の送信が成功したときだけ送る。失敗しても完了画面はそのまま。
+		$site_name  = ! empty( $smtp['SITE_NAME'] ) ? $smtp['SITE_NAME'] : get_bloginfo( 'name' );
+		$auto_to    = $email;
+		$auto_subj  = '【' . $site_name . '】お問い合わせを受け付けました';
+		$auto_body  = "{$name} 様\n\n";
+		$auto_body .= "この度はお問い合わせいただき、ありがとうございます。\n";
+		$auto_body .= "以下の内容で受け付けいたしました。\n";
+		$auto_body .= "内容を確認のうえ、5日以内（土日祝日以外）にご返信を心がけております。\n\n";
+		$auto_body .= "──────────────────\n";
+		$auto_body .= "お名前: {$name}\n";
+		$auto_body .= "メール: {$email}\n";
+		$auto_body .= "件名: {$title}\n\n";
+		$auto_body .= "メッセージ:\n{$message}\n";
+		$auto_body .= "──────────────────\n\n";
+		$auto_body .= "※このメールは送信専用の自動返信です。ご返信いただいてもお答えできない場合があります。\n";
+		$auto_body .= "※心当たりのない場合は、お手数ですがこのメールを破棄してください。\n\n";
+		$auto_body .= $site_name . "\n";
+		// 自動返信への返信は管理者へ届くようにする
+		$auto_headers = array(
+			'Content-Type: text/plain; charset=UTF-8',
+			'Reply-To: ' . $to,
+		);
+		wp_mail( $auto_to, $auto_subj, $auto_body, $auto_headers );
+	} else {
+		// 送信失敗時は確認画面のまま再送信できるようにする
+		$GLOBALS['oursle_contact']['mode']        = 'confirm';
 		$GLOBALS['oursle_contact']['errors']['_'] = '送信に失敗しました。時間をおいて再度お試しください。';
 	}
 }
 add_action( 'template_redirect', 'oursle_handle_contact' );
+
+/**
+ * SMTP 接続情報を読み込む。
+ * テーマ直下の mail-config.php（Git管理外）に配列で記述する。
+ * ファイルが無い場合は空配列を返し、wp_mail() は既定（PHP mail()）のまま動く。
+ *
+ * @return array
+ */
+function oursle_smtp_config() {
+	static $config = null;
+	if ( null !== $config ) {
+		return $config;
+	}
+	$file   = get_template_directory() . '/mail-config.php';
+	$config = is_readable( $file ) ? (array) require $file : array();
+	return $config;
+}
+
+/**
+ * wp_mail() を SMTP 送信に切り替える。
+ * mail-config.php に SMTP_HOST / SMTP_USER / SMTP_PASS が揃っているときだけ有効。
+ *
+ * @param PHPMailer\PHPMailer\PHPMailer $phpmailer
+ */
+function oursle_configure_smtp( $phpmailer ) {
+	$c = oursle_smtp_config();
+	if ( empty( $c['SMTP_HOST'] ) || empty( $c['SMTP_USER'] ) || empty( $c['SMTP_PASS'] ) ) {
+		return; // 設定が無ければ何もしない
+	}
+	$phpmailer->isSMTP();
+	$phpmailer->Host       = $c['SMTP_HOST'];
+	$phpmailer->Port       = isset( $c['SMTP_PORT'] ) ? (int) $c['SMTP_PORT'] : 587;
+	$phpmailer->SMTPAuth   = true;
+	$phpmailer->Username   = $c['SMTP_USER'];
+	$phpmailer->Password   = $c['SMTP_PASS'];
+	$phpmailer->SMTPSecure = isset( $c['SMTP_SECURE'] ) ? $c['SMTP_SECURE'] : 'tls';
+	$phpmailer->CharSet    = 'UTF-8';
+	// 差出人は認証アカウントに揃える（SPF/DMARC 対策）。返信先は別途 Reply-To で設定済み。
+	if ( ! empty( $c['MAIL_FROM'] ) ) {
+		$phpmailer->setFrom( $c['MAIL_FROM'], isset( $c['MAIL_FROM_NAME'] ) ? $c['MAIL_FROM_NAME'] : '' );
+	}
+}
+add_action( 'phpmailer_init', 'oursle_configure_smtp' );
 
 /**
  * center__column の class を返す。

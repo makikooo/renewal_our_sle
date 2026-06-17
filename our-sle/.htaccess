@@ -1,0 +1,4 @@
+# SMTP パスワードを含む設定ファイルへの直接アクセスを禁止する
+<FilesMatch "^mail-config(\.sample)?\.php$">
+  Require all denied
+</FilesMatch>

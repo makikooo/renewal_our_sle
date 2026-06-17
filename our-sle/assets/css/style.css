@@ -2196,28 +2196,81 @@ rt {
       width: 90%;
       margin: 0 auto 60px;
       table {
+        width: 100%;
         text-align: left;
-        margin-bottom: 63px;
+        margin: 0 auto 48px;
+        border-collapse: collapse;
+        background-color: var(--white-color);
+        border: var(--bg-lightGreen) solid 2px;
+        border-radius: 14px;
+        overflow: hidden;
         tr {
+          th,
+          td {
+            padding: 18px 20px;
+            vertical-align: top;
+            border-bottom: var(--bg-lightGreen) solid 1px;
+          }
           th {
-            padding-top: 20px;
+            width: 34%;
+            white-space: nowrap;
+            font-weight: 600;
+            color: var(--accent-green01);
+            background-color: var(--bg-lightGreen);
           }
           td {
-            padding-bottom: 15px;
-            border-bottom: var(--font-color) dotted 0.5px;
+            line-height: 1.7;
+            word-break: break-word;
+          }
+          &:last-child {
+            th,
+            td {
+              border-bottom: none;
+            }
+          }
+        }
+        @media (max-width: 768px) {
+          tr {
+            display: block;
+            border-bottom: var(--bg-lightGreen) solid 1px;
+            &:last-child {
+              border-bottom: none;
+            }
+            th,
+            td {
+              display: block;
+              width: auto;
+              border-bottom: none;
+            }
+            th {
+              padding: 14px 16px 4px;
+              background-color: transparent;
+            }
+            td {
+              padding: 0 16px 14px;
+            }
           }
         }
       }
+      .form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 12px 28px;
+        width: 100%;
+        margin: 0 auto;
+        @media (max-width: 768px) {
+          flex-direction: column;
+        }
+      }
       button {
+        width: 220px;
+        max-width: 100%;
+        margin: 0;
         border-left: transparent;
         border-top: transparent;
         border-right: transparent;
-        &.back {
-          span {
-            color: var(--font-color);
-            font-weight: normal;
-          }
-        } 
       }
     }
   }
