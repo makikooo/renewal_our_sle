@@ -856,9 +856,13 @@ h1 {
   }
   .concern__wrapper {
     width: 80%;
-    max-width: 500px;
+    max-width: 600px;
     margin: 40px auto;
-    height: 220px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 22px 18px;
     position: relative;
     @media (max-width: 768px) {
       width: 90%;
@@ -1606,9 +1610,13 @@ rt {
       }
       .concern__wrapper {
         width: 80%;
-        max-width: 500px;
+        max-width: 600px;
         margin: 40px auto;
-        height: 220px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 22px 18px;
         position: relative;
         @media (max-width: 768px) {
           width: 90%;
@@ -1977,9 +1985,13 @@ rt {
     }
     .concern__wrapper {
       width: 80%;
-      max-width: 500px;
+      max-width: 600px;
       margin: 40px auto;
-      height: 220px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 22px 18px;
       position: relative;
       @media (max-width: 768px) {
         width: 90%;
@@ -3163,21 +3175,31 @@ rt {
 
 /* ---- 更新情報一覧 ---- */
 .news__section {
-  padding: 30px 20px 50px;
+  width: 90%;
+  max-width: 520px;
+  margin: 0 auto 60px;
+  padding: 30px 0 50px;
 }
 .news__list {
   list-style: none;
+  display: grid;
+  gap: 14px;
 }
 .news__item {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 12px;
-  padding: 18px 4px;
-  border-bottom: 1px dashed #cfcfcf;
-  transition: opacity 0.3s ease;
+  gap: 10px 14px;
+  padding: 16px 18px;
+  background-color: var(--white-color);
+  border: 1px solid #e7eee4;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 var(--bg-lightGreen);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .news__item:hover {
-  opacity: 0.6;
+  opacity: 0.78;
+  transform: translateY(-2px);
 }
 .news__icon {
   flex-shrink: 0;
@@ -3186,8 +3208,10 @@ rt {
 }
 .news__date {
   flex-shrink: 0;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
+  line-height: 1;
   white-space: nowrap;
+  color: #777;
 }
 .news__text {
   flex: 1;
@@ -3195,25 +3219,104 @@ rt {
   font-weight: 700;
   font-size: 0.95rem;
   line-height: 1.5;
+  color: var(--font-color);
   @media (max-width: 768px) {
     font-size: 0.875rem;
   }
 }
 .news__cat {
   flex-shrink: 0;
-  font-size: 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background-color: var(--accent-green01);
+  color: var(--white-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.3;
   white-space: nowrap;
-  color: var(--accent-green01);
 }
 /* カテゴリー別の文字色 */
 .news__cat.is-update {
-  color: var(--accent-green01);
+  background-color: var(--accent-green01);
+  color: var(--white-color);
 }
 .news__cat.is-aboutme {
-  color: #E0A800;
+  background-color: var(--bg-yellow);
+  color: var(--font-color);
 }
 .news__cat.is-sleinfo {
-  color: #E86A8E;
+  background-color: var(--bg-lightpink);
+  color: var(--font-color);
+}
+.news__cat.is-news {
+  background-color: var(--accent-red);
+  color: var(--font-color);
+}
+.news__cat.is-blog {
+  background-color: var(--accent-green02);
+  color: var(--white-color);
+}
+.news__empty {
+  padding: 26px 20px;
+  background-color: var(--bg-base-color);
+  border-radius: 8px;
+  text-align: center;
+  line-height: 1.8;
+}
+.pager {
+  margin-top: 32px;
+}
+.pager .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.pager .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 38px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--accent-green01);
+  border-radius: 999px;
+  background-color: var(--white-color);
+  color: var(--accent-green01);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+.pager .page-numbers.current {
+  background-color: var(--accent-green01);
+  color: var(--white-color);
+}
+.pager a.page-numbers:hover {
+  opacity: 0.7;
+}
+@media (max-width: 768px) {
+  .news__section {
+    width: 88%;
+    padding-top: 20px;
+  }
+  .news__item {
+    grid-template-columns: 1fr auto;
+    padding: 15px 14px;
+  }
+  .news__date {
+    grid-column: 1 / 2;
+  }
+  .news__cat {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  }
+  .news__text {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ---- おすすめのページ ---- */
@@ -3723,6 +3826,13 @@ rt {
   letter-spacing: 0.12em;
   white-space: nowrap;
   border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* タグのホバー（旧 .darusa 等の個別ホバーの代わり。flex配置で全タグ共通） */
+.concern__link:hover .concern__tag {
+  transform: translateY(-3px) rotate(-1deg);
+  opacity: 0.85;
 }
 
 /* 画像時代の固定幅（width:Npx）を打ち消し、文字量に合わせて枠を伸縮させる。
@@ -3771,5 +3881,77 @@ rt {
     font-size: 0.9rem;
     padding: 12px 18px;
     letter-spacing: 0.08em;
+  }
+}
+
+/* ===============================================
+   Cookie利用の同意バナー（トップページ）
+   未選択のときだけ cookie-consent.js が hidden を外して表示する。
+   =============================================== */
+.cookie-consent {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 640px;
+  z-index: 10000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  padding: 16px 18px;
+  background: #fffdf8;
+  color: var(--font-color);
+  border: 1.5px solid var(--font-color);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+/* hidden 属性を尊重（display:flex に負けないように明示） */
+.cookie-consent[hidden] {
+  display: none;
+}
+.cookie-consent__text {
+  flex: 1 1 280px;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.cookie-consent__buttons {
+  flex: 0 0 auto;
+  display: flex;
+  gap: 10px;
+}
+.cookie-consent__agree,
+.cookie-consent__reject {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--font-color);
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.cookie-consent__agree {
+  background: var(--font-color);
+  color: #fff;
+}
+.cookie-consent__reject {
+  background: transparent;
+  color: var(--font-color);
+}
+.cookie-consent__agree:hover,
+.cookie-consent__reject:hover {
+  opacity: 0.8;
+}
+@media (max-width: 768px) {
+  .cookie-consent {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .cookie-consent__buttons {
+    justify-content: center;
   }
 }
