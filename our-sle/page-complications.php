@@ -125,7 +125,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <div class="section__title-box">
           <h2 class="section__title">病気そのものによる主な合併症</h2>
         </div>
@@ -139,7 +139,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec03 section" id="thrombosis">
+      <section class="section" id="thrombosis">
         <h2 class="about-sle__title">
           血栓（抗リン脂質抗体症候群を含む）
         </h2>
@@ -149,7 +149,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec04 section" id="cns">
+      <section class="section" id="cns">
         <h2 class="about-sle__title">
           中枢神経（脳・神経）
         </h2>
@@ -158,7 +158,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec04 section" id="heart-lungs">
+      <section class="section" id="heart-lungs">
         <h2 class="about-sle__title">
           心臓・肺（炎症や臓器障害）
         </h2>
@@ -168,7 +168,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec04 section" id="blood">
+      <section class="section" id="blood">
         <h2 class="about-sle__title">
           血液（貧血・白血球/血小板の低下）
         </h2>
@@ -178,7 +178,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec02 section" id="infection">
+      <section class="section" id="infection">
         <div class="section__title-box">
           <h2 class="section__title">治療に関連して増えやすい合併症</h2>
         </div>
@@ -190,7 +190,7 @@ get_header();
         </p>
       </section>
 
-      <section class="sec04 section" id="bone">
+      <section class="section" id="bone">
         <h2 class="about-sle__title">
           骨の問題（骨粗しょう症・骨壊死など）
         </h2>
@@ -200,7 +200,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec02 section" id="visit">
+      <section class="section" id="visit">
         <div class="section__title-box">
           <h2 class="section__title">受診の目安</h2>
         </div>
@@ -212,7 +212,7 @@ get_header();
         </p>
       </section>
 
-      <section class="sec04 section">
+      <section class="section">
         <h2 class="about-sle__title">
           早めに主治医へ（当日〜数日）
         </h2>
@@ -238,7 +238,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEについて </a>
           <a href="#">#合併症 </a>
           <a href="#">#ループス腎炎 </a>

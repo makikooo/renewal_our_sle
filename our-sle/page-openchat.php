@@ -44,7 +44,7 @@ get_header();
       </section>
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#オープンチャット </a>
           <a href="#">#仲間さがし </a>
         </div>

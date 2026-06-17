@@ -279,7 +279,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#妊娠 </a>
           <a href="#">#出産 </a>
           <a href="#">#再燃 </a>

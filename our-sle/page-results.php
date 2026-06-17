@@ -247,7 +247,7 @@ get_header();
         </table>
       </section>
 
-      <section class="sec02 section" id="other">
+      <section class="section" id="other">
         <h2 class="about-sle__title">
           そのほかの検査
         </h2>
@@ -263,7 +263,7 @@ get_header();
 
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#検査結果 </a>
           <a href="#">#血液検査 </a>
           <a href="#">#尿検査 </a>

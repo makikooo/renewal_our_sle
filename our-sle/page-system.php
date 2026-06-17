@@ -85,7 +85,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <h2 class="about-sle__title" id="systemic">
           高額療養費制度（医療費が高くなった月の上限）
         </h2>
@@ -109,7 +109,7 @@ get_header();
         </a>
       </section>
       
-      <section class="sec03 section" id="skin">
+      <section class="section" id="skin">
         <h2 class="about-sle__title">
           SLEに直結：指定難病の医療費助成
         </h2>
@@ -126,7 +126,7 @@ get_header();
         </a>
       </section>
       
-      <section class="sec02 section" id="join">
+      <section class="section" id="join">
         <h2 class="about-sle__title">
           自立支援医療（※対象が限定）
         </h2>
@@ -144,7 +144,7 @@ get_header();
         </a>
       </section>
       
-      <section class="sec02 section" id="kidney">
+      <section class="section" id="kidney">
         <h2 class="about-sle__title">
           医療費控除（確定申告）
         </h2>
@@ -157,7 +157,7 @@ get_header();
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
       </section>
-      <section class="sec02 section" id="lungs">
+      <section class="section" id="lungs">
         <h2 class="about-sle__title">
           収入が減るとき：傷病手当金
         </h2>
@@ -173,7 +173,7 @@ get_header();
 
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#高額療養費 </a>
           <a href="#">#制度 </a>
           <a href="#">#指定難病の医療費助成 </a>

@@ -15,9 +15,21 @@ get_header();
         <p class="title__text">「これ、わたしだけ?」と思っていたこと、実はみんなも同じかも。あるあるアンケートの結果を見て、共感してみませんか。</p>
       </section>
 
-      <a href="https://forms.gle/ZevxKhpgKTxh6xKE9" class="enquete__link" target="_blank" rel="noopener">
-        <img src="<?= THEME_URI ?>/assets/images/enquete.webp" alt="アンケート募集しています。お題は仕事">
-      </a>
+      <section class="enquete-card">
+        <div class="enquete-card__top">
+          <h2 class="enquete-card__title">SLE × 仕事 アンケート</h2>
+          <span class="enquete-card__badge">開催中</span>
+        </div>
+        <p class="enquete-card__subtitle">仕事に関すること</p>
+        <p class="enquete-card__lead">SLEと仕事の両立、みんなはどうしてる？<br>あなたの経験を教えてください！</p>
+        <div class="enquete-card__bottom">
+          <p class="enquete-card__example">例：職場での伝え方・体調管理の工夫・困ったことなど、あなたの経験を聞かせてください</p>
+          <div class="enquete-card__cta">
+            <a class="enquete-card__button" href="https://forms.gle/ZevxKhpgKTxh6xKE9" target="_blank" rel="noopener">参加する</a>
+            <span class="enquete-card__note">結果は後日発表</span>
+          </div>
+        </div>
+      </section>
 
       <a href="<?php echo esc_url( home_url( '/enquete03/' ) ); ?>" class="sec02 bg-lightYellow">
         <div class="menu-sle">

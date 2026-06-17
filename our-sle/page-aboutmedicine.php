@@ -370,7 +370,7 @@ get_header();
         </div>
       </section>
 
-      <section class="sec02 section" id="topical">
+      <section class="section" id="topical">
         <h2 class="about-sle__title">
           皮膚に塗る薬
         </h2>
@@ -424,7 +424,7 @@ get_header();
 
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#お薬 </a>
           <a href="#">#ステロイド </a>
           <a href="#">#免疫抑制剤 </a>

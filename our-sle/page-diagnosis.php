@@ -115,7 +115,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <h2 class="about-sle__title" id="systemic">
           難病法の医療費助成制度はどのようなものですか？
         </h2>
@@ -133,7 +133,7 @@ get_header();
         </figure>
       </section>
       
-      <section class="sec03 section" id="skin">
+      <section class="section" id="skin">
         <h2 class="about-sle__title">
           わたしたちが直面する医療費助成の審査基準となる診断方法とは？
         </h2>
@@ -554,7 +554,7 @@ get_header();
       </section>
       <img class="bg-yellow" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       
-      <section class="sec02 section" id="nerve">
+      <section class="section" id="nerve">
         <h2 class="about-sle__title">
           軽症高額該当とは
         </h2>
@@ -565,7 +565,7 @@ get_header();
         </p>
       </section>
 
-      <section class="sec04 section" id="blood">
+      <section class="section" id="blood">
         <h2 class="about-sle__title">
           高額かつ長期とは
         </h2>
@@ -577,7 +577,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec02 section" id="other">
+      <section class="section" id="other">
         <h2 class="about-sle__title">
           従来のSLEの分類基準とは
         </h2>
@@ -594,7 +594,7 @@ get_header();
       
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEについて </a>
           <a href="#">#SLEの症状 </a>
           <a href="#">#全身 </a>

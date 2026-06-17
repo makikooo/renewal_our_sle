@@ -114,7 +114,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <h2 class="about-sle__title" id="systemic">
           全身の症状
         </h2>
@@ -131,7 +131,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec03 section" id="skin">
+      <section class="section" id="skin">
         <h2 class="about-sle__title">
           皮膚や粘膜の症状
         </h2>
@@ -164,7 +164,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec04 section" id="join">
+      <section class="section" id="join">
         <h2 class="about-sle__title">
           筋肉や関節の症状
         </h2>
@@ -178,7 +178,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec04 section" id="kidney">
+      <section class="section" id="kidney">
         <h2 class="about-sle__title">
           腎臓の症状
         </h2>
@@ -193,7 +193,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec04 section" id="lungs">
+      <section class="section" id="lungs">
         <h2 class="about-sle__title">
           肺や心臓の症状
         </h2>
@@ -208,7 +208,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec02 section" id="nerve">
+      <section class="section" id="nerve">
         <h2 class="about-sle__title">
           神経の症状
         </h2>
@@ -224,7 +224,7 @@ get_header();
         </p>
       </section>
 
-      <section class="sec04 section" id="blood">
+      <section class="section" id="blood">
         <h2 class="about-sle__title">
           血液の異常
         </h2>
@@ -238,7 +238,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec02 section" id="other">
+      <section class="section" id="other">
         <h2 class="about-sle__title">
           その他の症状
         </h2>
@@ -254,7 +254,7 @@ get_header();
         </p>
       </section>
 
-      <section class="sec04 section">
+      <section class="section">
         <img src="<?= THEME_URI ?>/assets/images/menu-sle/syoujou.webp" alt="">
       </section>
 
@@ -275,7 +275,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEについて </a>
           <a href="#">#SLEの症状 </a>
           <a href="#">#全身 </a>

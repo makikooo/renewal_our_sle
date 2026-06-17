@@ -92,7 +92,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section" id="about-sle">
+      <section class="section" id="about-sle">
         <h2 class="about-sle__title">
           SLEとは
         </h2>
@@ -204,7 +204,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEとは </a>
           <a href="#">#免疫 </a>
           <a href="#">#膠原病 </a>

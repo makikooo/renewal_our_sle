@@ -23,7 +23,7 @@ get_header();
         <p class="subtitle">毎日を乗り切るだけで精一杯な日もあります。<br>そんなときに読んでほしい、心を守る考え方や、無理をしないためのヒントを集めました。</p>
       
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <h2 class="about-sle__title" id="systemic">
           あなたのペースで、ゆっくりで大丈夫。
         </h2>
@@ -37,7 +37,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec03 section" id="skin">
+      <section class="section" id="skin">
         <h2 class="about-sle__title">
           こんな気持ち、ありませんか？
         </h2>
@@ -163,7 +163,7 @@ get_header();
             
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#こころ </a>
           <a href="#">#メンタル </a>
         </div>

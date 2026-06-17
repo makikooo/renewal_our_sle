@@ -21,7 +21,7 @@ get_header();
       <section class="sec01">
         <p class="subtitle">現時点では活用場面が限られていますが、これから広がっていく可能性があります。</p>
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <h2 class="about-sle__title" id="systemic">
           登録者証の概要
         </h2>
@@ -50,7 +50,7 @@ get_header();
       
       <section class="category__wrapper bg-white">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#特定疾患受給者票 </a>
           <a href="#">#市区町村 </a>
         </div>

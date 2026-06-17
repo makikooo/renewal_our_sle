@@ -27,10 +27,12 @@ get_header();
             <?php the_post_thumbnail( 'large', array( 'class' => 'article__img' ) ); ?>
           <?php endif; ?>
           <p class="article__date">公開日：<?php echo esc_html( get_the_date( 'Y.m.d' ) ); ?></p>
+          <p class="article__date">編集日：<?php echo esc_html( get_the_date( 'Y.m.d' ) ); ?></p>
           <div class="article__tags">
             <?php
             foreach ( get_the_category() as $cat ) {
-                echo '<span class="article__tag">' . esc_html( $cat->name ) . '</span>';
+                $badge = oursle_news_badge_by_category( $cat );
+                echo '<span class="article__tag ' . esc_attr( $badge['class'] ) . '">' . esc_html( $cat->name ) . '</span>';
             }
             ?>
           </div>
@@ -41,12 +43,17 @@ get_header();
         </article>
         <?php endwhile; ?>
 
-        <aside class="article__side">
+      </div>
+
+      <aside class="article__side article__side--bottom">
+        <div class="side__group">
           <h2 class="side__heading">カテゴリー</h2>
           <ul class="side__list">
             <?php wp_list_categories( array( 'title_li' => '', 'show_count' => false ) ); ?>
           </ul>
+        </div>
 
+        <div class="side__group">
           <h2 class="side__heading">タグ</h2>
           <ul class="side__list">
             <?php
@@ -56,8 +63,8 @@ get_header();
             }
             ?>
           </ul>
-        </aside>
-      </div>
+        </div>
+      </aside>
 
       <?php
       // コメント（コメントが開いている、または既にコメントがある場合に表示）

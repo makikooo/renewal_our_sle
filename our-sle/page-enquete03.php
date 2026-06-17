@@ -377,7 +377,7 @@ get_header();
 
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEとは </a>
           <a href="#">#SLEの症状 </a>
           <a href="#">#妊娠 </a>

@@ -117,7 +117,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section" id="about-sle">
+      <section class="section" id="about-sle">
         <h2 class="about-sle__title">
           妊娠はできる？出産できる？
         </h2>
@@ -248,7 +248,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#妊娠 </a>
           <a href="#">#出産 </a>
           <a href="#">#SLEの症状 </a>

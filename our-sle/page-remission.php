@@ -48,7 +48,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section" id="about-sle">
+      <section class="section" id="about-sle">
         <h2 class="about-sle__title">
           社会的寛解とは
         </h2>
@@ -71,7 +71,7 @@ get_header();
         
       </section>
       
-      <section class="sec03 section" id="early-symptoms">
+      <section class="section" id="early-symptoms">
         <h2 class="about-sle__title">
           社会的寛解についてのアンケート
         </h2>
@@ -110,9 +110,9 @@ get_header();
       </section>
       
       
-      <section class="sec04 section" id="etiology">
+      <section class="section" id="etiology">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEについて </a>
           <a href="#">#SLEの症状 </a>
           <a href="#">#全身 </a>
@@ -156,7 +156,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-blue03.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEとは </a>
           <a href="#">#免疫 </a>
           <a href="#">#膠原病 </a>

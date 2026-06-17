@@ -356,7 +356,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#特定疾患受給者票 </a>
           <a href="#">#難病 </a>
           <a href="#">#減免 </a>

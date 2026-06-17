@@ -49,7 +49,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <h2 class="about-sle__title" id="systemic">
           受診のタイミング
         </h2>
@@ -79,7 +79,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec03 section" id="skin">
+      <section class="section" id="skin">
         <h2 class="about-sle__title">
           公共のサイトのリンク集
         </h2>
@@ -108,7 +108,7 @@ get_header();
             
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEの症状 </a>
           <a href="#">#通院 </a>
         </div>

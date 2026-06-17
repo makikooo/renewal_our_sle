@@ -76,6 +76,9 @@ function oursle_enqueue_assets() {
 	// ローディング演出はトップページのみ（head で先読み）
 	if ( is_front_page() ) {
 		wp_enqueue_script( 'oursle-loading', THEME_URI . '/assets/js/loading.js', array(), $ver, false );
+
+		// Cookie同意バナー（トップページのみ）
+		wp_enqueue_script( 'oursle-cookie-consent', THEME_URI . '/assets/js/cookie-consent.js', array(), $ver, array( 'in_footer' => true ) );
 	}
 
 	// 返信（スレッド）コメント用スクリプト
@@ -215,6 +218,54 @@ function oursle_adjacent_post( $previous = true ) {
 }
 
 /**
+ * カテゴリー1件から更新情報バッジ（class と ラベル）を返す。
+ *
+ * @param WP_Term|null $cat カテゴリー。
+ * @return array array( 'class' => 'is-xxx', 'label' => 'ラベル' )
+ */
+function oursle_news_badge_by_category( $cat = null ) {
+	if ( ! $cat instanceof WP_Term ) {
+		return array(
+			'class' => 'is-blog',
+			'label' => 'ブログ',
+		);
+	}
+
+	// スラッグでマッチさせるマップ
+	$map = array(
+		'update' => array( 'is-update', '更新情報' ),
+		'news'   => array( 'is-sleinfo', 'SLE情報' ),
+		'blog'   => array( 'is-aboutme', 'わたしのこと' ),
+	);
+
+	// カテゴリー名でマッチさせるマップ（スラッグが日本語/任意の場合に対応）
+	$by_name = array(
+		'更新情報'     => array( 'is-update',  '更新情報' ),
+		'わたしのこと' => array( 'is-aboutme', 'わたしのこと' ),
+		'SLE情報'      => array( 'is-sleinfo', 'SLE情報' ),
+	);
+
+	if ( isset( $map[ $cat->slug ] ) ) {
+		return array(
+			'class' => $map[ $cat->slug ][0],
+			'label' => $map[ $cat->slug ][1],
+		);
+	}
+
+	if ( isset( $by_name[ $cat->name ] ) ) {
+		return array(
+			'class' => $by_name[ $cat->name ][0],
+			'label' => $by_name[ $cat->name ][1],
+		);
+	}
+
+	return array(
+		'class' => 'is-blog',
+		'label' => $cat->name,
+	);
+}
+
+/**
  * 投稿カテゴリーから更新情報バッジ（class と ラベル）を返す。
  * カテゴリーのスラッグを update / news / blog に合わせると色分けされます。
  *
@@ -222,33 +273,11 @@ function oursle_adjacent_post( $previous = true ) {
  * @return array array( 'class' => 'is-xxx', 'label' => 'ラベル' )
  */
 function oursle_news_badge( $post = null ) {
-	// スラッグでマッチさせるマップ
-	$map = array(
-		'update' => array( 'is-update', '更新情報' ),
-		'news'    => array( 'is-sleinfo', 'SLE情報' ),
-		'blog'    => array( 'is-aboutme', 'わたしのこと' ),
-	);
-
-	// カテゴリー名でマッチさせるマップ（スラッグが日本語/任意の場合に対応）
-	$by_name = array(
-		'更新情報'         => array( 'is-update',  '更新情報' ),
-		'わたしのこと' => array( 'is-aboutme', 'わたしのこと' ),
-		'SLE情報'      => array( 'is-sleinfo', 'SLE情報' ),
-	);
-
 	$cats = get_the_category( $post ? get_post( $post )->ID : null );
 	foreach ( $cats as $cat ) {
-		if ( isset( $map[ $cat->slug ] ) ) {
-			return array(
-				'class' => $map[ $cat->slug ][0],
-				'label' => $map[ $cat->slug ][1],
-			);
-		}
-		if ( isset( $by_name[ $cat->name ] ) ) {
-			return array(
-				'class' => $by_name[ $cat->name ][0],
-				'label' => $by_name[ $cat->name ][1],
-			);
+		$badge = oursle_news_badge_by_category( $cat );
+		if ( 'is-blog' !== $badge['class'] ) {
+			return $badge;
 		}
 	}
 
@@ -273,6 +302,11 @@ function oursle_count_views() {
 	if ( is_admin() || ! is_singular() || is_preview() || is_user_logged_in() ) {
 		return;
 	}
+	// Cookie利用に同意した閲覧者のみ集計する（同意バナーで '1' を保存）。
+	// 未選択・拒否のあいだは記録しない。
+	if ( ! isset( $_COOKIE['oursle_consent'] ) || '1' !== $_COOKIE['oursle_consent'] ) {
+		return;
+	}
 	$post_id = get_queried_object_id();
 	if ( ! $post_id ) {
 		return;
@@ -290,19 +324,17 @@ function oursle_count_views() {
 add_action( 'wp', 'oursle_count_views' );
 
 /**
- * 固定ページ（スラッグ指定）の閲覧数を返す。
- * トップの「いま、気になること」のおすすめ強調（人気ページ順）に使う。
+ * 固定ページ（スラッグ指定）のIDを返す。スラッグ単位でキャッシュする。
+ * 「いま、気になること」の各タグから繰り返し呼ばれるため。
  *
  * @param string $slug 固定ページのスラッグ（例 'symptoms'）。
- * @return int 閲覧数（取得できなければ 0）。
+ * @return int 投稿ID（見つからなければ 0）。
  */
-function oursle_views_by_slug( $slug ) {
-	// 同一ページ内で複数タグから繰り返し呼ばれるため、スラッグ単位でキャッシュする。
+function oursle_page_id_by_slug( $slug ) {
 	static $cache = array();
-	if ( isset( $cache[ $slug ] ) ) {
+	if ( array_key_exists( $slug, $cache ) ) {
 		return $cache[ $slug ];
 	}
-
 	$pages = get_posts(
 		array(
 			'name'           => $slug,
@@ -313,12 +345,34 @@ function oursle_views_by_slug( $slug ) {
 			'fields'         => 'ids',
 		)
 	);
-	if ( empty( $pages ) ) {
-		$cache[ $slug ] = 0;
-		return 0;
-	}
-	$cache[ $slug ] = (int) get_post_meta( $pages[0], 'oursle_views', true );
+	$cache[ $slug ] = ! empty( $pages ) ? (int) $pages[0] : 0;
 	return $cache[ $slug ];
+}
+
+/**
+ * 固定ページ（スラッグ指定）の閲覧数を返す。
+ * 「いま、気になること」のおすすめ強調（人気ページ順）に使う。
+ *
+ * @param string $slug 固定ページのスラッグ。
+ * @return int 閲覧数（取得できなければ 0）。
+ */
+function oursle_views_by_slug( $slug ) {
+	$id = oursle_page_id_by_slug( $slug );
+	return $id ? (int) get_post_meta( $id, 'oursle_views', true ) : 0;
+}
+
+/**
+ * 固定ページ（スラッグ指定）の正しいパーマリンクを返す。
+ * 子ページ（/menu-sle/symptoms/ 等）でも正確なURLになり、
+ * home_url('/slug/') 直リンクで起きる301リダイレクトを避けられる。
+ *
+ * @param string $slug 固定ページのスラッグ。
+ * @return string URL（ページが無ければ home_url('/slug/') にフォールバック）。
+ */
+function oursle_url_by_slug( $slug ) {
+	$id  = oursle_page_id_by_slug( $slug );
+	$url = $id ? get_permalink( $id ) : '';
+	return $url ? $url : home_url( '/' . $slug . '/' );
 }
 
 /**

@@ -397,7 +397,7 @@ get_header();
 
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEとは </a>
           <a href="#">#免疫 </a>
           <a href="#">#膠原病 </a>

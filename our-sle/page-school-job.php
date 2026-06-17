@@ -145,7 +145,7 @@ get_header();
       <img class="bg_white_victor" src="<?= THEME_URI ?>/assets/images/background/bg-yellow04.webp" alt="">
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#学校 </a>
           <a href="#">#仕事 </a>
           <a href="#">#通院 </a>

@@ -21,7 +21,7 @@ get_header();
       <section class="sec01">
         <p class="subtitle">自治体によっては難病患者さんへの手当制度があります。お住まいの地域でもらえるかもしれないので、確認してみましょう。</p>
       </section>
-      <section class="sec02 section">
+      <section class="section">
         <h2 class="about-sle__title" id="systemic">
           自治体の難病見舞金・福祉手当
         </h2>
@@ -43,7 +43,7 @@ get_header();
       
       <section class="category__wrapper bg-white">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#難病手当 </a>
           <a href="#">#市区町村 </a>
         </div>

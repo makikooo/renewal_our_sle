@@ -48,7 +48,7 @@ get_header();
           </ul>
         </div>
       </section>
-      <section class="sec02 section" id="about-sle">
+      <section class="section" id="about-sle">
         <h2 class="about-sle__title">
           SLEの治療の背景
         </h2>
@@ -63,7 +63,7 @@ get_header();
         </div>
       </section>
       
-      <section class="sec03 section" id="early-symptoms">
+      <section class="section" id="early-symptoms">
         <h2 class="about-sle__title">
           治療の方法
         </h2>
@@ -75,7 +75,7 @@ get_header();
       
       <section class="category__wrapper bg-white section">
         <div class="category">
-          カテゴリー：
+          タグ：
           <a href="#">#SLEの治療 </a>
           <a href="#">#ステロイド </a>
           <a href="#">#グリオコルチコイド </a>

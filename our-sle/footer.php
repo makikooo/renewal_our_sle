@@ -29,6 +29,19 @@
     </aside>
   </main>
 
+  <?php // Cookie利用の同意バナー（トップページのみ。未選択のときだけ cookie-consent.js が表示する） ?>
+  <?php if ( is_front_page() ) : ?>
+  <div id="cookie-consent" class="cookie-consent" role="dialog" aria-label="Cookieの利用について" hidden>
+    <p class="cookie-consent__text">
+      当サイトでは、表示の改善と「いま、気になること」のおすすめ表示のために、Cookie（クッキー）とブラウザの保存機能を使用します。ご利用に同意いただけますか？
+    </p>
+    <div class="cookie-consent__buttons">
+      <button type="button" class="cookie-consent__agree">同意する</button>
+      <button type="button" class="cookie-consent__reject">拒否する</button>
+    </div>
+  </div>
+  <?php endif; ?>
+
   <?php // 「いま、気になること」タグの枠線を手描き風に揺らすSVGフィルター ?>
   <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
     <filter id="oursle-rough" x="-5%" y="-5%" width="110%" height="110%">
