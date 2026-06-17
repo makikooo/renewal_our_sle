@@ -120,7 +120,7 @@ get_header();
           受給者証の有効期間は原則1年で、更新が必要です。申請から交付まで数ヶ月かかることがあるため、早めの手続きをおすすめします。<br>
           詳しい申請方法や必要書類は、お住まいの自治体の難病対策担当課や保健所または病院のケースワーカーにお問い合わせください。
         </p>
-        <a class="button update__button" href="https://www.nanbyou.or.jp/entry/5460" target="_blank">
+        <a class="button update__button" href="https://www.nanbyou.or.jp/entry/5460" target="_blank" rel="noopener noreferrer">
           <span>難病情報センターで<br>詳しく見る</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
@@ -138,7 +138,7 @@ get_header();
           育成医療（18歳未満） が対象です。<br>
           SLEそのものの助成は通常「指定難病」のほうが主役ですが、合併症や別疾患で該当するケースもあるので、“該当しそうなら”確認してみてください。
         </p>
-        <a class="button update__button" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/shougaishahukushi/jiritsu/index.html" target="_blank">
+        <a class="button update__button" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/hukushi_kaigo/shougaishahukushi/jiritsu/index.html" target="_blank" rel="noopener noreferrer">
           <span>厚生労働省で詳しく見る</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
@@ -152,7 +152,7 @@ get_header();
           1年(1/1〜12/31)に払った医療費が一定以上ある場合、所得から差し引けて税金が戻る可能性があります。通院のための交通費(電車・バス代など)も医療費に含められますので、記録を残しておきましょう。領収書等は5年間保管が必要です。<br>
           また、OTC薬が多い人向けに セルフメディケーション税制 がありますが、**通常の医療費控除とは選択制(同時に使えない)**です。
         </p>
-        <a class="button update__button" href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank">
+        <a class="button update__button" href="https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm" target="_blank" rel="noopener noreferrer">
           <span>国税庁で詳しく見る</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
@@ -165,7 +165,7 @@ get_header();
           会社員など健康保険の被保険者で、病気やケガで働けず給与が出ない/減るとき、条件を満たすと支給されます。連続3日休んだ後の4日目以降などが要点です。<br>
           注意:同じ病名で一度傷病手当金を受給すると、原則として同じ病気では再度受給できません。再発や症状の悪化があっても、以前と同じ病名の場合は対象外となることが多いため、申請のタイミングは慎重に検討しましょう。
         </p>
-        <a class="button update__button" href="https://www.kyoukaikenpo.or.jp/benefit/injury_and_sickness_allowance/index.html" target="_blank">
+        <a class="button update__button" href="https://www.kyoukaikenpo.or.jp/benefit/injury_and_sickness_allowance/index.html" target="_blank" rel="noopener noreferrer">
           <span>協会けんぽで詳しく見る</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>

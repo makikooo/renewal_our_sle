@@ -292,7 +292,7 @@ get_header();
             <span class="under_line">東京ディズニーリゾート（ディズニーランド／ディズニーシー）</span><br>
             「障がいのある方向けチケット」の対象証明書に 特定医療費（指定難病）受給者証が明記されています（同伴者1名まで購入可）。<br>
           </div>
-          <a class="button update__button" href="https://www.tokyodisneyresort.jp/tdr/bfree/bfree_ticket.html#:~:text=%E9%9B%A3%E7%97%85%E6%B3%95%E3%81%AB%E8%A6%8F%E5%AE%9A%E3%81%99%E3%82%8B%E7%89%B9%E5%AE%9A%E5%8C%BB%E7%99%82%E8%B2%BB%EF%BC%88%E6%8C%87%E5%AE%9A%E9%9B%A3%E7%97%85%EF%BC%89%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC" target="_blank">
+          <a class="button update__button" href="https://www.tokyodisneyresort.jp/tdr/bfree/bfree_ticket.html#:~:text=%E9%9B%A3%E7%97%85%E6%B3%95%E3%81%AB%E8%A6%8F%E5%AE%9A%E3%81%99%E3%82%8B%E7%89%B9%E5%AE%9A%E5%8C%BB%E7%99%82%E8%B2%BB%EF%BC%88%E6%8C%87%E5%AE%9A%E9%9B%A3%E7%97%85%EF%BC%89%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC" target="_blank" rel="noopener noreferrer">
             <span>ディズニーリゾートを<br>みる</span>
             <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
           </a>
@@ -300,7 +300,7 @@ get_header();
             <span class="under_line">ナガシマリゾート（ナガシマスパーランド／なばなの里／湯あみの島）</span><br>
             対象（提示必要）に 特定医療費受給者証が明記され、入場料などが割引（本人＋付添1名）<br>
           </div>
-          <a class="button update__button" href="https://www.nagashima-onsen.co.jp/resort/info/Disabilitydiscount.html" target="_blank">
+          <a class="button update__button" href="https://www.nagashima-onsen.co.jp/resort/info/Disabilitydiscount.html" target="_blank" rel="noopener noreferrer">
             <span>ナガシマリゾートをみる</span>
             <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
           </a>
@@ -308,7 +308,7 @@ get_header();
             <span class="under_line">日本モンキーパーク（愛知）</span><br>
             特定医療費受給者証が割引対象として明記（本人＋介助者1名も割引）。<br>
           </div>
-          <a class="button update__button" href="https://www.japan-monkeypark.jp/disabilities/" target="_blank">
+          <a class="button update__button" href="https://www.japan-monkeypark.jp/disabilities/" target="_blank" rel="noopener noreferrer">
             <span>日本モンキーパークを<br>みる</span>
             <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
           </a>
@@ -316,7 +316,7 @@ get_header();
             <span class="under_line">サンリオピューロランド（東京・多摩）</span><br>
             バリアフリー案内で、提示書類に難病手帳（特定医療費［指定難病］受給者証）などが明記（チケット割引・ハートパス関連）。<br>
           </div>
-          <a class="button update__button" href="https://www.puroland.jp/guide/barrierfree/#:~:text=%E9%9B%A3%E7%97%85%E6%89%8B%E5%B8%B3(%E7%89%B9%E5%AE%9A%E5%8C%BB%E7%99%82%E8%B2%BB%5B%E6%8C%87%E5%AE%9A%E9%9B%A3%E7%97%85%5D%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC)" target="_blank">
+          <a class="button update__button" href="https://www.puroland.jp/guide/barrierfree/#:~:text=%E9%9B%A3%E7%97%85%E6%89%8B%E5%B8%B3(%E7%89%B9%E5%AE%9A%E5%8C%BB%E7%99%82%E8%B2%BB%5B%E6%8C%87%E5%AE%9A%E9%9B%A3%E7%97%85%5D%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC)" target="_blank" rel="noopener noreferrer">
             <span>サンリオピューロランドをみる</span>
             <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
           </a>
@@ -324,7 +324,7 @@ get_header();
             <span class="under_line">レゴランド・ジャパン（名古屋）</span><br>
             公式案内で「受給者証」提示について触れており、FAQで 「特定難病受給者証」も対象と明記（本人確認の身分証も求められることあり）<br>
           </div>
-          <a class="button update__button" href="https://faq.legoland.jp/hc/ja-jp/articles/28766591549469-%E3%83%AC%E3%82%B4%E3%83%A9%E3%83%B3%E3%83%89-%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3%E3%81%AE-%E9%9A%9C%E3%81%8C%E3%81%84%E3%81%AE%E3%81%82%E3%82%8B%E3%81%8A%E5%AE%A2%E6%A7%98%E3%81%B8-%E3%81%A7%E7%B4%B9%E4%BB%8B%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%AF%BE%E8%B1%A1%E3%81%A7%E3%81%82%E3%82%8B-%E9%9A%9C%E3%81%8C%E3%81%84%E7%A6%8F%E7%A5%89%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC-%E3%81%AB%E3%81%AF-%E9%80%9A%E6%89%80%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC-%E3%82%84-%E7%89%B9%E5%AE%9A%E9%9B%A3%E7%97%85%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC-%E3%82%82%E5%90%AB%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%99%E3%81%8B" target="_blank">
+          <a class="button update__button" href="https://faq.legoland.jp/hc/ja-jp/articles/28766591549469-%E3%83%AC%E3%82%B4%E3%83%A9%E3%83%B3%E3%83%89-%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3%E3%81%AE-%E9%9A%9C%E3%81%8C%E3%81%84%E3%81%AE%E3%81%82%E3%82%8B%E3%81%8A%E5%AE%A2%E6%A7%98%E3%81%B8-%E3%81%A7%E7%B4%B9%E4%BB%8B%E3%81%95%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%AF%BE%E8%B1%A1%E3%81%A7%E3%81%82%E3%82%8B-%E9%9A%9C%E3%81%8C%E3%81%84%E7%A6%8F%E7%A5%89%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC-%E3%81%AB%E3%81%AF-%E9%80%9A%E6%89%80%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC-%E3%82%84-%E7%89%B9%E5%AE%9A%E9%9B%A3%E7%97%85%E5%8F%97%E7%B5%A6%E8%80%85%E8%A8%BC-%E3%82%82%E5%90%AB%E3%81%BE%E3%82%8C%E3%81%BE%E3%81%99%E3%81%8B" target="_blank" rel="noopener noreferrer">
             <span>レゴランド・ジャパンをみる</span>
             <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
           </a>
@@ -332,7 +332,7 @@ get_header();
             <span class="under_line">ジブリパーク（愛知）</span><br>
             「特定難病受給者証」も対象と明記されています。半額になります。同伴者1名まで可能。（本人確認の身分証も求められることあり）<br>
           </div>
-          <a class="button update__button" href="https://ghibli-park.jp/ticket" target="_blank">
+          <a class="button update__button" href="https://ghibli-park.jp/ticket" target="_blank" rel="noopener noreferrer">
             <span>ジブリパークをみる</span>
             <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
           </a>

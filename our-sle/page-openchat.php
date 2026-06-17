@@ -34,7 +34,7 @@ get_header();
           よかったら、まずは“のぞくだけ”でもしてみませんか？<br>
           お待ちしてますね😊
         </p>
-        <a class="button update__button" href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank">
+        <a class="button update__button" href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">
             <span>
               オープンチャットは<br>
               こちら

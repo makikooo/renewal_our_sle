@@ -97,17 +97,10 @@ function oursle_title_separator() {
 add_filter( 'document_title_separator', 'oursle_title_separator' );
 
 /**
- * 共通の meta description（SEOプラグイン未導入時のフォールバック）
+ * SEO 出力（meta description / OGP / Twitter Card / canonical / 構造化データ）。
+ * 実体は inc/seo.php に分離している。
  */
-function oursle_meta_description() {
-	$default = 'わたしたちのSLEは、SLE（全身性エリテマトーデス）の症状・検査・治療・暮らしの工夫を、患者目線でやさしくまとめた情報サイトです。';
-	$desc    = get_bloginfo( 'description' );
-	if ( empty( $desc ) ) {
-		$desc = $default;
-	}
-	echo '<meta name="description" content="' . esc_attr( $desc ) . '">' . "\n";
-}
-add_action( 'wp_head', 'oursle_meta_description', 1 );
+require_once get_template_directory() . '/inc/seo.php';
 
 /**
  * ブログ（更新情報一覧）のURLを返す。

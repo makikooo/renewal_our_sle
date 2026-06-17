@@ -167,7 +167,7 @@ get_header();
         <h2 class="about-sle__title">
           診断基準とは？
         </h2>
-        <p class="rinsyokensakojinhyou">厚生労働省の指定難病の診断基準は<a class="underline" href="https://www.mhlw.go.jp/content/10905000/001173545.pdf" target="_blank">こちらの3ページ</a>を参考にしています。</p>
+        <p class="rinsyokensakojinhyou">厚生労働省の指定難病の診断基準は<a class="underline" href="https://www.mhlw.go.jp/content/10905000/001173545.pdf" target="_blank" rel="noopener noreferrer">こちらの3ページ</a>を参考にしています。</p>
         <p class="bold_impact">
             ■ 診断基準に関する事項 ＜診断のカテゴリー＞ <br>
             Ａをみたし、ＢとＣの陽性項目の点数の合計が 10 点以上 で、<br>

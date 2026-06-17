@@ -1830,6 +1830,72 @@ rt {
       .footer__line-button {
         margin-top: 0;
       }
+      .footer__line-sp {
+        display: none;
+        @media (max-width: 768px) {
+          display: block;
+        }
+      }
+      .line__container {
+        display: block;
+        width: 80%;
+        max-width: 255px;
+        margin: 30px auto 25px;
+        padding: 30px 20px;
+        background-color: var(--white-color);
+        border-radius: 20px;
+        text-align: center;
+        transition: opacity 0.3s ease;
+        &:hover {
+          opacity: 0.7;
+        }
+        .line__img {
+          display: block;
+          width: 65px;
+          margin: 0 auto 20px;
+        }
+        .qr__img {
+          display: block;
+          width: 80%;
+          margin: 0 auto 20px;
+        }
+        .oc__text_box {
+          position: relative;
+          display: inline-block;
+
+          &::before {
+            position: absolute;
+            left: -1em;
+            top: 0;
+            content: '';
+            width: 2px;
+            height: 100%;
+            background-color: var(--font-color);
+            border-radius: 3px;
+            transform: rotate(-30deg);
+          }
+
+          &::after {
+            position: absolute;
+            right: -1em;
+            top: 0;
+            content: '';
+            width: 2px;
+            height: 100%;
+            background-color: var(--font-color);
+            border-radius: 3px;
+            transform: rotate(30deg);
+          }
+
+          .oc__text {
+            font-size: 1rem;
+            line-height: 1.6;
+          }
+        }
+      }
+      .button.go_to_line {
+        margin: 0 auto 40px;
+      }
       .footer__copy {
         display: inline-block;
         margin: 40px auto 70px;

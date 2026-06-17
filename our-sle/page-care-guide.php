@@ -83,22 +83,22 @@ get_header();
         <h2 class="about-sle__title">
           公共のサイトのリンク集
         </h2>
-        <a class="button contact__button" href="https://www.fdma.go.jp/relocation/neuter/topics/filedList9_6/kyukyu_app/kyukyu_app_web/index.html" target="_blank">
+        <a class="button contact__button" href="https://www.fdma.go.jp/relocation/neuter/topics/filedList9_6/kyukyu_app/kyukyu_app_web/index.html" target="_blank" rel="noopener noreferrer">
           <span>総務消防庁のQ助</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d; transform: rotate(-45deg);"></i>
         </a>
 
-        <a class="button contact__button" href="https://www.tfd.metro.tokyo.lg.jp/hp-kyuuimuka/guide/main/index.html" target="_blank">
+        <a class="button contact__button" href="https://www.tfd.metro.tokyo.lg.jp/hp-kyuuimuka/guide/main/index.html" target="_blank" rel="noopener noreferrer">
           <span>東京版救急ガイド</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d; transform: rotate(-45deg);"></i>
         </a>
 
-        <a class="button contact__button" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/newpage_55223.html" target="_blank">
+        <a class="button contact__button" href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/newpage_55223.html" target="_blank" rel="noopener noreferrer">
           <span>6歳までの子どもの救急</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d; transform: rotate(-45deg);"></i>
         </a>
 
-        <a class="button contact__button" href="https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html" target="_blank">
+        <a class="button contact__button" href="https://www.fdma.go.jp/mission/enrichment/appropriate/appropriate007.html" target="_blank" rel="noopener noreferrer">
           <span>救急車を呼ぶか悩んだら</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d; transform: rotate(-45deg);"></i>
         </a>

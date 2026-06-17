@@ -8,16 +8,26 @@
 ?>
       <img class="footer__top-img" src="<?= THEME_URI ?>/assets/images/background/bg_yellow02.webp" alt="">
       <footer class="footer">
+        
+        <?php if ( ! is_front_page() ) : ?>
+        <div class="footer__line-sp">
+          <a href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer" class="line__container">
+            <img class="line__img" src="<?= THEME_URI ?>/assets/images/line_icon.webp" alt="LINEのアイコン">
+            <img class="qr__img" src="<?= THEME_URI ?>/assets/images/qr.webp" alt="LINEのQRコード">
+            <div class="oc__text_box">
+              <p class="oc__text">SLE仲間募集してます<br>オープンチャット</p>
+            </div>
+          </a>
+          <a class="button go_to_line" href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener noreferrer">
+            <span>匿名で参加してみる</span>
+            <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+          </a>
+        </div>
+        <?php endif; ?>
         <a class="button contact__button" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">
           <span>お問い合わせ</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
-        <?php if ( ! is_front_page() ) : ?>
-        <a class="button footer__line-button" href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener">
-          <span>匿名で参加してみる</span>
-          <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
-        </a>
-        <?php endif; ?>
         <small class="footer__copy">&copy;わたしたちのSLE 2022-<?php echo esc_html( date_i18n( 'Y' ) ); ?></small>
         <img class="footer__flower" src="<?= THEME_URI ?>/assets/images/flower.webp" alt="">
       </footer>
