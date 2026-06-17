@@ -357,9 +357,9 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#特定疾患受給者票 </a>
-          <a href="#">#難病 </a>
-          <a href="#">#減免 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '特定疾患受給者票' ) ); ?>">#特定疾患受給者票 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '難病' ) ); ?>">#難病 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '減免' ) ); ?>">#減免 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-12">2026.06.12</time>

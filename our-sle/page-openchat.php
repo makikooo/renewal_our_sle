@@ -45,8 +45,8 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#オープンチャット </a>
-          <a href="#">#仲間さがし </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'オープンチャット' ) ); ?>">#オープンチャット </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '仲間さがし' ) ); ?>">#仲間さがし </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-12">2026.06.12</time>

@@ -239,15 +239,15 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#SLEについて </a>
-          <a href="#">#合併症 </a>
-          <a href="#">#ループス腎炎 </a>
-          <a href="#">#血栓 </a>
-          <a href="#">#中枢神経 </a>
-          <a href="#">#心臓・肺 </a>
-          <a href="#">#血液 </a>
-          <a href="#">#感染症 </a>
-          <a href="#">#骨</a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEについて' ) ); ?>">#SLEについて </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '合併症' ) ); ?>">#合併症 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'ループス腎炎' ) ); ?>">#ループス腎炎 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '血栓' ) ); ?>">#血栓 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '中枢神経' ) ); ?>">#中枢神経 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '心臓・肺' ) ); ?>">#心臓・肺 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '血液' ) ); ?>">#血液 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '感染症' ) ); ?>">#感染症 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '骨' ) ); ?>">#骨</a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-05-29">2026.05.29</time>

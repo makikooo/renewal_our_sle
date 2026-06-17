@@ -182,7 +182,8 @@
   }
 
   // --- 2) このページの「見たタグ」を記録（同意した閲覧者のみ） ---
-  if (consented) {
+  // タグ一覧ページ（/tags/）は全タグが並ぶため、記録対象から除外する。
+  if (consented && slug !== 'tags') {
     var seenTags = pageTagSlugs()
     if (seenTags.length) {
       var tagHist = readList(TAG_STORAGE_KEY).filter(function (s) {

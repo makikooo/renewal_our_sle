@@ -12,6 +12,12 @@
           <span>お問い合わせ</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
+        <?php if ( ! is_front_page() ) : ?>
+        <a class="button footer__line-button" href="https://line.me/ti/g2/vthSUWGZnAREorbZw_pkxZ1umVSj0lhslOhGsA?utm_source=invitation&utm_medium=link_copy&utm_campaign=default" target="_blank" rel="noopener">
+          <span>匿名で参加してみる</span>
+          <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
+        </a>
+        <?php endif; ?>
         <small class="footer__copy">&copy;わたしたちのSLE 2022-<?php echo esc_html( date_i18n( 'Y' ) ); ?></small>
         <img class="footer__flower" src="<?= THEME_URI ?>/assets/images/flower.webp" alt="">
       </footer>

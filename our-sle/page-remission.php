@@ -113,18 +113,18 @@ get_header();
       <section class="section" id="etiology">
         <div class="category">
           タグ：
-          <a href="#">#SLEについて </a>
-          <a href="#">#SLEの症状 </a>
-          <a href="#">#全身 </a>
-          <a href="#">#皮膚 </a>
-          <a href="#">#粘膜 </a>
-          <a href="#">#筋肉 </a>
-          <a href="#">#関節 </a>
-          <a href="#">#腎臓 </a>
-          <a href="#">#肺 </a>
-          <a href="#">#心臓 </a>
-          <a href="#">#神経 </a>
-          <a href="#">#血液 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEについて' ) ); ?>">#SLEについて </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEの症状' ) ); ?>">#SLEの症状 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '全身' ) ); ?>">#全身 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '皮膚' ) ); ?>">#皮膚 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '粘膜' ) ); ?>">#粘膜 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '筋肉' ) ); ?>">#筋肉 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '関節' ) ); ?>">#関節 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '腎臓' ) ); ?>">#腎臓 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '肺' ) ); ?>">#肺 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '心臓' ) ); ?>">#心臓 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '神経' ) ); ?>">#神経 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '血液' ) ); ?>">#血液 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-02">2026.06.02</time>
@@ -157,12 +157,12 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#SLEとは </a>
-          <a href="#">#免疫 </a>
-          <a href="#">#膠原病 </a>
-          <a href="#">#発熱 </a>
-          <a href="#">#関節痛 </a>
-          <a href="#">#皮疹</a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEとは' ) ); ?>">#SLEとは </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '免疫' ) ); ?>">#免疫 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '膠原病' ) ); ?>">#膠原病 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '発熱' ) ); ?>">#発熱 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '関節痛' ) ); ?>">#関節痛 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '皮疹' ) ); ?>">#皮疹</a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-05-29">2026.05.29</time>

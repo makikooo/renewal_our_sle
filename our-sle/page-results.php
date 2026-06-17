@@ -264,13 +264,13 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#検査結果 </a>
-          <a href="#">#血液検査 </a>
-          <a href="#">#尿検査 </a>
-          <a href="#">#免疫学的検査 </a>
-          <a href="#">#補体 </a>
-          <a href="#">#炎症反応 </a>
-          <a href="#">#再燃の指標 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '検査結果' ) ); ?>">#検査結果 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '血液検査' ) ); ?>">#血液検査 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '尿検査' ) ); ?>">#尿検査 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '免疫学的検査' ) ); ?>">#免疫学的検査 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '補体' ) ); ?>">#補体 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '炎症反応' ) ); ?>">#炎症反応 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '再燃の指標' ) ); ?>">#再燃の指標 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-13">2026.06.13</time>

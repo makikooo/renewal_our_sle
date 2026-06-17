@@ -425,13 +425,13 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#お薬 </a>
-          <a href="#">#ステロイド </a>
-          <a href="#">#免疫抑制剤 </a>
-          <a href="#">#生物学的製剤 </a>
-          <a href="#">#プラケニル </a>
-          <a href="#">#骨粗しょう症 </a>
-          <a href="#">#外用薬 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'お薬' ) ); ?>">#お薬 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'ステロイド' ) ); ?>">#ステロイド </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '免疫抑制剤' ) ); ?>">#免疫抑制剤 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '生物学的製剤' ) ); ?>">#生物学的製剤 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'プラケニル' ) ); ?>">#プラケニル </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '骨粗しょう症' ) ); ?>">#骨粗しょう症 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '外用薬' ) ); ?>">#外用薬 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-13">2026.06.13</time>

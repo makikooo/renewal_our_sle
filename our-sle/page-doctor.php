@@ -162,8 +162,8 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#医師との信頼関係 </a>
-          <a href="#">#通院 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '医師との信頼関係' ) ); ?>">#医師との信頼関係 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '通院' ) ); ?>">#通院 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-05">2026.06.05</time>

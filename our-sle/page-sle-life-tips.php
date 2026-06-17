@@ -341,8 +341,8 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#症状 </a>
-          <a href="#">#生活のコツ </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '症状' ) ); ?>">#症状 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '生活のコツ' ) ); ?>">#生活のコツ </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-06">2026.06.06</time>

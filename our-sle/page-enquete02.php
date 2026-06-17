@@ -398,9 +398,9 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#SLEとは </a>
-          <a href="#">#免疫 </a>
-          <a href="#">#膠原病 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEとは' ) ); ?>">#SLEとは </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '免疫' ) ); ?>">#免疫 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '膠原病' ) ); ?>">#膠原病 </a>
         </div>
         <p class="up-dated__text">
           作成日 <time datetime="2020-08-13">2024.07.02</time><br>

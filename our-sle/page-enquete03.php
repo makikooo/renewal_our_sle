@@ -378,12 +378,12 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#SLEとは </a>
-          <a href="#">#SLEの症状 </a>
-          <a href="#">#妊娠 </a>
-          <a href="#">#SLEと付き合う </a>
-          <a href="#">#くらし </a>
-          <a href="#">#ベンリスタ </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEとは' ) ); ?>">#SLEとは </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEの症状' ) ); ?>">#SLEの症状 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '妊娠' ) ); ?>">#妊娠 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEと付き合う' ) ); ?>">#SLEと付き合う </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'くらし' ) ); ?>">#くらし </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'ベンリスタ' ) ); ?>">#ベンリスタ </a>
         </div>
         <p class="up-dated__text">
           作成日 <time datetime="2025-03-30">2025.05.30</time><br>

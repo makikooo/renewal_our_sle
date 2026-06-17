@@ -76,12 +76,12 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#SLEの治療 </a>
-          <a href="#">#ステロイド </a>
-          <a href="#">#グリオコルチコイド </a>
-          <a href="#">#免疫抑制剤 </a>
-          <a href="#">#免疫調整剤 </a>
-          <a href="#">#治療方法 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEの治療' ) ); ?>">#SLEの治療 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'ステロイド' ) ); ?>">#ステロイド </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'グリオコルチコイド' ) ); ?>">#グリオコルチコイド </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '免疫抑制剤' ) ); ?>">#免疫抑制剤 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '免疫調整剤' ) ); ?>">#免疫調整剤 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '治療方法' ) ); ?>">#治療方法 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-05-29">2026.05.29</time>

@@ -174,13 +174,13 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#高額療養費 </a>
-          <a href="#">#制度 </a>
-          <a href="#">#指定難病の医療費助成 </a>
-          <a href="#">#自立支援医療 </a>
-          <a href="#">#医療費控除 </a>
-          <a href="#">#確定申告 </a>
-          <a href="#">#傷病手当 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '高額療養費' ) ); ?>">#高額療養費 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '制度' ) ); ?>">#制度 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '指定難病の医療費助成' ) ); ?>">#指定難病の医療費助成 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '自立支援医療' ) ); ?>">#自立支援医療 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '医療費控除' ) ); ?>">#医療費控除 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '確定申告' ) ); ?>">#確定申告 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '傷病手当' ) ); ?>">#傷病手当 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-12">2026.06.12</time>

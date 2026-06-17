@@ -249,9 +249,9 @@ get_header();
       <section class="category__wrapper bg-white section">
         <div class="category">
           タグ：
-          <a href="#">#妊娠 </a>
-          <a href="#">#出産 </a>
-          <a href="#">#SLEの症状 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '妊娠' ) ); ?>">#妊娠 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '出産' ) ); ?>">#出産 </a>
+          <a href="<?php echo esc_url( oursle_tag_url( 'SLEの症状' ) ); ?>">#SLEの症状 </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-06">2026.06.06</time>

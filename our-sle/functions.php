@@ -376,6 +376,110 @@ function oursle_url_by_slug( $slug ) {
 }
 
 /**
+ * タグの台帳：固定ページ（スラッグ） => そのページの「タグ：」に並ぶラベル。
+ *
+ * 各ページテンプレートの <div class="category"> に書かれている #タグと
+ * 必ず一致させてください（ここが「タグ → 関連ページ一覧」の元データです）。
+ * ページのタグを増減したら、この配列も合わせて更新します。
+ *
+ * @return array スラッグ => ラベル配列。
+ */
+function oursle_tag_index() {
+	return array(
+		'about-me'      => array( '自己紹介', 'オープンチャット', '仲間さがし' ),
+		'symptoms'      => array( 'SLEについて', 'SLEの症状', '全身', '皮膚', '粘膜', '筋肉', '関節', '腎臓', '肺', '心臓', '神経', '血液' ),
+		'system'        => array( '高額療養費', '制度', '指定難病の医療費助成', '自立支援医療', '医療費控除', '確定申告', '傷病手当' ),
+		'aboutmedicine' => array( 'お薬', 'ステロイド', '免疫抑制剤', '生物学的製剤', 'プラケニル', '骨粗しょう症', '外用薬' ),
+		'treatment'     => array( 'SLEの治療', 'ステロイド', 'グリオコルチコイド', '免疫抑制剤', '免疫調整剤', '治療方法' ),
+		'enquete02'     => array( 'SLEとは', '免疫', '膠原病' ),
+		'faq'           => array( '妊娠', '出産', '再燃', '通院', '受信サイン' ),
+		'remission'     => array( 'SLEについて', 'SLEの症状', '全身', '皮膚', '粘膜', '筋肉', '関節', '腎臓', '肺', '心臓', '神経', '血液', 'SLEとは', '免疫', '膠原病', '発熱', '関節痛', '皮疹' ),
+		'doctor'        => array( '医師との信頼関係', '通院' ),
+		'jukyuusyahyou' => array( '特定疾患受給者票', '難病', '減免' ),
+		'care-guide'    => array( 'SLEの症状', '通院' ),
+		'results'       => array( '検査結果', '血液検査', '尿検査', '免疫学的検査', '補体', '炎症反応', '再燃の指標' ),
+		'tourokusyou'   => array( '特定疾患受給者票', '市区町村' ),
+		'diagnosis'     => array( 'SLEについて', 'SLEの症状', '全身', '皮膚', '粘膜', '筋肉', '関節', '腎臓', '肺', '心臓', '神経', '血液' ),
+		'enquete03'     => array( 'SLEとは', 'SLEの症状', '妊娠', 'SLEと付き合う', 'くらし', 'ベンリスタ' ),
+		'about-sle'     => array( 'SLEとは', '免疫', '膠原病', '発熱', '関節痛', '皮疹' ),
+		'complications' => array( 'SLEについて', '合併症', 'ループス腎炎', '血栓', '中枢神経', '心臓・肺', '血液', '感染症', '骨' ),
+		'pregnancy'     => array( '妊娠', '出産', 'SLEの症状' ),
+		'nanbyouteate'  => array( '難病手当', '市区町村' ),
+		'sle-life-tips' => array( '症状', '生活のコツ' ),
+		'school-job'    => array( '学校', '仕事', '通院', 'オープン' ),
+		'kokoro-care'   => array( 'こころ', 'メンタル' ),
+		'enquete01'     => array( 'SLEとは', '免疫', '膠原病' ),
+		'openchat'      => array( 'オープンチャット', '仲間さがし' ),
+	);
+}
+
+/**
+ * 指定したタグ（ラベル）を含む固定ページのスラッグを返す。
+ *
+ * @param string $label タグのラベル（先頭の「#」なし）。
+ * @return array スラッグの配列（台帳の並び順）。
+ */
+function oursle_pages_for_tag( $label ) {
+	$slugs = array();
+	foreach ( oursle_tag_index() as $slug => $labels ) {
+		if ( in_array( $label, $labels, true ) ) {
+			$slugs[] = $slug;
+		}
+	}
+	return $slugs;
+}
+
+/**
+ * 台帳に登場するすべてのタグラベルを、初出順・重複なしで返す。
+ *
+ * @return array ラベルの配列。
+ */
+function oursle_all_tag_labels() {
+	$labels = array();
+	foreach ( oursle_tag_index() as $tags ) {
+		foreach ( $tags as $label ) {
+			if ( ! in_array( $label, $labels, true ) ) {
+				$labels[] = $label;
+			}
+		}
+	}
+	return $labels;
+}
+
+/**
+ * タグ一覧ページ（/tags/?t=ラベル）のURLを返す。
+ *
+ * @param string $label タグのラベル（先頭の「#」なし）。
+ * @return string URL。
+ */
+function oursle_tag_url( $label ) {
+	return home_url( '/tags/' ) . '?t=' . rawurlencode( $label );
+}
+
+/**
+ * タグ一覧の固定ページ（スラッグ 'tags'）を一度だけ自動作成する。
+ * テンプレートは page-tags.php が使われる。
+ */
+function oursle_ensure_tags_page() {
+	if ( get_option( 'oursle_tags_page_created' ) ) {
+		return;
+	}
+	if ( ! get_page_by_path( 'tags' ) ) {
+		wp_insert_post(
+			array(
+				'post_title'   => 'タグ',
+				'post_name'    => 'tags',
+				'post_status'  => 'publish',
+				'post_type'    => 'page',
+				'post_content' => '',
+			)
+		);
+	}
+	update_option( 'oursle_tags_page_created', 1 );
+}
+add_action( 'admin_init', 'oursle_ensure_tags_page' );
+
+/**
  * center__column の id をテンプレートから受け取るヘルパー。
  * 各ページテンプレートで get_header() の前に
  * $GLOBALS['oursle_center_id'] = 'xxxx'; とセットします。
