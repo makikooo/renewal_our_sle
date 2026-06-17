@@ -9,7 +9,7 @@ get_header();
       <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
         <ul class="breadcrumb__list">
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">トップページ</a></li>
-          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">困っていること</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/menu-support/' ) ); ?>">困っていること</a></li>
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">よくある質問</a></li>
         </ul>
         <a class="logo__link pc_only" href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -284,7 +284,7 @@ get_header();
           <a href="<?php echo esc_url( oursle_tag_url( '出産' ) ); ?>">#出産 </a>
           <a href="<?php echo esc_url( oursle_tag_url( '再燃' ) ); ?>">#再燃 </a>
           <a href="<?php echo esc_url( oursle_tag_url( '通院' ) ); ?>">#通院 </a>
-          <a href="<?php echo esc_url( oursle_tag_url( '受信サイン' ) ); ?>">#受信サイン </a>
+          <a href="<?php echo esc_url( oursle_tag_url( '受診サイン' ) ); ?>">#受診サイン </a>
         </div>
         <p class="up-dated__text">
           作成日・更新日 <time datetime="2026-06-06">2026.06.06</time>
