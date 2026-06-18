@@ -94,6 +94,9 @@ $old_val = function ( $key ) use ( $old ) {
           <input type="hidden" name="contact_email" value="<?php echo $old_val( 'email' ); ?>">
           <input type="hidden" name="contact_title" value="<?php echo $old_val( 'title' ); ?>">
           <input type="hidden" name="contact_message" value="<?php echo $old_val( 'message' ); ?>">
+          <?php // reCAPTCHA の通過証を引き継ぎ、送信時に再検証する。 ?>
+          <input type="hidden" name="contact_recaptcha_pass" value="<?php echo $old_val( 'recaptcha_pass' ); ?>">
+          <input type="hidden" name="contact_recaptcha_time" value="<?php echo $old_val( 'recaptcha_time' ); ?>">
 
           <button type="submit" name="oursle_step" value="edit" class="button contact__button back">
             <i class="fa-regular fa-circle-left fa-2xl" style="color: #71936d;"></i>
@@ -164,6 +167,14 @@ $old_val = function ( $key ) use ( $old ) {
             <p class="form__error" style="color:#d33; margin:0;"><?php echo esc_html( $errors['message'] ); ?></p>
           <?php endif; ?>
           <textarea name="contact_message" id="message" rows="4" required><?php echo esc_textarea( isset( $old['message'] ) ? $old['message'] : '' ); ?></textarea>
+
+          <?php if ( oursle_recaptcha_enabled() ) : ?>
+            <label>認証（必須事項）</label>
+            <?php if ( ! empty( $errors['recaptcha'] ) ) : ?>
+              <p class="form__error" style="color:#d33; margin:0;"><?php echo esc_html( $errors['recaptcha'] ); ?></p>
+            <?php endif; ?>
+            <div class="g-recaptcha" data-sitekey="<?php echo esc_attr( oursle_recaptcha_site_key() ); ?>"></div>
+          <?php endif; ?>
 
           <button type="submit" class="button contact__button">
             <span>確認画面へ</span>

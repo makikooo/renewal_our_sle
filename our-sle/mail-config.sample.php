@@ -23,4 +23,11 @@ return array(
 	'MAIL_FROM'      => 'your@gmail.com',  // 差出人（認証アカウントに揃える）
 	'MAIL_FROM_NAME' => 'わたしたちのSLE',
 	'ADMIN_EMAIL'    => 'your@gmail.com',  // 問い合わせの受信先
+
+	// Google reCAPTCHA v2「私はロボットではありません」のキー。
+	// https://www.google.com/recaptcha/admin で「v2／チェックボックス」を選んで取得します。
+	// 両方そろっているときだけ、お問い合わせフォームで認証が有効になります。
+	// 未設定なら従来どおり（ハニーポット＋日本語必須＋nonce）動きます。
+	'RECAPTCHA_SITE_KEY'   => '', // サイトキー（公開用・ページに埋め込まれる）
+	'RECAPTCHA_SECRET_KEY' => '', // シークレットキー（サーバー側検証用・絶対に公開しない）
 );

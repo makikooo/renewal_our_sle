@@ -85,6 +85,11 @@ function oursle_enqueue_assets() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Google reCAPTCHA v2（お問い合わせページで、キーが設定されているときだけ）
+	if ( is_page( 'contact' ) && oursle_recaptcha_enabled() ) {
+		wp_enqueue_script( 'google-recaptcha', 'https://www.google.com/recaptcha/api.js', array(), null, array( 'in_footer' => true ) );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'oursle_enqueue_assets' );
 
@@ -483,6 +488,79 @@ function oursle_center_id() {
 }
 
 /**
+ * Google reCAPTCHA v2（チェックボックス）用のヘルパー。
+ *
+ * サイトキー／シークレットキーは mail-config.php に
+ *   'RECAPTCHA_SITE_KEY'   => '...',
+ *   'RECAPTCHA_SECRET_KEY' => '...',
+ * の形で記述します（Git 管理外）。両方そろっているときだけ認証が有効になり、
+ * 未設定ならフォームは従来どおり（ハニーポット＋日本語必須＋nonce）動きます。
+ */
+function oursle_recaptcha_site_key() {
+	$c = oursle_smtp_config();
+	return isset( $c['RECAPTCHA_SITE_KEY'] ) ? (string) $c['RECAPTCHA_SITE_KEY'] : '';
+}
+
+function oursle_recaptcha_secret_key() {
+	$c = oursle_smtp_config();
+	return isset( $c['RECAPTCHA_SECRET_KEY'] ) ? (string) $c['RECAPTCHA_SECRET_KEY'] : '';
+}
+
+/** サイトキー・シークレットキーが両方そろっていれば true。 */
+function oursle_recaptcha_enabled() {
+	return '' !== oursle_recaptcha_site_key() && '' !== oursle_recaptcha_secret_key();
+}
+
+/**
+ * reCAPTCHA のトークンを Google で検証する。
+ *
+ * @param string $token フォームから送られる g-recaptcha-response の値。
+ * @return bool 成功したら true。
+ */
+function oursle_recaptcha_verify_response( $token ) {
+	$token = trim( (string) $token );
+	if ( '' === $token ) {
+		return false;
+	}
+	$response = wp_remote_post(
+		'https://www.google.com/recaptcha/api/siteverify',
+		array(
+			'timeout' => 8,
+			'body'    => array(
+				'secret'   => oursle_recaptcha_secret_key(),
+				'response' => $token,
+				'remoteip' => isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '',
+			),
+		)
+	);
+	if ( is_wp_error( $response ) ) {
+		return false;
+	}
+	$data = json_decode( wp_remote_retrieve_body( $response ), true );
+	return ! empty( $data['success'] );
+}
+
+/**
+ * reCAPTCHA 通過の証となる署名トークン。
+ * 入力画面で reCAPTCHA に成功したら発行し、確認画面の hidden で引き継ぎ、
+ * 送信ステップで検証する（reCAPTCHA トークン自体は使い捨て・短命のため）。
+ */
+function oursle_recaptcha_pass_token( $time ) {
+	return hash_hmac( 'sha256', 'recaptcha-passed|' . $time, wp_salt( 'auth' ) . 'oursle_recaptcha' );
+}
+
+/** 通過トークンが正しく、30分以内かを検証する。 */
+function oursle_recaptcha_pass_verify( $token, $time ) {
+	if ( ! ctype_digit( (string) $time ) ) {
+		return false;
+	}
+	if ( time() - (int) $time > 1800 ) {
+		return false; // 30分経過した通過証は無効
+	}
+	return hash_equals( oursle_recaptcha_pass_token( (int) $time ), (string) $token );
+}
+
+/**
  * お問い合わせフォームの送信処理
  * contact 固定ページ（スラッグ "contact"）で POST されたときに動作します。
  * 結果は $GLOBALS['oursle_contact'] に格納し、page-contact.php で表示します。
@@ -519,7 +597,14 @@ function oursle_handle_contact() {
 	$title   = isset( $_POST['contact_title'] ) ? sanitize_text_field( wp_unslash( $_POST['contact_title'] ) ) : '';
 	$message = isset( $_POST['contact_message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['contact_message'] ) ) : '';
 
-	$old = compact( 'name', 'email', 'title', 'message' );
+	// reCAPTCHA 関連の値。
+	// g-recaptcha-response … 入力画面のチェックボックスから送られるトークン。
+	// recaptcha_pass / recaptcha_time … 確認画面へ引き継ぐ「通過証」と発行時刻。
+	$recaptcha_response = isset( $_POST['g-recaptcha-response'] ) ? wp_unslash( $_POST['g-recaptcha-response'] ) : '';
+	$recaptcha_pass     = isset( $_POST['contact_recaptcha_pass'] ) ? sanitize_text_field( wp_unslash( $_POST['contact_recaptcha_pass'] ) ) : '';
+	$recaptcha_time     = isset( $_POST['contact_recaptcha_time'] ) ? sanitize_text_field( wp_unslash( $_POST['contact_recaptcha_time'] ) ) : '';
+
+	$old = compact( 'name', 'email', 'title', 'message', 'recaptcha_pass', 'recaptcha_time' );
 	$GLOBALS['oursle_contact']['old'] = $old;
 
 	// どのステップから送信されたか（confirm=確認画面へ / send=実際に送信 / edit=入力へ戻る）
@@ -548,6 +633,20 @@ function oursle_handle_contact() {
 		$errors['message'] = 'メッセージは日本語でご入力ください。';
 	}
 
+	// reCAPTCHA の検証（キーが設定されているときだけ）。
+	// 入力→確認では Google にトークンを問い合わせ、確認→送信では通過証を検証する。
+	if ( oursle_recaptcha_enabled() ) {
+		if ( 'send' === $step ) {
+			if ( ! oursle_recaptcha_pass_verify( $recaptcha_pass, $recaptcha_time ) ) {
+				$errors['recaptcha'] = '認証の有効期限が切れました。お手数ですが、もう一度ご確認のうえ送信してください。';
+			}
+		} elseif ( '' === trim( (string) $recaptcha_response ) ) {
+			$errors['recaptcha'] = '「私はロボットではありません」にチェックを入れてください。';
+		} elseif ( ! oursle_recaptcha_verify_response( $recaptcha_response ) ) {
+			$errors['recaptcha'] = '認証に失敗しました。もう一度お試しください。';
+		}
+	}
+
 	$GLOBALS['oursle_contact']['errors'] = $errors;
 
 	// 入力エラーがあれば入力画面に戻す
@@ -558,6 +657,12 @@ function oursle_handle_contact() {
 
 	// 確認画面の表示（まだ送信しない）
 	if ( 'send' !== $step ) {
+		// reCAPTCHA を通過した証として署名トークンを発行し、確認画面へ引き継ぐ。
+		if ( oursle_recaptcha_enabled() ) {
+			$pass_time = time();
+			$GLOBALS['oursle_contact']['old']['recaptcha_time'] = (string) $pass_time;
+			$GLOBALS['oursle_contact']['old']['recaptcha_pass'] = oursle_recaptcha_pass_token( $pass_time );
+		}
 		$GLOBALS['oursle_contact']['mode'] = 'confirm';
 		return;
 	}

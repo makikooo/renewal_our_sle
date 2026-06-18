@@ -4227,3 +4227,8 @@ rt {
     align-items: stretch;
   }
 }
+
+/* お問い合わせフォームの reCAPTCHA */
+.sec02 .form .g-recaptcha {
+  margin: 14px 0 25px;
+}
