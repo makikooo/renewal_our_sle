@@ -12,7 +12,13 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>">
   <meta name="keywords" content="SLE,全身性エリテマトーデス,自己免疫疾患,難病,SLE 症状,SLE 治療,膠原病,ループス,患者会,医療費助成,社会的寛解,難病生活">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/x-icon" href="<?= THEME_URI ?>/assets/images/favicon_io/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="<?= THEME_URI ?>/assets/images/favicon_io/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= THEME_URI ?>/assets/images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= THEME_URI ?>/assets/images/favicon_io/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="<?= THEME_URI ?>/assets/images/favicon_io/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="<?= THEME_URI ?>/assets/images/favicon_io/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= THEME_URI ?>/assets/images/favicon_io/apple-touch-icon.png">
+  <link rel="manifest" href="<?= THEME_URI ?>/assets/images/favicon_io/site.webmanifest">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

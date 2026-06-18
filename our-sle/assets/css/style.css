@@ -2441,7 +2441,7 @@ rt {
 #menu-sle.center__column {
   z-index: 9998;
   .breadcrumb__list {
-    padding-top: 80px;
+    padding-top: 0;
   }
   .enquete__link {
     display: block;

@@ -124,7 +124,7 @@ get_header();
         </p>
       </section>
       
-      <section class="sec04 section about-diagnosis" id="join">
+      <section class="section about-diagnosis" id="join">
         <h2 class="about-sle__title">
           こんな時どうする？Q＆A
         </h2>
@@ -149,7 +149,7 @@ get_header();
         
       </section>
       
-      <section class="sec04 section sledai" id="kidney">
+      <section class="section sledai" id="kidney">
         <h2 class="about-sle__title">
           患者としての心構え
         </h2>

@@ -195,7 +195,8 @@ function oursle_seo_image() {
 			return $src;
 		}
 	}
-	return apply_filters( 'oursle_seo_default_image', THEME_URI . '/assets/images/toppage/hero.webp' );
+	// LINE などは WebP の OGP 画像を表示できない場合があるため、共有用は PNG を使う。
+	return apply_filters( 'oursle_seo_default_image', THEME_URI . '/assets/images/ogp.png' );
 }
 
 /**
@@ -227,6 +228,13 @@ function oursle_seo_head_meta() {
 	$tags[] = sprintf( '<meta property="og:site_name" content="%s">', esc_attr( $site_name ) );
 	$tags[] = sprintf( '<meta property="og:locale" content="%s">', esc_attr( $locale ) );
 	$tags[] = sprintf( '<meta property="og:image" content="%s">', esc_url( $image ) );
+	$tags[] = sprintf( '<meta property="og:image:alt" content="%s">', esc_attr( $site_name ) );
+	// 既定の共有画像（ロゴ入りOGP画像）のときは寸法を明示し、LINE/X で確実に表示させる。
+	if ( false !== strpos( $image, '/assets/images/ogp.png' ) ) {
+		$tags[] = '<meta property="og:image:type" content="image/png">';
+		$tags[] = '<meta property="og:image:width" content="1200">';
+		$tags[] = '<meta property="og:image:height" content="630">';
+	}
 
 	// Twitter Card
 	$tags[] = '<meta name="twitter:card" content="summary_large_image">';
