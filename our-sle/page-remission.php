@@ -9,8 +9,8 @@ get_header();
       <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
         <ul class="breadcrumb__list">
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">トップページ</a></li>
-          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">SLEについて</a></li>
-          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">SLEの治療</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/menu-sle/' ) ); ?>">SLEについて</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">社会的寛解</a></li>
         </ul>
         <a class="logo__link pc_only" href="<?php echo esc_url( home_url( '/' ) ); ?>">
           <img class="logo" src="<?= THEME_URI ?>/assets/images/logo.webp" alt="わたしたちのSLE">

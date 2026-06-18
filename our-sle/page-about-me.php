@@ -9,7 +9,7 @@ get_header();
       <section class="center__wrapper" aria-label="デスクトップ用ヘッダー">
         <ul class="breadcrumb__list">
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">トップページ</a></li>
-          <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">仲間とつながる</a></li>
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="<?php echo esc_url( home_url( '/menu-communication/' ) ); ?>">仲間とつながる</a></li>
           <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">わたしについて</a></li>
         </ul>
         <a class="logo__link pc_only" href="<?php echo esc_url( home_url( '/' ) ); ?>">
