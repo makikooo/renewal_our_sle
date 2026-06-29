@@ -2,13 +2,13 @@
 session_start();
 
 // PHPMailer（SMTP送信）を読み込み
-require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/../../vendor/autoload.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception as PHPMailerException;
 
 // ===== 設定 =====
 // SMTPの接続情報・宛先は mail-config.php に記載（Git管理外）
-$MAIL = require __DIR__ . '/mail-config.php';
+$MAIL = require __DIR__ . '/../../mail-config.php';
 $ADMIN_EMAIL = $MAIL['ADMIN_EMAIL'];
 $SITE_NAME   = $MAIL['SITE_NAME'];
 

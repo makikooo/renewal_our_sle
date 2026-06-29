@@ -1,0 +1,57 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: oursle-db
+    restart: unless-stopped
+    environment:
+      # 認証情報は .env から読み込む（.env はGit管理外）
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      # ホストの 3307 -> コンテナの 3306 (ローカルのMySQLと衝突しないように)
+      - "3307:3306"
+
+  wordpress:
+    image: wordpress:php8.2-apache
+    container_name: oursle-wordpress
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DEBUG: 1
+      # Apacheをホストと同じUID/GIDで動かし、uploads等への書き込みを可能にする
+      APACHE_RUN_USER: "#501"
+      APACHE_RUN_GROUP: "#20"
+    volumes:
+      # WordPress本体は公式イメージの正規コアを使用し、
+      # このテーマ(our-sle)だけをマウントする
+      - ./our-sle:/var/www/html/wp-content/themes/our-sle
+      # uploads / プラグイン等はコンテナ側で永続化
+      - wp_content:/var/www/html/wp-content
+    ports:
+      - "8080:80"
+
+  # ブラウザからDBを操作したい場合に http://localhost:8081 で利用可
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: oursle-phpmyadmin
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+      UPLOAD_LIMIT: 256M
+    ports:
+      - "8081:80"
+
+volumes:
+  db_data:
+  wp_content:
