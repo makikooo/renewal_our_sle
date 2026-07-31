@@ -3,6 +3,8 @@
  * わたしたちのSLE | SLE（全身性エリテマトーデス）を患者目線でやさしく解説
  * 元ファイル: index.html
  */
+// header.phpのoursle_center_id()がこの値を取り出せるように
+// get_header()より前に、toppageがセットされる
 $GLOBALS['oursle_center_id'] = 'toppage';
 get_header();
 ?>
@@ -101,6 +103,7 @@ get_header();
           生きるコツを一緒に見つけませんか
         </p>
         <img class="flower" src="<?= THEME_URI ?>/assets/images/toppage/flower.webp" alt="一輪の花">
+        <?php /* アンケート募集はいったん停止中。再開するときはこのコメントを外す
         <a class="enquete__link" href="https://docs.google.com/forms/d/e/1FAIpQLSc7O8RoWahgaMXc7ilKptHCIFuQyfkdG1ReZwCvg66EoGjMGA/viewform?usp=sharing" target="_blank" rel="noopener">
           <img class="enquete__link-img" src="<?= THEME_URI ?>/assets/images/toppage/enquete.webp" alt="あるあるアンケートのバナー">
         </a>
@@ -108,6 +111,12 @@ get_header();
           <span>匿名で参加する(2分)</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>
         </a>
+        */ ?>
+        <h3 class="enquete__title">あるあるアンケート</h3>
+        <p class="enquete__lead">
+          SLE仲間のみなさんに聞いた<br>
+          「あるある」の回答をまとめています
+        </p>
         <a class="button button__enquete" href="<?php echo esc_url( home_url( '/menu-enquete/' ) ); ?>">
           <span>結果を見る</span>
           <i class="fa-regular fa-circle-right fa-2xl" style="color: #71936d;"></i>

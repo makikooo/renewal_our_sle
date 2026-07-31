@@ -142,10 +142,11 @@
       </div>
 
       <ul>
-        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSc7O8RoWahgaMXc7ilKptHCIFuQyfkdG1ReZwCvg66EoGjMGA/viewform?usp=sharing" target="_blank" rel="noopener"><span class="green"></span>あるあるアンケート（2分）</a></li>
+        <li><span class="nav__item--disabled"><span class="green"></span>あるあるアンケート（準備中）</span></li>
         <li><a href="<?php echo esc_url( home_url( '/enquete01/' ) ); ?>"><span class="orange"></span>アンケート結果第1回</a></li>
         <li><a href="<?php echo esc_url( home_url( '/enquete02/' ) ); ?>"><span class="red"></span>アンケート結果第2回</a></li>
         <li><a href="<?php echo esc_url( home_url( '/enquete03/' ) ); ?>"><span class="green"></span>アンケート結果第3回</a></li>
+        <li><a href="<?php echo esc_url( home_url( '/enquete04/' ) ); ?>"><span class="orange"></span>アンケート結果第4回</a></li>
       </ul>
 
       <div class="nav__category-header">
