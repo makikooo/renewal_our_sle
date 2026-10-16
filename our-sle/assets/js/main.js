@@ -4,7 +4,9 @@
  * ハンバーガーメニューの開閉
  *******************************************/
 const hamburger = document.getElementById('hambergar');
-const spHamburger = document.querySelector('.sp__header');
+// spヘッダーは画面上部に固定された全幅の帯なので、帯そのものに開閉を付けると
+// 下に重なったコンテンツのタップまで奪ってしまう。ハンバーガーボタンだけに付ける。
+const spHamburger = document.querySelector('.sp__header .hambergar__container');
 const menu = document.querySelector('.hambergar__menu');
 const closeBtns = document.querySelectorAll('.close_hambergar');
 const container = document.querySelector('.container');
