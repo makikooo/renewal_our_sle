@@ -88,7 +88,8 @@ $old_val = function ( $key ) use ( $old ) {
           <tr><th>メッセージ</th><td><?php echo nl2br( esc_html( $old['message'] ) ); ?></td></tr>
         </table>
 
-        <form action="<?php echo esc_url( get_permalink() ); ?>" method="post" class="form">
+        <?php // novalidate の理由は入力画面のフォームのコメントを参照。 ?>
+        <form action="<?php echo esc_url( get_permalink() ); ?>" method="post" class="form" novalidate>
           <?php wp_nonce_field( 'oursle_contact', 'oursle_contact_nonce' ); ?>
           <input type="hidden" name="contact_name" value="<?php echo $old_val( 'name' ); ?>">
           <input type="hidden" name="contact_email" value="<?php echo $old_val( 'email' ); ?>">
@@ -136,13 +137,29 @@ $old_val = function ( $key ) use ( $old ) {
         <?php if ( ! empty( $errors['_'] ) ) : ?>
           <p class="form__error" style="color:#d33;"><?php echo esc_html( $errors['_'] ); ?></p>
         <?php endif; ?>
-        <form action="<?php echo esc_url( get_permalink() ); ?>" method="post" class="form">
+        <?php
+        /*
+         * novalidate を付けてブラウザ標準の必須チェックを止め、検証は
+         * functions.php の oursle_handle_contact() に一本化している。
+         * 標準の検証は、対象の入力欄が固定ヘッダーに隠れていたり画面外に
+         * あったりすると吹き出しを出せず、送信を無言で拒否する。スマホでは
+         * 「ボタンを押しても何も起きない」状態になり原因もわからないため。
+         * required 属性は支援技術向けの意味付けとして残してある。
+         */
+        ?>
+        <form action="<?php echo esc_url( get_permalink() ); ?>" method="post" class="form" novalidate>
           <?php wp_nonce_field( 'oursle_contact', 'oursle_contact_nonce' ); ?>
           <input type="hidden" name="oursle_step" value="confirm">
-          <!-- スパム対策（人間には見えない項目。入力されていたらbotとみなす） -->
-          <p style="position:absolute; left:-9999px;" aria-hidden="true">
-            <label>このフィールドは空のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off" value=""></label>
-          </p>
+          <?php
+          /*
+           * スパム対策（人間には見えない項目。入力されていたらbotとみなす）。
+           * 画面外へ飛ばす方法（position:absolute; left:-9999px）はブラウザから
+           * 「見えている入力欄」に見えるため、スマホの自動入力が値を入れてしまい
+           * 人間の送信まで弾かれることがある。hidden で完全に隠しておく。
+           * name も website のような推測されやすい名前は避ける。
+           */
+          ?>
+          <input type="text" name="contact_hp_note" tabindex="-1" autocomplete="off" value="" hidden>
 
           <label for="name">お名前（必須事項）</label>
           <?php if ( ! empty( $errors['name'] ) ) : ?>
