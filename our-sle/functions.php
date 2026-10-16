@@ -46,39 +46,56 @@ function oursle_setup() {
 add_action( 'after_setup_theme', 'oursle_setup' );
 
 /**
+ * CSS / JavaScript のバージョン文字列を返す。
+ *
+ * ファイルの更新時刻を使うので、CSS や JS を書き換えれば URL の ?ver= が変わり、
+ * ブラウザや CDN が持っている古いキャッシュが確実に切り替わる。
+ * 固定の文字列にしていると、修正してもキャッシュが残っている端末には
+ * いつまでも古いファイルが使われ続けてしまう。
+ *
+ * @param string $relative_path テーマディレクトリからの相対パス（先頭にスラッシュ）。
+ * @return string
+ */
+function oursle_asset_ver( $relative_path ) {
+	$file = get_template_directory() . $relative_path;
+	if ( file_exists( $file ) ) {
+		return (string) filemtime( $file );
+	}
+	return '1.0.0';
+}
+
+/**
  * CSS / JavaScript の読み込み
  */
 function oursle_enqueue_assets() {
-	$ver = '1.0.0';
-
 	// リセットCSS
-	wp_enqueue_style( 'oursle-reset', THEME_URI . '/assets/css/reset.css', array(), $ver );
+	wp_enqueue_style( 'oursle-reset', THEME_URI . '/assets/css/reset.css', array(), oursle_asset_ver( '/assets/css/reset.css' ) );
 
 	// メインCSS（reset の後に読み込む）
-	wp_enqueue_style( 'oursle-style', THEME_URI . '/assets/css/style.css', array( 'oursle-reset' ), $ver );
+	wp_enqueue_style( 'oursle-style', THEME_URI . '/assets/css/style.css', array( 'oursle-reset' ), oursle_asset_ver( '/assets/css/style.css' ) );
 
 	// テーマ識別用 style.css（中身は空。WordPress 慣習として読み込む）
-	wp_enqueue_style( 'oursle-theme', get_stylesheet_uri(), array( 'oursle-style' ), $ver );
+	wp_enqueue_style( 'oursle-theme', get_stylesheet_uri(), array( 'oursle-style' ), oursle_asset_ver( '/style.css' ) );
 
 	// Font Awesome（CDN）
 	wp_enqueue_style( 'font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css', array(), '6.5.0' );
 
 	// メインJS（フッターで defer 読み込み）
-	wp_enqueue_script( 'oursle-main', THEME_URI . '/assets/js/main.js', array(), $ver, array( 'in_footer' => true ) );
+	wp_enqueue_script( 'oursle-main', THEME_URI . '/assets/js/main.js', array(), oursle_asset_ver( '/assets/js/main.js' ), array( 'in_footer' => true ) );
 
 	// スクロール時のフェードアップ表示（全ページ・フッター読み込み）
-	wp_enqueue_script( 'oursle-scroll-reveal', THEME_URI . '/assets/js/scroll-reveal.js', array(), $ver, array( 'in_footer' => true ) );
+	wp_enqueue_script( 'oursle-scroll-reveal', THEME_URI . '/assets/js/scroll-reveal.js', array(), oursle_asset_ver( '/assets/js/scroll-reveal.js' ), array( 'in_footer' => true ) );
 
 	// 閲覧履歴の記録＋トップの「いま、気になること」おすすめ強調（全ページ）。
 	// 履歴は全ページで記録し、強調はトップページのみ動作する。
-	wp_enqueue_script( 'oursle-concern-recommend', THEME_URI . '/assets/js/concern-recommend.js', array(), $ver, array( 'in_footer' => true ) );
+	wp_enqueue_script( 'oursle-concern-recommend', THEME_URI . '/assets/js/concern-recommend.js', array(), oursle_asset_ver( '/assets/js/concern-recommend.js' ), array( 'in_footer' => true ) );
 
 	// ローディング演出はトップページのみ（head で先読み）
 	if ( is_front_page() ) {
-		wp_enqueue_script( 'oursle-loading', THEME_URI . '/assets/js/loading.js', array(), $ver, false );
+		wp_enqueue_script( 'oursle-loading', THEME_URI . '/assets/js/loading.js', array(), oursle_asset_ver( '/assets/js/loading.js' ), false );
 
 		// Cookie同意バナー（トップページのみ）
-		wp_enqueue_script( 'oursle-cookie-consent', THEME_URI . '/assets/js/cookie-consent.js', array(), $ver, array( 'in_footer' => true ) );
+		wp_enqueue_script( 'oursle-cookie-consent', THEME_URI . '/assets/js/cookie-consent.js', array(), oursle_asset_ver( '/assets/js/cookie-consent.js' ), array( 'in_footer' => true ) );
 	}
 
 	// 返信（スレッド）コメント用スクリプト
@@ -584,8 +601,11 @@ function oursle_handle_contact() {
 		$GLOBALS['oursle_contact']['errors']['_'] = '送信に失敗しました。もう一度お試しください。';
 		return;
 	}
-	// ハニーポット（botがURL欄に入力したら無視）
-	if ( ! empty( $_POST['website'] ) ) {
+	// ハニーポット（botが隠しフィールドに入力したら無視）
+	// フィールド名はブラウザの自動入力を避けるため contact_hp_note にしている
+	// （page-contact.php のコメント参照）。空白だけの入力は人間の誤操作とみなして通す。
+	$honeypot = isset( $_POST['contact_hp_note'] ) ? trim( (string) wp_unslash( $_POST['contact_hp_note'] ) ) : '';
+	if ( '' !== $honeypot ) {
 		return;
 	}
 
