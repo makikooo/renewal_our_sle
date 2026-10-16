@@ -350,10 +350,15 @@ h1 {
     left: 0;
     right: 0;
     width: 100%;
-    padding: 10px 0 10px 15px; 
-    height: 60px; 
+    padding: 10px 0 10px 15px;
+    height: 60px;
+    /* 背景を持たない全幅の固定帯なので、そのままだと帯の余白部分が
+       下に重なったコンテンツのタップを奪ってしまう。帯は素通しにして、
+       ロゴとハンバーガーボタンだけがタップを受けるようにする。 */
+    pointer-events: none;
     .logo__link {
       cursor: pointer;
+      pointer-events: auto;
       .logo {
         width: 85px;
         height: 50px;
@@ -361,6 +366,7 @@ h1 {
 
     }
     .hambergar__container {
+      pointer-events: auto;
       width: 127px;
       height: 60px;
       background-color: var(--accent-green02);
@@ -4257,4 +4263,28 @@ rt {
 /* お問い合わせフォームの reCAPTCHA */
 .sec02 .form .g-recaptcha {
   margin: 14px 0 25px;
+}
+
+/* お問い合わせフォームの送信ボタン（確認画面へ／修正する／送信する）。
+
+   スマホでボタンの下半分しか反応しなかったため、原因を2つとも塞いでいる。
+
+   1. 直前にある reCAPTCHA のiframeなど、先に描画される要素と重なると
+      タップがそちらに吸われる。position と z-index でボタンを必ず手前に置く。
+   2. Font Awesome の fa-2xl は line-height をほぼ 0 にするため、アイコンの箱が
+      1px まで潰れ、32px の矢印グリフだけが箱の外へはみ出して描画される。
+      line-height を戻して、見えているものが当たり判定の中に収まるようにする。
+
+   子要素の margin-bottom は padding に置き換えた。見た目の余白は変えずに、
+   ボタンの高さを予測できる形にするため。 */
+#contact .sec02 .form button {
+  position: relative;
+  z-index: 1;
+  min-height: 56px;
+  padding: 12px 4px;
+}
+#contact .sec02 .form button span,
+#contact .sec02 .form button i {
+  margin-bottom: 0;
+  line-height: 1;
 }
