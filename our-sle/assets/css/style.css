@@ -518,6 +518,7 @@ h1 {
   &.active {
     right: 450px;
     height: 110px;
+    z-index: 10000;
 
     .hambergar__box {
       span {
