@@ -27,6 +27,9 @@ services:
       WORDPRESS_DB_USER: ${MYSQL_USER}
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       WORDPRESS_DEBUG: 1
+      # 管理画面からの更新・言語追加でFTP接続を求められないようにする
+      WORDPRESS_CONFIG_EXTRA: |
+        define('FS_METHOD', 'direct');
       # Apacheをホストと同じUID/GIDで動かし、uploads等への書き込みを可能にする
       APACHE_RUN_USER: "#501"
       APACHE_RUN_GROUP: "#20"
