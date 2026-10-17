@@ -83,9 +83,6 @@ function oursle_enqueue_assets() {
 	// メインJS（フッターで defer 読み込み）
 	wp_enqueue_script( 'oursle-main', THEME_URI . '/assets/js/main.js', array(), oursle_asset_ver( '/assets/js/main.js' ), array( 'in_footer' => true ) );
 
-	// スクロール時のフェードアップ表示（全ページ・フッター読み込み）
-	wp_enqueue_script( 'oursle-scroll-reveal', THEME_URI . '/assets/js/scroll-reveal.js', array(), oursle_asset_ver( '/assets/js/scroll-reveal.js' ), array( 'in_footer' => true ) );
-
 	// 閲覧履歴の記録＋トップの「いま、気になること」おすすめ強調（全ページ）。
 	// 履歴は全ページで記録し、強調はトップページのみ動作する。
 	wp_enqueue_script( 'oursle-concern-recommend', THEME_URI . '/assets/js/concern-recommend.js', array(), oursle_asset_ver( '/assets/js/concern-recommend.js' ), array( 'in_footer' => true ) );
