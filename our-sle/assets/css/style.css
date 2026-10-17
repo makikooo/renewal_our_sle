@@ -1716,11 +1716,6 @@ rt {
             background-color: var(--font-color);
             border-radius: 3px;
             transform: rotate(-30deg);
-
-            @media (max-width: 1164px) {
-              background-color: transparent;
-              display: none;
-            }
           }
 
           &::after {
@@ -1733,11 +1728,6 @@ rt {
             background-color: var(--font-color);
             border-radius: 3px;
             transform: rotate(30deg);
-
-            @media (max-width: 1164px) {
-              background-color: transparent;
-              display: none;
-            }
           }
         }
       }
@@ -2190,11 +2180,6 @@ rt {
             background-color: var(--font-color);
             border-radius: 3px;
             transform: rotate(-30deg);
-
-            @media (max-width: 1164px) {
-              background-color: transparent;
-              display: none;
-            }
           }
 
           &::after {
@@ -2207,11 +2192,6 @@ rt {
             background-color: var(--font-color);
             border-radius: 3px;
             transform: rotate(30deg);
-
-            @media (max-width: 1164px) {
-              background-color: transparent;
-              display: none;
-            }
           }
 
           .oc__text {
