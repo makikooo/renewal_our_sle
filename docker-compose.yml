@@ -16,7 +16,7 @@ services:
       - "3307:3306"
 
   wordpress:
-    image: wordpress:php8.2-apache
+    image: wordpress:php8.4-apache
     container_name: oursle-wordpress
     restart: unless-stopped
     depends_on:
