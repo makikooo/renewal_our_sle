@@ -16,7 +16,9 @@ services:
       - "3307:3306"
 
   wordpress:
-    image: wordpress:php8.4-apache
+    # PHP 8.4.28 に固定するため、イメージをダイジェスト(@sha256:...)で指定している。
+    # PHPを上げるときは、新しいイメージを pull してダイジェストを書き換える。
+    image: wordpress:php8.4-apache@sha256:05f383d5dad5b65b47a12306821744f169c40982e92ac4bd64601d4caff9ade7
     container_name: oursle-wordpress
     restart: unless-stopped
     depends_on:
